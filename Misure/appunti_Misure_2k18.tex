@@ -215,6 +215,42 @@ In particolare, esisterano dunque:
 $$P_{(dBm)} = 10log_{10}\Bigg( \frac{P}{1mW} \Bigg)$$
 $$P_{(dBW)} = 10log_{10}\Bigg( \frac{P}{1W} \Bigg)$$
 $$P_{(dBk)} = 10log_{10}\Bigg( \frac{P}{1kW} \Bigg)$$
-Che esprimono la variazione della potenza misurata rispetto ad un riferimento "standard" di 1 milliWatt, Watt oppure kiloWatt.
+Che esprimono la variazione della potenza misurata rispetto ad un riferimento "standard" di 1 milliWatt, Watt oppure kiloWatt.\\ \\
+Nota: i "dBx" sono normali decibel, quindi possono essere sommati/sottratti a decibel.\\ \\
+{\Large {\textbf{Attenzione:}}} NON è in nessun modo sommare tra loro i dBx!! Un rapido esempio è che
+$$1 W + 1 W = 2 W$$
+$$+30 dBm + 30 dBm \neq + 60 dBm = \ kW$$
 \subsubsection*{Calcoli Approssimati con i dB ????}
+\subsubsection{Esempi di Calcoli e Conversioni con dB}
+$$P = 10\ W \rightarrow P_{dBW} = 10 log_{10}\Bigg(\frac{P}{1W}\Bigg) = 10 log_{10}\Bigg(\frac{10 W}{1 W}\Bigg) = 10 log_{10}(10) = 10\ dBW$$
+$$P = +90\ dBW = 10 log_{10}\Bigg(\frac{P}{1W}\Bigg) \rightarrow P = \Bigg( 10 \frac{PdbW}{10}\Bigg)\times 1 W = 10^9 W $$
+\newpage
+\section{Incertezza di Misura}
+Abbiamo detto che la misura è un \textbf{numero} associato alla sua unità di \textbf{misura}. Adesso p il momento di aggiungere anche un qualcosa che esprime anche "quanto mi fido" della misura in questione, cioè l'\textbf{incertezza}. Possiamo quindi esprimere le misure, da ora in poi, come: $$ MIS_{x} = x_{numero}\ x_{unità\ di\ misura} \pm INC_{x}\ x_{unità\ di\ misura} $$
+Addirittura a volte arriviamo ad esprimere anche l'incertezza dell'incertezza, che dice quanto fidarsi dell'incertezza. Esprime l'attendibilità della stima di incertezza in questione.
+\subsection{Variabilità delle Misure} Misure ripetute dello stesso parametro fisico non forniscono lo stesso valore. È considerabile come una legge della natura, è impossibile che due misure consecutive diano esattamente lo stesso risultato per ogni cifra decimale. La caratteristica che ci permette di determinare l'incertezza della misura è la \textbf{deviazione standard} (o dispersione $\sigma$) della misura in questione, mentre il valore della misura sarà la \textbf{media} ($\mu$).
+$$SLIDE\ GAUSSIANA$$
+Le misure sono sempre affette da fluttuazioni o errori (almeno potenziali), mai perettamente conscibili, che si traducono in una naturale "indeterminazione" o INCERTEZZA sul risultato di misura.\\
+Per questo conviene abbandonare l'approccio deterministico in favore di un \textbf{approccio statistico} grazie al quale è possibile stimare le fluttuazioni.\\
+La variabilità del risultato di una misura è analizzata grazie ai metodi consolidati della statistica (varianza e deviazione standard). Il risultato dunque non è mai un unico numero "deterministico", ma un intervallo di valori possibili entro il quale il misurando può trovarsi con una data probabilità (e potrà anche trovarsi fuori dall'intervallo).
+\paragraph*{Si definisce incertezza di misura} la semiampiezza di un particolare intervallo di valori (l'intervallo $\pm 1$ deviazione standard del valore centrale), centrato nella \textbf{media}.
+\subsection{Teoria degli errori}
+Anche se è ormai superata, la teoria degli errori di misura ci aiuta a comprendere la natura dell'incertezza, essa prevedeva che un misurando non potesse mai essere perfettamente conosciuto a causa degli inevitabili errori di misura (intrinseci in ogni metodo o strumento utilizzato per la misurazione). Si potrebbe dire che: $$Errore \\equiv  Valore\ Misurato - Vaore\ Vero$$
+ma questa risulterebbe un'affermazione errata, dato che il valore \textbf{vero} non potrà mai essere conosciuto, esso è un mero concetto astratto, e quindi l'errore resta completamente indeterminato.\\
+La teoria degli errori definiva alcuni tipi di errori che si verificano più spesso:
+\begin{itemize}
+  \item \textbf{Errori Sistematici:} si presentano nella stessa entità ogni olta che si ripete la misura (\textit{offset} o polarizzazione).\\
+  Per esempio possiamo pensare ad un peso di massa \textit{m} che viene posto su una bilancia digitale, leggendo il valore riportato dalla bilancia si noterà un \textit{offset} costante di 100g in più rispetto al valore m.
+  \item \textbf{Errori Accidentali:} i presentano in maniera diversa e "impredicibile" ogni volta che si ripete la misura (fluttuazione casuale a media nulla).\\
+  Per esempio:
+\end{itemize}
+L'idea era sommare errori sisematici e accidentali, ma riflettendo un momento, anche se sappiamo che esse sono due grandezze omogenee, troviamo che sono concettualmente diverse per loro natura. È quindi logicamente scorretto sommarli in quanto i primi (sistematici, determrinistici) sono completamente conscibili mentre i secondi (\textbf{aleatori}), sono solamente stimabili in senso statistico e talora riducibili a \textbf{mai} eliminabili del tutto.
+\paragraph*{Incertezza standard di misura} è ciò che secondo il CIPM è una corretta analisi statistica della variabilità di una misura. È un parametro, valutato seondo procedure \textbf{convenzionali} (standard), che esprime il nostro grado di non conoscenza del misurando.\\
+Abbiamo due \textbf{categorie di stima} dell'incertezza:
+\begin{itemize}
+  \item \textbf{Stimata con Metodi Statistici} su un campione di misure.
+  \item \textbf{Stimata in Altro Modo} ad esempio attraverso conoscenze a priori o proprietà dello strumento.
+\end{itemize}
+\subsection{Richiami di Statistica}
+COPIA LA SLIDE
 \end{document}
