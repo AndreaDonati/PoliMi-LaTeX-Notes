@@ -4,6 +4,7 @@
 \usepackage{lmodern}
 \usepackage[italian]{babel}
 \usepackage{graphicx}
+\usepackage{float}
 
 \title{Appunti del corso di Misure}
 \author{Andrea Donati - AA 2018/19}
@@ -122,9 +123,16 @@ Le seguenti definizioni sono tratte dal VIM (\it Vocabolario Internazionale di M
 \subsection{Il Sistema Internazionale}
 
 Le note storiche sono facilmente reperibili sia on-line sia dai lucidi del professore, quindi sono state trascurate durante la stesura degli appunti.
-\\\\
-QUI METTICI LA SLIDE DELLE UNITÀ FONDAMENTALI ECCETTERA.
-\\\\
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=12cm,
+        height=6cm,
+        keepaspectratio,
+    ]{unitafondamentali.png}
+    \caption{Le unità fondamentali del Sistema Internazionale.}
+  \end{center}
+\end{figure}
 Il Sistema Internazionale è un \bf Sistema Coerente \rm in quanto tutte le sue unità derivate (qualunque grandezza G) si ricavano come prodotti e rapporti delle 7 unità di base, senza introdurre fattori moltiplicativi (come  $\pi,e,5\dots$).\\
 Possiamo scrivere quindi che, indicando con "$dim(G)$" l'unità derivata dalle unità base SI: $$ dim(G) = L^\alpha M^\beta T^\gamma I^\delta \theta ^\varepsilon J^\eta N^\zeta  $$
 
@@ -177,9 +185,13 @@ Possiamo vedere questo elenco anche come una \it catena di riferibilità\rm, che
   \item \bf Messa in Punto: \rm insieme di operazioni volte a permettere a uno strumento di operare nelle migliori condizioni di lavoro.
 \end{itemize}
 \section{Simboli e Regole del S.I.}
-\begin{figure}
+\begin{figure}[H]
   \begin{center}
-    \includegraphics{multiplisottomultipli.png}
+    \includegraphics[
+        width=12cm,
+        height=6cm,
+        keepaspectratio,
+    ]{multiplisottomultipli.png}
     \caption{Multipli e Sottomultipli nel Sistema Internazionale.}
   \end{center}
 \end{figure}
@@ -188,8 +200,21 @@ Le unità logaritmiche esprimono sotto form di logaritmo il rapporto tra due gra
 Una caratteristica che torna utile nelle unità logaritmiche è una delle proprietà dei logaritmi, cioè che le operazioni di moltiplicazione e divisione tra numeri si traducono in somme e differenze.
 
 Le unità logaritmiche sono utilizzate molto el campo dell'elettrinica e delle telecomunicazioni. I logaritmi più comunemente utilizzati sono quello in base 10 ($log_{10}$), quello in base $e$ ($log_{e} = ln$) e in informatica quello in base 2 ($log_{2}$).
-\\
-\\
 \subsubsection{Il Bel}
-Poi ci sono le varie unità logaritmiche. Il bel, il deciBel, il deciBel normalizzato. Calcoli coi dB
+Il \textbf{bel} esprime il rapporto di potenze in scala logaritmica utilizzando una base decimale: $$\Bigg(\frac{P_{2}}{P_{1}}\Bigg)_{(bel)} = log_{10}\Bigg(\frac{P_{2}}{P_{1}}\Bigg)$$
+Il nome "bel" deriva dal suo inventore \textit{Alexander Graham-Bell} il quale, dovendo fare dei confronti tra potenze trasmesse per via aerea, si accorse che decadevno in maniera esponenziale.\\
+È molto importante ricordarsi sempre che il bel rappresenta il logaritmo di un \textbf{rapporto tra due misure}, ed è quindi un modo per mettere in relazione due misure. Il difetto principale del bel è che 1 bel rappresenta un rapporto di un fattore 10:1 e dunque una scala in bel risulta "grossolana". Per risolvere \footnotetext[1]{Il significato di "risolvere" in questo caso è legato alla definizione che abbiamo dato nella sezione 1.3. Quindi "risolvere" in questo contesto và interpretato come "avere una \textbf{risoluzione} tale da poter apprezzare variazioni "più fini".} rapporti o variazioni "più fini" è conveniente utilizzare un suo \textbf{sottomultiplo}, il \textit{deciBel (dB)}.
+\subsubsection{Il deciBel}
+È un \textit{sottomultiplo} ($\frac{1}{10}$) del bel, esprime quindi anch'esso il rapporto di potenze (o anche ampiezze), mediante il logaritmo in base 10. $$\Bigg(\frac{P_{2}}{P_{1}}\Bigg)_{(dB)} = 10log_{10}\Bigg(\frac{P_{2}}{P_{1}}\Bigg)$$
+Ricordando che il deciBel, come il bel, esprime rapporti di potenze, possiamo dire che $ 1\ dB \simeq 1.25 = 1 + 25\% $. Quindi si può dire che $P_{2}$ è "più grande" di $P_{1}$ del 25\%.\\
+I rapporti di ampiezze, quando tensione e correnti sono misurate \textbf{su uno stesso carico}, si esprimo in deciBel secondo la relazione $$ 20log_{10}\Bigg(\frac{A_{2}}{A_{1}}\Bigg) $$
+Questa fotumla discende direttamente dal decibel.$$Inserire\  dimostrazione?????$$
+\subsubsection*{"dBx"}
+Con dBx si indica il valore in decibel epsresso rispetto ad un \textbf{riferimento x}. Scelto un livello di potenza $P_{x}$ come riferimento, un qualunque valore di potenza P può essere espresso in \textbf{decibel rispetto al riferimento} come $$ P_{(dBx} = 10log_{10}\Bigg( \frac{P}{P_{x}} \Bigg) $$
+In particolare, esisterano dunque:
+$$P_{(dBm)} = 10log_{10}\Bigg( \frac{P}{1mW} \Bigg)$$
+$$P_{(dBW)} = 10log_{10}\Bigg( \frac{P}{1W} \Bigg)$$
+$$P_{(dBk)} = 10log_{10}\Bigg( \frac{P}{1kW} \Bigg)$$
+Che esprimono la variazione della potenza misurata rispetto ad un riferimento "standard" di 1 milliWatt, Watt oppure kiloWatt.
+\subsubsection*{Calcoli Approssimati con i dB ????}
 \end{document}
