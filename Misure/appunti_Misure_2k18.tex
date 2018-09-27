@@ -129,7 +129,7 @@ Le note storiche sono facilmente reperibili sia on-line sia dai lucidi del profe
         width=12cm,
         height=6cm,
         keepaspectratio,
-    ]{unitafondamentali.png}
+    ]{images/unitafondamentali.png}
     \caption{Le unità fondamentali del Sistema Internazionale.}
   \end{center}
 \end{figure}
@@ -191,7 +191,7 @@ Possiamo vedere questo elenco anche come una \it catena di riferibilità\rm, che
         width=12cm,
         height=6cm,
         keepaspectratio,
-    ]{multiplisottomultipli.png}
+    ]{images/multiplisottomultipli.png}
     \caption{Multipli e Sottomultipli nel Sistema Internazionale.}
   \end{center}
 \end{figure}
@@ -235,7 +235,7 @@ Per questo conviene abbandonare l'approccio deterministico in favore di un \text
 La variabilità del risultato di una misura è analizzata grazie ai metodi consolidati della statistica (varianza e deviazione standard). Il risultato dunque non è mai un unico numero "deterministico", ma un intervallo di valori possibili entro il quale il misurando può trovarsi con una data probabilità (e potrà anche trovarsi fuori dall'intervallo).
 \paragraph*{Si definisce incertezza di misura} la semiampiezza di un particolare intervallo di valori (l'intervallo $\pm 1$ deviazione standard del valore centrale), centrato nella \textbf{media}.
 \subsection{Teoria degli errori}
-Anche se è ormai superata, la teoria degli errori di misura ci aiuta a comprendere la natura dell'incertezza, essa prevedeva che un misurando non potesse mai essere perfettamente conosciuto a causa degli inevitabili errori di misura (intrinseci in ogni metodo o strumento utilizzato per la misurazione). Si potrebbe dire che: $$Errore \\equiv  Valore\ Misurato - Vaore\ Vero$$
+Anche se è ormai superata, la teoria degli errori di misura ci aiuta a comprendere la natura dell'incertezza, essa prevedeva che un misurando non potesse mai essere perfettamente conosciuto a causa degli inevitabili errori di misura (intrinseci in ogni metodo o strumento utilizzato per la misurazione). Si potrebbe dire che: $$Errore \equiv  Valore\ Misurato - Vaore\ Vero$$
 ma questa risulterebbe un'affermazione errata, dato che il valore \textbf{vero} non potrà mai essere conosciuto, esso è un mero concetto astratto, e quindi l'errore resta completamente indeterminato.\\
 La teoria degli errori definiva alcuni tipi di errori che si verificano più spesso:
 \begin{itemize}
@@ -251,6 +251,74 @@ Abbiamo due \textbf{categorie di stima} dell'incertezza:
   \item \textbf{Stimata con Metodi Statistici} su un campione di misure.
   \item \textbf{Stimata in Altro Modo} ad esempio attraverso conoscenze a priori o proprietà dello strumento.
 \end{itemize}
-\subsection{Richiami di Statistica}
-COPIA LA SLIDE
+\subsection{Richiami di Probabilità e Statistica}
+Per noi la probabilità è un numero $p\ \epsilon\ [0,1]$ dove 0 indica l'evento impossibile e 1 l'evento certo.\\
+Chiamiamo invece \textit{variabile casuale} (VC) una variabile $X$ con valori $x\ \epsilon\ \Re $.\\
+La probabilità è una funzione $P$ definita come:
+$$P(a \le x \le b) \int^b_a p(x)dx$$
+Cioè l'integrale tra due estremi $a$ e $b$ dell funzione $p(x)$ detta densità di probabilità (\textbf{PDF}). La PDF descrive il processo casuale considerato assegnando la probabilità per i possibili valori d'uscita. Per una VC continua la "probabilità puntuale" è nulla, mentre non può essere nulla la probabilità di cadere in un intervallo di valori. In altre parole, per una variabile aleatoria con PDF continua non è possibile che essa assuma un valore "deterministico", ma è solamente possibile ricavare la probabilità che il valore della VC stia in un intervallo di valori.\\
+Per ogni PDF vale sempre $\int^{+\infty}_{-\infty}p(x)dx = 1$.\\
+
+Per $X$ variabile casuale reale (che possiamo vedere come il possibile valore di una misura) esistono degli \textbf{stimatori} che ci sonsentono di conoscere, in senso statistico, alcuni parametri caratteristici del processo casuale. In particolare \textbf{media} e \textbf{varianza} permettono di stimare la tendenza centrale e la dispersione dei valorei $x$ associabili a $X$.
+\begin{itemize}
+  \item \textbf{Media:}
+  $$ \mu(x) = \mu_{x} = E[x] = \int^{+\infty}_{-\infty}xp(x)dx$$
+  \item \textbf{Varianza:}
+  $$ \sigma^{2}(x) = \sigma^{2}_{x} = E[[x - \mu_{x}]^{2}] = \int^{+\infty}_{-\infty}[x - \mu_{x}]^{2}p(x)dx$$
+  \item \textbf{Deviazione Standard:}
+  $$ \sigma(x) = \sqrt{\sigma^{2}(x)} $$
+\end{itemize}
+\subsubsection{La PDF Gaussiana}
+È la PDF "più comune" per la descrizione della media di fenomeni casuali quali le misure. Avendo infatti un significativo numero di misurazioni, sappiamo dalla statistica, grazie al teorema del limite centrale, che la media di una VC tende ad avere una PDF gaussiana in una "approssimazione dei grandi numeri". Assumendo quindi la PDF di una Gaussiana:\\
+$$ p(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{[x-\mu]^2}{2\sigma^2}} $$
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=12cm,
+        height=6cm,
+        keepaspectratio,
+    ]{images/pdfgaussiana.png}
+    \caption{La PDF gaussiana con vari esempi di valori di $\mu$.}
+  \end{center}
+\end{figure}
+Integrando la PDF Gaussiaa tra due valori sull'asse reale si trova la probabilità che il risultato (misura) "cada" nell'intervallo compreso tra i due valori considerati.\\
+Le \textbf{aree} sottese dalla PDF sono le probabilità di avere valori (misure) in un dato intervallo di valori sull'asse reale. Lontano dalla media $\mu$, rispetto alla larghezza $\sigma$, la PDF diviene molto bassa e dunque le aree sottese molto piccole, che implicano probabilità altrettanto "piccole", e rappresentano misure improbabili.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=12cm,
+        height=6cm,
+        keepaspectratio,
+    ]{images/gaussianaIntervalli.png}
+    \caption{La PDF gaussiana con vari livelli di confidenza.}
+  \end{center}
+\end{figure}
+\newpage
+Livelli di confidenza è il nome che diamo a fattori moltiplicativi di $\sigma$ che indicano con quanta sicurezza cadremo in un intervallo di ampiezza $livello\ di\ confidenza\ \times \sigma$.
+$$ 1\sigma \rightarrow 68.27\% \simeq 68.3\% \sim 68\% $$
+$$ 2\sigma \rightarrow 95.45\% \simeq 95.5\% \sim 95\% $$
+$$ 3\sigma \rightarrow 99.73\% \simeq 99.7\% \ \ \ \ \ \ \ \ \ $$
+Per esempio, possiamo dire che la misura cadrà in un intervallo di ampiezza $1\sigma_{x}$ ripetto alla media $\mu_{x}$ con una \textbf{confidenza} del 68.3\%. In simboli:
+$$ P[(\mu_x - \sigma_x)\le x \le (\mu_x + \sigma_x)] \simeq 68.3\% $$
+\subsubsection{Media Campionaria}
+Sia $X$ una vriabile casuale (il misurando), nota attraverso $n$ determinazioni (misure) $x_k\ (k=1,2,..n)$ ottenute in condizioni di \textbf{ripetibilità}, si \textbf{stima} del valor medio della "popolazione", $\mu(x)$, attraverso lo stimatore \textbf{media campionaria:}
+$$
+  \bar{x} = \bar{x_k} \equiv \frac{1}{n} \sum^{n}_{k=1}x_k  
+$$
+Essendo questo uno stimatore, abbiamo anche che, \textit{nel senso della stima}, possiamo dire $ \mu_x = \bar{x}$.\\
+A questo punto abbiamo determinato parte della misura così come la vogliamo noi. Abbiamo determinato il \textbf{valore di misura}. Per determinare la dispersione (incertezza) sul valore di misura dovremo valutare la dispersione, almeno potenziale, della variabile casuale $\bar{x}$ (valore di misura). Dunque cercheremo $\sigma(\bar{x})$, che scopriremo essere funzione di $\sigma(x)$ e del numero $n$ di misure ripetute.
+\subsubsection{Varianza Campionaria}
+Stimiamo la varianza della "popolazione", $\sigma^2$, attraverso lo stimatore \textbf{varianza campionaria:}
+$$
+  s^2(x) = s^2(x_k) \equiv \frac{1}{n-1}\sum^{n}_{k=1}(x_k-\bar{x})^2
+$$
+Con pochi passaggi matematici si può arrivare anche al metodo alternativo per il calcolo della varianza campionaria:
+$$
+  s^2(x) = \frac{1}{n-1}\Bigg[\Bigg(\sum^{n}_{k=1}x^2_k\Bigg)-n\bar{x}^2\Bigg]
+$$
+\subsection{Incertezza Standard}
+Possiamo ora definire l'\textbf{incertezza standard} (o scarto tipo):\\
+
+Incertezza standard, con simbolo "$u$" (dall'inglese \textit{uncertainty}), è una \textbf{stima della deviazione standard} $\sigma$, radice quadrata della varianza $\sigma^2$, prevista per il valore di misura.\\ \\
+A seconda del metodo impiegato per la stima di $u(\cdotp)$ classificheremo questa incertezza come di categoria A o B.
 \end{document}
