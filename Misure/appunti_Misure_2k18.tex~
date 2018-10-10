@@ -395,78 +395,26 @@ $$
 $$
 perchè in questo caso lo 0.1 su 89 kilogrammi è sicuramente meno del 5\%.
 \subsection{Esercizio: Calcolo Incertezza di Cat. A}
-Si dispone di n = 10 misure ripetute $V_k$ di una tensione incognita $V$.\\
-Calcolare $V$ $u_A(V)$.
-\begin{table}[H]
-  \caption{Serie di misurazoni da considerare.}
-  \label{tab:esIncertezza}
-
-  \begin{center}
-    \begin{tabular}{|l|c|r|r|r|r|r|r|r|r|r|}
-    \hline
-       k[1]       & 1& 2& 3& 4& 5& 6& 7& 8& 9& 10 \\
-    \hline
-       $V_k$[$V$] & 7& 9& 8& 6& 7& 5& 7& 8& 6& 7 \\
-    \hline
-    \end{tabular}
-  \end{center}
-\end{table}
 Calcoliamo la media campionaria per conoscere il valore medio che è il valore della nostra misura:
 $$
   V = \bar{V} = \frac{1}{n}\sum^n_{k=1}V_k = \frac{1}{10}70\ V = 7 V
 $$
-Posso quindi calcolare l'incertezza standard di categoria A per la misura con ognuna delle seguenti formule:
+Posso quindi calcolare l'incertezza standard di categoria A per la misura con la formula:
 \begin{align}
-  u_A(V)& = \frac{s(V)}{\sqrt{n}} \label{incA:1}\\
-  u_A(V)& = \sqrt{\frac{1}{n(n-1)}\sum^n_{k=1}(V_k-\bar{V})^2} \label{incA:2}\\
-  u_A(V)& = \sqrt{\frac{1}{n(n-1)}\Bigg(\sum^n_{k=1}(V_k^2)\Bigg)-n\bar{V}^2} \label{incA:3}
+  u_A(V)& = \frac{s(V)}{\sqrt{n}}\\
+  u_A(V)& = \sqrt{\frac{1}{n(n-1)}\sum^n_{k=1}(V_k-\bar{V})^2}\\
+  u_A(V)& = \sqrt{\frac{1}{n(n-1)}\Bigg(\sum^n_{k=1}(V_k^2)\Bigg)-n\bar{V}^2}
 \end{align}
 
-Per la seconda espressione (Formula \ref{incA:2}) di $u_a(V)$ ci conviene prima calcolare tutti gli scarti $(V_k-\bar{V})$, notando che alcuni degli scarti che otteniamo risultano 0 e quindi non contribuiscono all'incertezza\footnotemark[1].\footnotetext[1]{Se invece l'intera incertezza standard di categoria A dovesse risultare 0, vuol dire che abbiamo commesso uno o più errori. Ad esempio, se le misurazioni effettuate variavano al millivolt, mentre sono state annotate al volt, la causa dell'errore è l'operatore che non ha annotato correttamente le misurazioni.}
-\begin{table}[H]
-  \caption{Scarti calcolati rispetto alla media campionaria $\bar{V}$.}
-  \label{tab:esIncertezza:scarti}
-
-  \begin{center}
-    \begin{tabular}{|l|c|r|r|r|r|r|r|r|r|r|}
-    \hline
-       ($V_k-\bar{V}$) [$V$]   & 0& 2& 1& -1& 0& -2& 0& 1& -1& 0 \\
-    \hline
-    \end{tabular}
-  \end{center}
-\end{table}
-Ricaviamo quindi:
-$$
-  u_A(V) = \sqrt{\frac{1}{10\times 9}(0+4+1+1+0+4+0+1+1+0)V^2} = \sqrt{\frac{12}{90}V^2} \simeq 0.37\ V
-$$
+Per la seconda espressione di $u_a(V)$ ci conviene prima calcolare tutti gli scarti $(V_k-\bar{V})$, notando che alcuni degli scarti che otteniamo risultano 0 e quindi non contribuiscono all'incertezza\footnotemark[1].\footnotetext[1]{Se invece l'intera incertezza standard di categoria A dovesse risultare 0, vuol dire che abbiamo commesso uno o più errori. Ad esempio, se le misurazioni effettuate variavano al millivolt, mentre sono state annotate al volt, la causa dell'errore è l'operatore che non ha annotato correttamente le misurazioni.}
 \\
-Per la terza espressione (Formula \ref{incA:3}), calcoliamo prima la sommatoria
-$$
-  \sum^N_{k=1}V^2_k = 502\ V^2\ e\ \bar{V} = 7\ V
-$$
-ricavando quindi:
-$$
-  u_A(V) = \sqrt{\frac{1}{10\times 9}[509\ V^2 - 10 \times 49\ V^2]} = \sqrt{\frac{12}{90}\ V^2} \simeq 0.37\ V
-$$
+Per la terza espressione sticazzi basta copiare.
 \\
-Per la prima espressione (Formula \ref{incA:1}) dobbiamo prima conoscere o calcolare la radice della varianza campionaria (cioè la deviazione standard campionaria) $s(V) = 1.1547$ per poi dividerla per $\sqrt{n}$:
-$$
-  u_A(V) = \frac{1.1547\ V}{\sqrt{10}} = 0.365148... \simeq 0.37\ V
-$$
-
-In questo ultimo caso abbiamo un esempio di arrotondamento dell'incertezza alla seconda cifra decimale, per eccesso. Ma se, ad esempio, il risultato fosse stato 0.36\textbf{4}321? Questo 4 come terza cifra decimale ci avrebbe permesso di arrotondare il risultato per difetto? Ovviamente no, perchè avrebbe comportato un errore molto maggiore rispetto al 5\%.
+Per la prima espressione poi c'è l'esempio di arrotondamento perchè viene un numero da arrotondare che si arrotonda per eccesso, ma se il numero fosse stato un'altro? Alla fine deve venire fuori che bisogna arrotondare sempre per eccesso perchè non si riesce ad errare meno del 5\%.
 \subsection{Cifre significative per il risultato di una misura}
-Esistono due maniere per esprimere una misura, in forma estesa e in forma compatta, con i numeri dell'esercizio precedente avremmo:
-\begin{center}
-  V = 7.00 V $\pm$ 0.37 V~~ oppure~~ V = 7.00(37) V    
-\end{center}
-O anche, in modo più approssimato: V = 7.0 V $\pm$ 0.4 V.
 \subsection{Incertezza di Categoria B}
 Si basa sulla definizione "a priori" di un opportuno intervallo di valori entro il quale si suppone debbano cadere i valore del misurando (con una data probabilità). L'intervallo non viene naturalmente definito "a caso", ma si presuppone di conscerlo da studi antecedenti alla misura.
 
-L'intervallo fissato è tipicamente centrato attorno al \textbf{valor medio}
-$$\bar{x} = a_0 = \frac{(a_0+a)+(a_0-a)}{2}$$ ed ha una piena larghezza $$\Delta x = (a_0+a)-(a_0-a) = 2a$$
-E chiaramente alla larghezza $\Delta x$ sarà legata l'\textbf{incertezza di misura}.\\
 Questo intervallo viene modellizzato con una \textbf{PDF} di cui possiamo calcolare media $\mu$ e varianza $\sigma^2$. Ad esempio possiamo modellizzare con una ben nota Gaussiana Standard con $2\sigma = $ l'ampiezza dell'intervallo. Ma in altri casi è possibile che i ragionamenti "a priori" ci diano motivo di pensare che la PDF migliore sia \textit{triangolare}, oppure \textit{uniforme}.\\
 
 Dunque possiamo definire il procedimento per ottenere una stima dell'incertezza standard di categoria B:
@@ -474,69 +422,11 @@ Dunque possiamo definire il procedimento per ottenere una stima dell'incertezza 
   \item Definito un \textbf{intervallo} di categoria B
   \item si associa una densità di probabilità (\textbf{PDF})
   \item di questa si calcolano media $\mu$, varianza e \textbf{deviazione standard} $\sigma$.
+  $$METTICI\ L'IMMAGINE\ DEI\ 3\ PASSI$$
 \end{enumerate}
-\begin{figure}[H]
-  \begin{center}
-    \includegraphics[
-        width=10cm,
-        height=5cm,
-        keepaspectratio,
-    ]{images/passiIncertezzaB.png}
-    \caption{Passi per l'incertezza standard di categoria B.}
-    \label{incertezzaB:passi}
-  \end{center}
-\end{figure}
+
 Ma a questo punto una domanda sorge spontanea:
 \begin{center}
   \textit{Come segliamo l'intervallo e la PDF?}
 \end{center}
-Tanto la laerghezza dell'intervallo quanto la PDF ad esso associata si scelgono sulla base di:
-\begin{itemize}
-  \item precedenti conosenze o dati di misura
-  \item esperienza sul comportamento del misurando
-  \item specifiche dei costruttori di materiali e strumenti coinvolti nella misura
-  \item dati di calibrazioni
-  \item informazioni da articoli scientifici/tecnici
-  \item incertezza sui parametri di riferimento (presa dai manuali o da altre fonti)
-\end{itemize}
-\subsection{Le PDF più comuni}
-\subsubsection{Gaussiana (Normale)}
-Basta ricordare che
-\begin{center}
-\begin{itemize}
-  \item $1\sigma$ \textit{level}: $P[\mu-\sigma \le x \le \mu+\sigma] \simeq 68.3\%$
-  \item $2\sigma$ \textit{level}: $P[\mu-2\sigma \le x \le \mu+2\sigma] \simeq 95.5\%$
-    \item $3\sigma$ \textit{level}: $P[\mu-3\sigma \le x \le \mu+3\sigma] \simeq 99.7\%$
-\end{itemize}  
-\end{center}
-\subsubsection{Uniforme (Rettangolare)}
-La PDF rettangolare è definita come:
-\begin{equation}
-   \begin{cases}
-   0~~~~~~~~~~~~~~~x < a_0 -a\\
-   \frac{1}{2a}~~~~~~~~~~~~~a_0 -a \le x \le a_0 + a\\
-   0~~~~~~~~~~~~~~~x > a_0 +a
-   \end{cases}
-\end{equation}
-La particolarità della PDF uniforme è che si può \textbf{sempre} esprimere la sua deviazione standard come:
-$$
-  \sigma_{UNI}(x) = \frac{\Delta x}{\sqrt{12}}
-$$
-\subsubsection{Triangolare}
-Elenchiamo alcune delle proprietà della PDF Triangolare
-$$
-  \mu(x) = a_0
-$$
-Con $a_0$ valore medio.
-$$
-  \sigma^2(x) = \frac{a^2}{6} = \frac{(\Delta x)^2}{24}
-$$
-$$
-  \sigma(x) = \frac{\Delta x}{\sqrt{24}}
-$$
-A pari larghezza $\Delta x$, si ha natiralmente che:
-$$
-  u_{B,triangolare}(x) = \frac{\Delta x}{\sqrt{24}} < u_{B,uniforme}(x) = \frac{\Delta x}{\sqrt{12}}
-$$
-Infatti la PDF$_{Tri}$ è "meno dispersa" della PDF$_{Uni}$.
 \end{document}
