@@ -4,6 +4,9 @@
 \usepackage{lmodern}
 \usepackage[italian]{babel}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+  \usepgflibrary{arrows}
 \usepackage{float}
 \usepackage{amssymb,amsmath}
 
@@ -41,7 +44,7 @@ Le \bf Grandezze Omogenee\rm: sono grandezze della stessa natura, e che quindi s
 Un'ulteriore definizione di \bf Misura \rm si può dare anche con le grandezze omogenee: una misura è il confronto tra due grandezze omogenee, di cui una è presa come \it riferimento \rm o \it campione di misura\rm.
 \\
 
-Il \bf Valore \rm di una msura è il numero che esprime il rapporto con il riferimento.
+Il \bf Valore \rm di una misura è il numero che esprime il rapporto con il riferimento.
 \\
 
 Il riferimento di una misura può essere manufatto (una spanna, un piede, una tazza, un peso campione), od assoluto (un giorno, un ciclo lunare, 1 decimetro cubo di $H_2O$, proprietà della materia che difficilmente variano a seconda di tempo e spazio).
@@ -64,7 +67,7 @@ Vi è inoltre la relazione tra misurando e sistema di misura che può causare in
 
 \begin{itemize}
   \item \bf Effetto di Carico \rm è quello che si verifica, ad esempio, quando andiamo ad effettuare la misura di una tensione in un punto di un circuito elettrico con un voltmetro. Se inseriamo il voltmetro in un qualsiasi punto del circuito, per misurare la tensione esso usa una resistenza interna, quindi la tensione che in realtà leggiamo dal voltmetro avrà anche il contributo (seppur minimo) della resistenza interna del voltmetro. Se il voltmetro è "scarso" il fenomeno sarà più compromettente per la misura.
-  \item \bf Errore di Modello \rm si verifica nel caso di misure indirette, ed è causato dalla relazione funzionale che descrive una misura indiretta. Più il modello sarà raffinato e completo, meno la misura risentirà dell'errore di modello. Un esempio può essere il calcolo della potnza elettricca sviluppata in un resistore che in prima analisi può essere $R \times I^2 $, ma esitono formule molto più precise per calcolarla.
+  \item \bf Errore di Modello \rm si verifica nel caso di misure indirette, ed è causato dalla relazione funzionale che descrive una misura indiretta. Più il modello sarà raffinato e completo, meno la misura risentirà dell'errore di modello. Un esempio può essere il calcolo della potenza elettrica sviluppata in un resistore che in prima analisi può essere $R \times I^2 $, ma esitono formule molto più precise per calcolarla.
   \item \bf Parametri ambientali (grandezze d'influenza)\rm: fattori come temperatura, pressione, umidità, vibrazioni o presenza di campi elettro-magnetici influenzano una misura.
   \item \bf Interazione occhio-strumento\rm: causa errori di parallasse, interpolazione e media.
   \begin{itemize}
@@ -75,7 +78,7 @@ Vi è inoltre la relazione tra misurando e sistema di misura che può causare in
   \item \bf Zero (offset)\rm: pensiamo di avere sottomano una bilancia qualsiasi, in un ipotetico grafico che mostra la corrispondenza valori "reali" di massa - valori misurati di massa. È desiderabile avere tutti i punti che appartengono alla retta bisettrice del primo (e terzo) quadrante. A volte non è così, ma la retta "propria" della bilancia è traslata in verticale di una certa quantità (pur mantenendo la pendenza).
   
   Può capitare di incontrare bilance, ad esempio per la pesa dei TIR, che "a vuoto" segnano già 100 Kg.
-  \item \bf guadagno/pendenza (gain/slope)\rm: sempre riferendoci alla retta del piunto precedente, questo errore si verifica quando la retta "reale" si differenzia dalla retta "ideale" per pendenza, per cui l'errore sarà maggiore al crescere della massa che si vuole misurare.
+  \item \bf guadagno/pendenza (gain/slope)\rm: sempre riferendoci alla retta del punto precedente, questo errore si verifica quando la retta "reale" si differenzia dalla retta "ideale" per pendenza, per cui l'errore sarà maggiore al crescere della massa che si vuole misurare.
   \item \bf non-linearità\rm: sul grafico vediamo la differenza tra la curva ideale, che è una retta, e la curva reale, che non è lineare ed ha la massima distanza dalla retta ideale per i punti estremi.
   \item \bf Isteresi\rm: errore proprio degli apparecchi per misurazione che hanno al loro interno giochi meccanici, in questo caso gli errori di misura crescono mano a mano che si pesa ogni volta una massa maggiore/minore.
 \end{itemize}
@@ -107,7 +110,7 @@ Le seguenti definizioni sono tratte dal VIM (\it Vocabolario Internazionale di M
   
   \item \bf Riproducibilità\rm: capacità di ottenere, per uno stesso misurando, risultati vicini tra loro "in diverse e specificate condizioni di misura".
   
-  Nella caratteristica della riproducibilità si elimina il vincolo temporale che era inceve presente nella ripetibilità.
+  Nella caratteristica della riproducibilità si elimina il vincolo temporale che era invece presente nella ripetibilità.
   
   \item \bf Riferibilità\rm: proprietà di una misura di essere messa in relazione (i.e. riferita) con quella fornita da un campione riconosciuto.
   
@@ -174,8 +177,8 @@ Di seguito un elenco dei tipi di campioni che possiamo attualmente trovare in ci
   \item \bf Campioni Primari: \rm sono quelli a cui si riferisce il Sistema Internazionale, che realizzano l'unità con i migliori livelli di accuratezza praticamente ottenibili.
   \item \bf Campioni Secondari: \rm consentono di trasferire l'unità ed effettuare i confronti tra i campioni primari e verso altri campioni. Se dobbiamo tarare uno strumento a Politecnico di Milano utiliziamo un campione secondario riferendoci a qualche ente nazionale.
   \item \bf Campioni di Trasferimento: \rm sono spesso campioni secondari, ma che sono anche adatti al trasporto.
-  \item \bf Campioni "locali": \rm all'interno di un istituto a azienta, si dividono in campioni di prima linea (o di riferimento) e campioni di seconda linea (o di lavoro).
-  \item \bf Campioni di Prima Linea: \rm si usano nei centri di taratura e di certificazione; sono usati oco di frequente e per tarare i campioni di seconda linea, oppure costutuiscono il campione di riferimento per l'istutito/azienda/laboratorio.
+  \item \bf Campioni "locali": \rm all'interno di un istituto o azienda, si dividono in campioni di prima linea (o di riferimento) e campioni di seconda linea (o di lavoro).
+  \item \bf Campioni di Prima Linea: \rm si usano nei centri di taratura e di certificazione; sono usati poco di frequente e per tarare i campioni di seconda linea, oppure costutuiscono il campione di riferimento per l'istutito/azienda/laboratorio.
   \item \bf Campioni de Seconda Linea: \rm si usano nelle misure e confronti di routine, previo un confronto con quelli di prima linea, per fare le misure correnti (e.g. nella produzione o per misure sul campo).
 \end{itemize}
 Possiamo vedere questo elenco anche come una \it catena di riferibilità\rm, che abbiamo menzionato nella sezione precedente.
@@ -196,22 +199,25 @@ Possiamo vedere questo elenco anche come una \it catena di riferibilità\rm, che
     \caption{Multipli e Sottomultipli nel Sistema Internazionale.}
   \end{center}
 \end{figure}
-\section{Unità Logaritmiche}
-Le unità logaritmiche esprimono sotto form di logaritmo il rapporto tra due grandezze \bf omogenee\rm. Notiamo che le grandezze in rapporto devono necessariamente essere omogenee, perché l'operatore logaritmo agisce solamente su numeri puri.
+\section{Unità Logaritmiche} \label{sezione:unitaLog}
+Le unità logaritmiche esprimono sotto forma di logaritmo il rapporto tra due grandezze \bf omogenee\rm. Notiamo che le grandezze in rapporto devono necessariamente essere omogenee, perché l'operatore logaritmo agisce solamente su numeri puri.
 Una caratteristica che torna utile nelle unità logaritmiche è una delle proprietà dei logaritmi, cioè che le operazioni di moltiplicazione e divisione tra numeri si traducono in somme e differenze.
 
-Le unità logaritmiche sono utilizzate molto el campo dell'elettrinica e delle telecomunicazioni. I logaritmi più comunemente utilizzati sono quello in base 10 ($log_{10}$), quello in base $e$ ($log_{e} = ln$) e in informatica quello in base 2 ($log_{2}$).
+Le unità logaritmiche sono utilizzate molto el campo dell'elettronica e delle telecomunicazioni. I logaritmi più comunemente utilizzati sono quello in base 10 ($log_{10}$), quello in base $e$ ($log_{e} = ln$) e in informatica quello in base 2 ($log_{2}$).
 \subsection{Il Bel}
 Il \textbf{bel} esprime il rapporto di potenze in scala logaritmica utilizzando una base decimale: $$\Bigg(\frac{P_{2}}{P_{1}}\Bigg)_{(bel)} = log_{10}\Bigg(\frac{P_{2}}{P_{1}}\Bigg)$$
-Il nome "bel" deriva dal suo inventore \textit{Alexander Graham-Bell} il quale, dovendo fare dei confronti tra potenze trasmesse per via aerea, si accorse che decadevno in maniera esponenziale.\\
+Il nome "bel" deriva dal suo inventore \textit{Alexander Graham-Bell} il quale, dovendo fare dei confronti tra potenze trasmesse per via aerea, si accorse che decadevano in maniera esponenziale.\\
 È molto importante ricordarsi sempre che il bel rappresenta il logaritmo di un \textbf{rapporto tra due misure}, ed è quindi un modo per mettere in relazione due misure. Il difetto principale del bel è che 1 bel rappresenta un rapporto di un fattore 10:1 e dunque una scala in bel risulta "grossolana". Per risolvere\footnotemark \footnotetext[1]{Il significato di "risolvere" in questo caso è legato alla definizione che abbiamo dato nella sezione 1.3. Quindi "risolvere" in questo contesto và interpretato come "avere una \textbf{risoluzione} tale da poter apprezzare variazioni "più fini".} rapporti o variazioni "più fini" è conveniente utilizzare un suo \textbf{sottomultiplo}, il \textit{deciBel (dB)}.
 \subsection{Il deciBel}
 È un \textit{sottomultiplo} ($\frac{1}{10}$) del bel, esprime quindi anch'esso il rapporto di potenze (o anche ampiezze), mediante il logaritmo in base 10. $$\Bigg(\frac{P_{2}}{P_{1}}\Bigg)_{(dB)} = 10log_{10}\Bigg(\frac{P_{2}}{P_{1}}\Bigg)$$
 Ricordando che il deciBel, come il bel, esprime rapporti di potenze, possiamo dire che $ 1\ dB \simeq 1.25 = 1 + 25\% $. Quindi si può dire che $P_{2}$ è "più grande" di $P_{1}$ del 25\%.\\
-I rapporti di ampiezze, quando tensione e correnti sono misurate \textbf{su uno stesso carico}, si esprimo in deciBel secondo la relazione $$ 20log_{10}\Bigg(\frac{A_{2}}{A_{1}}\Bigg) $$
-Questa fotumla discende direttamente dal decibel.$$Inserire\  dimostrazione?????$$
+I rapporti di ampiezze, quando tensione e correnti sono misurate \textbf{su uno stesso carico}, si esprimono in deciBel secondo la relazione $$ 20log_{10}\Bigg(\frac{A_{2}}{A_{1}}\Bigg) $$
+Questa formula discende direttamente dal decibel.$$Inserire\  dimostrazione?????$$
 \subsection*{"dBx"}
-Con dBx si indica il valore in decibel epsresso rispetto ad un \textbf{riferimento x}. Scelto un livello di potenza $P_{x}$ come riferimento, un qualunque valore di potenza P può essere espresso in \textbf{decibel rispetto al riferimento} come $$ P_{(dBx} = 10log_{10}\Bigg( \frac{P}{P_{x}} \Bigg) $$
+Con dBx si indica il valore in decibel espresso rispetto ad un \textbf{riferimento x}. Scelto un livello di potenza $P_{x}$ come riferimento, un qualunque valore di potenza P può essere espresso in \textbf{decibel rispetto al riferimento} come
+$$
+  P_{(dBx)} = 10log_{10}\Bigg( \frac{P}{P_{x}} \Bigg)
+$$
 In particolare, esisterano dunque:
 $$P_{(dBm)} = 10log_{10}\Bigg( \frac{P}{1mW} \Bigg)$$
 $$P_{(dBW)} = 10log_{10}\Bigg( \frac{P}{1W} \Bigg)$$
@@ -227,25 +233,25 @@ $$P = 10\ W \rightarrow P_{dBW} = 10 log_{10}\Bigg(\frac{P}{1W}\Bigg) = 10 log_{
 $$P = +90\ dBW = 10 log_{10}\Bigg(\frac{P}{1W}\Bigg) \rightarrow P = \Bigg( 10 \frac{PdbW}{10}\Bigg)\times 1 W = 10^9 W $$
 \newpage
 \chapter{Incertezza di Misura}
-Abbiamo detto che la misura è un \textbf{numero} associato alla sua unità di \textbf{misura}. Adesso p il momento di aggiungere anche un qualcosa che esprime anche "quanto mi fido" della misura in questione, cioè l'\textbf{incertezza}. Possiamo quindi esprimere le misure, da ora in poi, come: $$ MIS_{x} = x_{numero}\ x_{unità\ di\ misura} \pm INC_{x}\ x_{unità\ di\ misura} $$
+Abbiamo detto che la misura è un \textbf{numero} associato alla sua unità di \textbf{misura}. Adesso è il momento di aggiungere anche un qualcosa che esprime anche "quanto mi fido" della misura in questione, cioè l'\textbf{incertezza}. Possiamo quindi esprimere le misure, da ora in poi, come: $$ MIS_{x} = x_{numero}\ x_{unità\ di\ misura} \pm INC_{x}\ x_{unità\ di\ misura} $$
 Addirittura a volte arriviamo ad esprimere anche l'incertezza dell'incertezza, che dice quanto fidarsi dell'incertezza. Esprime l'attendibilità della stima di incertezza in questione.
 \section{Variabilità delle Misure} Misure ripetute dello stesso parametro fisico non forniscono lo stesso valore. È considerabile come una legge della natura, è impossibile che due misure consecutive diano esattamente lo stesso risultato per ogni cifra decimale. La caratteristica che ci permette di determinare l'incertezza della misura è la \textbf{deviazione standard} (o dispersione $\sigma$) della misura in questione, mentre il valore della misura sarà la \textbf{media} ($\mu$).
 $$SLIDE\ GAUSSIANA$$
-Le misure sono sempre affette da fluttuazioni o errori (almeno potenziali), mai perettamente conscibili, che si traducono in una naturale "indeterminazione" o INCERTEZZA sul risultato di misura.\\
+Le misure sono sempre affette da fluttuazioni o errori (almeno potenziali), mai perfettamente conoscibili, che si traducono in una naturale "indeterminazione" o INCERTEZZA sul risultato di misura.\\
 Per questo conviene abbandonare l'approccio deterministico in favore di un \textbf{approccio statistico} grazie al quale è possibile stimare le fluttuazioni.\\
 La variabilità del risultato di una misura è analizzata grazie ai metodi consolidati della statistica (varianza e deviazione standard). Il risultato dunque non è mai un unico numero "deterministico", ma un intervallo di valori possibili entro il quale il misurando può trovarsi con una data probabilità (e potrà anche trovarsi fuori dall'intervallo).
 \paragraph*{Si definisce incertezza di misura} la semiampiezza di un particolare intervallo di valori (l'intervallo $\pm 1$ deviazione standard del valore centrale), centrato nella \textbf{media}.
 \section{Teoria degli errori}
-Anche se è ormai superata, la teoria degli errori di misura ci aiuta a comprendere la natura dell'incertezza, essa prevedeva che un misurando non potesse mai essere perfettamente conosciuto a causa degli inevitabili errori di misura (intrinseci in ogni metodo o strumento utilizzato per la misurazione). Si potrebbe dire che: $$Errore \equiv  Valore\ Misurato - Vaore\ Vero$$
+Anche se è ormai superata, la teoria degli errori di misura ci aiuta a comprendere la natura dell'incertezza, essa prevedeva che un misurando non potesse mai essere perfettamente conosciuto a causa degli inevitabili errori di misura (intrinseci in ogni metodo o strumento utilizzato per la misurazione). Si potrebbe dire che: $$Errore \equiv  Valore\ Misurato - Valore\ Vero$$
 ma questa risulterebbe un'affermazione errata, dato che il valore \textbf{vero} non potrà mai essere conosciuto, esso è un mero concetto astratto, e quindi l'errore resta completamente indeterminato.\\
 La teoria degli errori definiva alcuni tipi di errori che si verificano più spesso:
 \begin{itemize}
-  \item \textbf{Errori Sistematici:} si presentano nella stessa entità ogni olta che si ripete la misura (\textit{offset} o polarizzazione).\\
+  \item \textbf{Errori Sistematici:} si presentano nella stessa entità ogni volta che si ripete la misura (\textit{offset} o polarizzazione).\\
   Per esempio possiamo pensare ad un peso di massa \textit{m} che viene posto su una bilancia digitale, leggendo il valore riportato dalla bilancia si noterà un \textit{offset} costante di 100g in più rispetto al valore m.
-  \item \textbf{Errori Accidentali:} i presentano in maniera diversa e "impredicibile" ogni volta che si ripete la misura (fluttuazione casuale a media nulla).\\
+  \item \textbf{Errori Accidentali:} si presentano in maniera diversa e "impredicibile" ogni volta che si ripete la misura (fluttuazione casuale a media nulla).\\
   Per esempio:
 \end{itemize}
-L'idea era sommare errori sisematici e accidentali, ma riflettendo un momento, anche se sappiamo che esse sono due grandezze omogenee, troviamo che sono concettualmente diverse per loro natura. È quindi logicamente scorretto sommarli in quanto i primi (sistematici, determrinistici) sono completamente conscibili mentre i secondi (\textbf{aleatori}), sono solamente stimabili in senso statistico e talora riducibili a \textbf{mai} eliminabili del tutto.
+L'idea era sommare errori sistematici e accidentali, ma riflettendo un momento, anche se sappiamo che esse sono due grandezze omogenee, troviamo che sono concettualmente diverse per loro natura. È quindi logicamente scorretto sommarli in quanto i primi (sistematici, deterministici) sono completamente conscibili mentre i secondi (\textbf{aleatori}), sono solamente stimabili in senso statistico e talora riducibili ma \textbf{mai} eliminabili del tutto.
 \paragraph*{Incertezza standard di misura} è ciò che secondo il CIPM è una corretta analisi statistica della variabilità di una misura. È un parametro, valutato seondo procedure \textbf{convenzionali} (standard), che esprime il nostro grado di non conoscenza del misurando.\\
 Abbiamo due \textbf{categorie di stima} dell'incertezza:
 \begin{itemize}
@@ -260,7 +266,7 @@ $$P(a \le x \le b) \int^b_a p(x)dx$$
 Cioè l'integrale tra due estremi $a$ e $b$ dell funzione $p(x)$ detta densità di probabilità (\textbf{PDF}). La PDF descrive il processo casuale considerato assegnando la probabilità per i possibili valori d'uscita. Per una VC continua la "probabilità puntuale" è nulla, mentre non può essere nulla la probabilità di cadere in un intervallo di valori. In altre parole, per una variabile aleatoria con PDF continua non è possibile che essa assuma un valore "deterministico", ma è solamente possibile ricavare la probabilità che il valore della VC stia in un intervallo di valori.\\
 Per ogni PDF vale sempre $\int^{+\infty}_{-\infty}p(x)dx = 1$.\\
 
-Per $X$ variabile casuale reale (che possiamo vedere come il possibile valore di una misura) esistono degli \textbf{stimatori} che ci sonsentono di conoscere, in senso statistico, alcuni parametri caratteristici del processo casuale. In particolare \textbf{media} e \textbf{varianza} permettono di stimare la tendenza centrale e la dispersione dei valorei $x$ associabili a $X$.
+Per $X$ variabile casuale reale (che possiamo vedere come il possibile valore di una misura) esistono degli \textbf{stimatori} che ci consentono di conoscere, in senso statistico, alcuni parametri caratteristici del processo casuale. In particolare \textbf{media} e \textbf{varianza} permettono di stimare la tendenza centrale e la dispersione dei valore $x$ associabili a $X$.
 \begin{itemize}
   \item \textbf{Media:}
   $$ \mu(x) = \mu_{x} = E[x] = \int^{+\infty}_{-\infty}xp(x)dx$$
@@ -310,7 +316,7 @@ Per esempio, possiamo dire che la misura cadrà in un intervallo di ampiezza $1\
 $$ P[(\mu_x - \sigma_x)\le x \le (\mu_x + \sigma_x)] \simeq 68.3\% $$
 Per un esempio grafico si può analizzare la Figura ~\ref{gaussiana:livelli}.
 \subsection{Media Campionaria}
-Sia $X$ una vriabile casuale (il misurando), nota attraverso $n$ determinazioni (misure) $x_k\ (k=1,2,..n)$ ottenute in condizioni di \textbf{ripetibilità}, si \textbf{stima} del valor medio della "popolazione", $\mu(x)$, attraverso lo stimatore \textbf{media campionaria} (per lo specifico campione):
+Sia $X$ una variabile casuale (il misurando), nota attraverso $n$ determinazioni (misure) $x_k\ (k=1,2,..n)$ ottenute in condizioni di \textbf{ripetibilità}, si \textbf{stima} del valor medio della "popolazione", $\mu(x)$, attraverso lo stimatore \textbf{media campionaria} (per lo specifico campione):
 $$
   \bar{x} = \bar{x_k} \equiv \frac{1}{n} \sum^{n}_{k=1}x_k  
 $$
@@ -360,7 +366,7 @@ $$
   \sigma^2(\bar{x}) = \frac{\sigma^2(x)}{n} =^s \frac{s^2(x)}{n}\ \ e\ \ \sigma(\bar{x}) = \frac{s(x)}{\sqrt{n}}
 $$
 
-Definiamo quindi l'\textbf{incertezza di categoria A} la disperione del valor medio delle misure ripetute, calcolabile come:
+Definiamo quindi l'\textbf{incertezza di categoria A} la dispersione del valor medio delle misure ripetute, calcolabile come:
 $$
   u_A(x) = s(\bar{x}) = \frac{s(x)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum^n_{k=1}(x_k-\bar{x})^2}
 $$
@@ -490,7 +496,7 @@ Ma a questo punto una domanda sorge spontanea:
 \begin{center}
   \textit{Come segliamo l'intervallo e la PDF?}
 \end{center}
-Tanto la laerghezza dell'intervallo quanto la PDF ad esso associata si scelgono sulla base di:
+Tanto la larghezza dell'intervallo quanto la PDF ad esso associata si scelgono sulla base di:
 \begin{itemize}
   \item precedenti conosenze o dati di misura
   \item esperienza sul comportamento del misurando
@@ -534,9 +540,96 @@ $$
 $$
   \sigma(x) = \frac{\Delta x}{\sqrt{24}}
 $$
-A pari larghezza $\Delta x$, si ha natiralmente che:
+A pari larghezza $\Delta x$, si ha naturalmente che:
 $$
   u_{B,triangolare}(x) = \frac{\Delta x}{\sqrt{24}} < u_{B,uniforme}(x) = \frac{\Delta x}{\sqrt{12}}
 $$
 Infatti la PDF$_{Tri}$ è "meno dispersa" della PDF$_{Uni}$.
+\chapter{Rappresentazione Grafica dei Risultati Sperimentali - Interpolazione e Curve di Regressione}
+\section{Rappresentazione Grafica dei Risultati Sperimentali}
+La rappresentazione grafica di effettua per ottenere una "visione d'insieme" di una grandezza, inf unzione del tempo (o di un altro parametro). Si utilizzano tipicamente assi coortinati che devono riportare la descrizione della grandezza rappresentata e all'occorrenza \textbf{anche la sua unità di misura}.
+
+Si distinguono infatti due tipi di grafici:
+\begin{itemize}
+  \item Grafici \textbf{quantitativi}: grafici in cui sugli assi compaiono dei valori numerici, dei quali bisogna sempre indicare l'unità di misura corrispondente.
+  \item Grafici \textbf{qualitativi}: i grafici che non sono quantitativi si dicono qualitativi, e sono spesso usati per indicare degli andamenti o delle tendenze.
+\end{itemize}
+\paragraph{Grafico in un piano cartesiano}~\\
+Come già si dovrebbe sapere, il grafico in un piano cartesiano è composto da due assi, uno per le \textit{ascisse} e uno per le \textit{ordinate}. Sull'asse delle \textit{ascisse} (asse X) ci sarà la variabile \textbf{indipendente}, anche detta "comando d'ingresso"- Sull'asse delle \textit{ordinate} (asse Y) ci sarà invece la variabile \textbf{dipendente}, anche detta "grandezza d'uscita".
+
+Va notato che tipicamente avremo $u(x_i) << u(y_i)$, ossia la variabile di comando è nota con buona precisione (diremo che ha incertezza trascurabile), mentre la variabile di uscita presenta una maggiore incertezza, che andrà rappresentata su grafico tramite delle \textit{\textbf{barre d'errore}}. Possiamo vedere un esempio di queste barre d'errore bella Figura: \ref{rappresentazione:barrerrore}, nella quale le barre indicano un intervallo di confidenza, che va specificato: ad esempio scriveremo in aggiunta al grafico che esse rappresentano un intervallo di confidenza del $\pm 1 \sigma$ (68\%).
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=16cm,
+        height=7cm,
+        keepaspectratio,
+    ]{images/esempioBarreErrore.png}
+    \caption{Caratteristica ingresso-uscita di un amplificatore elettronico.}
+    \label{rappresentazione:barrerrore}
+  \end{center}
+\end{figure}
+\paragraph{Grafico in un Diagramma Polare}~\\
+In alternativa ai diagrammi cartesiani, per alcuni casi si usano i diagrammi polari, in cui abbiamo sempre due coordinate, ma sono una radiale e l'altra angolare.
+\begin{itemize}
+  \item Coordinata radiale: $\rho = \sqrt{(x^2+y^2)} $
+  \item Coordinata angolare: $\theta = \arctan(\frac{y}{x})~~per~~x\ge 0$
+\end{itemize}
+Quindi avremo:
+\begin{itemize}
+  \item $x = \rho \cos(\theta) $
+  \item $y = \rho \sin(\theta) $
+\end{itemize}
+Nella Figura \ref{rappresentazione:diagrammaPolare} possiamo vedere un esempio in cui viene utile utilizzare un diagramma polare per la rappresentazione dei dati. Il diagramma mostra la direttività di un altoparlante e si può facilmente vedere come, immaginando che l'altoparlante si trovi all'origine degli assi diretto "verso l'alto" (verso la direzione delle $y$ crescenti) se ci si posiziona \textbf{dietro} di esso (cioè nella parte negativa dell'asse $y$) il suono viene propagato molto poco e per direzioni ridotte, mentre viene ben amplificato e propagato nella parte positiva dell'asse $y$.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=16cm,
+        height=7cm,
+        keepaspectratio,
+    ]{images/diagrammaPolare.png}
+    \caption{Un esempio di diagramma polare.}
+    \label{rappresentazione:diagrammaPolare}
+  \end{center}
+\end{figure}
+\paragraph{Grafico in scala semilogaritmica}~\\
+Come già studiato nella Sezione \ref{sezione:unitaLog}, le unità logaritmiche sono utili per visualizzare grandezze che variano di diversi ordini di grandezza, con dettaglio relativo costante, cioè punti equispaziati in scala logaritmica stanno in uno \textbf{stesso rapporto} in scala lineare.
+
+I diagrammi \textit{semi}logaritmici sono tali perché hanno uno degli assi in scala logaritmica, mentre l'altro in scala lineare. In Figura \ref{diagrammi:semilogy} possiamo vedere un diagramma "\textit{semilog-}$y$" per la curva I-V di un diodo a semiconduttore in polarizzazione diretta: $I = I_0 e^(\frac{V}{V_T})$
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=8cm,
+        height=7cm,
+        keepaspectratio,
+    ]{images/semilog.png}
+    \caption{Un esempio di diagramma semilogaritmico.}
+    \label{diagrammi:semilogy}
+  \end{center}
+\end{figure}
+Un ulteriore esempio di diagramma semilogaritmico è un diagramma di Bode della fase\footnotemark[1]\footnotetext[1]{I diagrammi di Bode della fase e del Modulo verranno trattati approfonditamente nel corso di Automatica.}, mostrato in figura \ref{diagrammi:BodeFase}, che rappresenta lo sfasamento in gradi (o radianti) sull'asse verticale in funzione della frequenza riportata in scala logaritmica sull'asse orizzontale (dato che spesso per le componenti analizzate in questi diagrammi si ha un'ampia dinamica di frequenza).
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=8cm,
+        height=7cm,
+        keepaspectratio,
+    ]{images/bodeFase.png}
+    \caption{Un esempio di diagramma di Bode della Fase.}
+    \label{diagrammi:BodeFase}
+  \end{center}
+\end{figure}
+\paragraph{Grafico in scala semilogaritmica}~\\
+Quando si ha necessità di rappresentare ampie dinamiche di funzione per entrambe le variabili di controllo e controllata, si può ricorrere all'uso di diagrammi "interamente" logaritmici (\textit{log-log}). Come per esempio viene fatto nel diagramma di Bode del Modulo\footnotemark[1] per rappresentare l'ampiezza o guadagno in dB in funzione delle afrequenza riportata in scala logaritmica (vedi Figura \ref{diagrammi:BodeModulo}).
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=8cm,
+        height=7cm,
+        keepaspectratio,
+    ]{images/bodeModulo.png}
+    \caption{Un esempio di diagramma di Bode della Fase.}
+    \label{diagrammi:BodeModulo}
+  \end{center}
+\end{figure}
 \end{document}
