@@ -632,6 +632,17 @@ Quando si ha necessità di rappresentare ampie dinamiche di funzione per entramb
     \label{diagrammi:BodeModulo}
   \end{center}
 \end{figure}
+\paragraph{Osservazione sulle misure}~\\
+Da una rapida analisi dei logaritmi per la prima decade:
+\begin{align*}
+&log_{10}(1)~~ = ~0\\
+&log_{10}(2)~~ \simeq~ 0.3\\
+&log_{10}(5)~~ \simeq~ 0.6\\
+&log_{10}(10)~ =~ 1
+\end{align*}
+possiamo notare che anche per tutte le altre decadi vale questo (ovviamente a meno degli opportuni fattori moltiplicativi).
+
+Quindi, per prendere misure sensate per ricostruire la curva senza occupare troppo tempo/effetturare troppe misurazioni conviene prendere 4 misure per ogni decade, cioè \textbf{una ogni terzo}. In questo modo con 19 misurazioni si ha un'escursione di 6 decadi (da 0 dino a $10^5$). 
 \section{Interpolazione e Regressione}
 \subsection{Interpolazione}
 Essendo una misura un insisme finto e discreto di valori sperimetali, quando andiamo a rappresentarla su un grafico avremo una disposizione di questi punti sperimentali \textbf{discreta} (non continua). Sarebbe quindi utile e interessante andare a "riempire" lo spazio tra due punti sperimentali adiacenti. Questa operazione di "riempimento" prende il nome di \textbf{interpolazione}, ed è effettuata tramita una \textbf{funzione interpolante}.
@@ -681,7 +692,7 @@ La funzione interpolante in questo caso è definita come una funzione che è nul
   E QUA METTICI LA FUNZIONE INTERPOLANTE CUBICA
 \end{center}
 \paragraph{Interpolazione a seno cardinale}~\\
-È il tipo di interpolazione ideale per la ricostruzione di segnali campionati nel tempo. La funzione interpolante è fatta come in Figura \ref{interpolazione:interpolante:seno} ed è possibile ricavarla matematicamente dall'operazione di filtraggio passa-basso ideale del segnale campionato. Nel dominio del tempo consiste in una convoluzione del segnale campionato con la funzione $sinc(\pi x) = \frac{\sin(\pi x)}{\pi x}$.
+È il tipo di interpolazione ideale per la ricostruzione di segnali campionati nel tempo. La funzione interpolante è fatta come in Figura \ref{interpolazione:interpolante:seno} ed è possibile ricavarla matematicamente dall'operazione di filtraggio passa-basso ideale del segnale campionato. Nel dominio del tempo consiste in una convoluzione del segnale campionato con la funzione $sinc(\pi x) = \frac{\sin(\pi x)}{\pi x}$, che è continua e non si annulla mai.
 \begin{figure}
   \begin{center}
     \includegraphics[
@@ -693,5 +704,40 @@ La funzione interpolante in questo caso è definita come una funzione che è nul
     \label{interpolazione:interpolante:seno}
   \end{center}
 \end{figure}
+\paragraph{Esempio di ricostruzione di un segnale mediante interpolatore}~\\
+In Figura \ref{interpolazione:esempio} possiamo vedere due esempi di interpolazione: una a seno cardinale e una lineare. La differenza che si nota è sostanziale.
+\begin{figure}
+  \begin{center}
+    \includegraphics[
+        width=8cm,
+        height=7cm,
+        keepaspectratio,
+    ]{images/interpolazioneEsempio.png}
+    \caption{Un esempio di informazione sia a seno cardinale sia lineare.}
+    \label{interpolazione:esempio}
+  \end{center}
+\end{figure}
+Una caratteristica da notare nell'interpolazione a seno cardinale e che si nota dalla Figura \ref{interpolazione:esempio} è la "precisione" dell'interpolazione che diminuisce in prossimità degli estremi dell'intervallo di campionamento, mentre vicino al centro dell'intervallo è molto più "fedele". Questo è dovuto al fatto che tale metodo di interpolazione sfrutta, per determinare un tratto di curva tra due punti sperimentali, l'informazione di tutti gli altri punti sperimentali. In prossimità degli estremi, è quindi impossibile avere informazioi sulle parti "a destra" e "a sinistra", perchè non sono state campionate.
 \subsection{Regressione}
+\chapter{Esercizi di Conversione}
+\section{Conversione di Potenze}
+\begin{table}[H]
+  \caption{}
+  \label{tab:}
+
+  \begin{center}
+    \begin{tabular}{|l|r|}
+    \hline
+       2                    & $\simeq +3$ \\
+    \hline
+       $\frac{1}{2}$        & $\simeq -3$ \\
+    \hline
+       $5 = \frac{10}{2}$   & $\simeq +7$ \\
+    \hline
+       $\frac{1}{5}$        & $\simeq -7$ \\
+    \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+\section{Conversione di Ampiezze}
 \end{document}
