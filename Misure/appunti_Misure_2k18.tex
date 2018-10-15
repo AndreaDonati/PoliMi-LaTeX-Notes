@@ -615,8 +615,14 @@ Sappiamo anche che in generale ciascuna incertezza $u(x_i)$ è:
 $$
   u_c(x_i) = \sqrt{u_A^2(x_i)+u_B^2(x_i)} = \sqrt{s^2(\bar{x_i})+u_B^2(x_i)} = \sqrt{\frac{s^2(x_i)}{n}+u_B^2(x_i)}
 $$
-\textcolor{red}{MANCA LA PARTE DI COEFFICIENTI DI CORRELAZIONE}\\
-Nel caso di \textbf{variabili d'ingresso statisticamente indipendenti} tutti i termini di covarianza e i coefficienti i correlazione sono nulli ($r_{ij} = 0$ tra le variaili $x_i$ e $x_j$ con $i \neq j$) e pertanto:
+Per arrivare a semplicifare la formula dell'uncertezza combinata, andiamo a definire i \textbf{coefficienti di correlazione}:
+$$
+  i_{ij}(x_i,x_j) \equiv \frac{u(x_i,x_j)}{u(x_i)\cdot u(x_j)}~\epsilon [-11;+1]~
+$$ definito come il rapporto tra la covarianza di due variabili e il prodotto delle loro varianze. È importante notare che se $X_i$ e $X_j$ sono variabili aleatorie tali per cui il comportamento di una non influisce sulla variazione dell'altra (cioè sono \textbf{statisticamente indipendenti}), allora il loro coefficiente di correlazione sarà pari a 0.
+$$
+    r_{ij} = 0~~~~\text{se $X_i$ e $X_j$ sono statisticamente indipendenti}
+$$
+Nel caso di \textbf{variabili d'ingresso statisticamente indipendenti} tutti i termini di covarianza e i coefficienti i correlazione sono nulli ($r_{ij} = 0$ tra le variabili $x_i$ e $x_j$ con $i \neq j$) e pertanto:
 $$
   u_c(y) = \sqrt{\sum^{N}_{i_1}\Bigg(\frac{\delta f}{\delta x_i}\Bigg)^2 u^2(x_i)}
 $$ e quindi:
@@ -625,12 +631,36 @@ $$
 $$ risulta essere una \textit{somma di varianze}.
 
 Nella maggior parte dei casi analizzati riusciremo a dedurre che le variabili d'ingresso sono statisticamente indipendenti, quindi potremo applicare queste ultime due formule.
-\\\textcolor{red}{MANCA LA PARTE DI casi particolari di relazioni funzionali}\\
+\subsubsection{Casi Particolari di Relazioni Funzionali}
+Nei due seguenti casi abbiamo che le variabili d'ingresso $X_i$ sono statisticamente indipendenti:
+\begin{itemize}
+  \item Misurando somma o differenza delle $x_i$:
+  $$
+    \bar{y} = n_1\bar{x_1}\pm\ldots n_i\bar{x_i}\pm\ldots n_N\bar{x_N}
+  $$
+  $$
+    u^2_c(y) = \sum^N_{i = 1}n_i^2 u^2(x_i)
+  $$
+  Se inoltre $n_i = 1$ per ogni $i$, cioè la relazione funzionale è una somma algebrica semplice:
+  $$
+    u_c(y) = \sqrt{\sum^N_{i = 1}u^2(x_i)}
+  $$
+  \item Misurando prodotto o rapporto delle $x_i$:
+  $$
+    u{r,c}(y) = \sqrt{\sum^{N}_{i = 1}n_i^2 u_r^2(x_i)}
+  $$
+    Se inoltre $n_i = 1$ per ogni $i$, cioè la relazione funzionale è espressa da prodotti e rapporti semplici:
+    $$
+      u_{r,c}^2(y) = \sum^{N}_{i = 1}u_r^2(x_i)
+    $$
+\end{itemize}
 \subsection{Esercizio di Esempio: Legge dei Gas Perfetti}
 La relazione funzionale è:
-$$
+\begin{equation}
+  \label{gas perfetti}
   p = n \frac{RT}{V} = f (n,R,T,V)
-$$
+\end{equation}
+
 dove:
 \begin{itemize}
   \item $R = 8.31~\Bigg[\frac{Pa\cdot m^3}{mol\cdot k}\Bigg]$~~~ con $u(R) \simeq 0$ (trascurabile per il nostro problema)
@@ -638,7 +668,49 @@ dove:
   \item $T = 300~K$~~~ con $u(T) = 0.1 K$
   \item $V = 1~m^3$~~~~~ da $V = L^3$ e $L = 1~m\pm 1~mm$
 \end{itemize}
-\textcolor{red}{FINISCI QUA.}
+Possiamo immediatamente calcolare il \textbf{valore} della misura:
+$$
+  p = \frac{2~[mol]\cdot 8.31~\Bigg[\frac{Pa\cdot m^3}{mol\cdot k}\Bigg]\cdot 300~[K]}{1~[m^3]} = 4986~Pa \simeq 5~kPa
+$$
+Per calcolare l'incertezza innanzitutto ci accorgiamo che è necessario calcolare una incertezza composta, con relazione funzionale espressa nella Formula \ref{gas perfetti}. Per calcolare questa quindi necessitiamo di sapre le incertezze di tutte le variabili coinvolte nella relazione funzionale.
+
+L'incertezza di R è trascurabile per ipotesi, quella di n è nota così come quella di T, ma non conosciamo l'incertezza di V. Procediamo quindi a calcolarla: anche questa in un certo senso è il calcolo di un incertezza composta, con la relazione funzionale $ V = L^3 $, quindi scriviamo:
+$$
+  u(V) = \sqrt{\Bigg(\frac{\delta V}{\delta L}\Bigg)^2 u^2(L)} = \sqrt{[3~m^2]^2\cdot[10^{-3}~m]^2} = \sqrt{9\times 10^{-6}~m^6} = 3\times 10^{-3}~ m^3
+$$
+Ora, conscendo tutte le variabili/grandezze d'ingresso per valore ed incertezza, possiamo calcolare l'incertezza composta della grandezza misurata indirettamente:
+\begin{align*}
+&u(p) = \sqrt{\Bigg(\frac{\delta p}{\delta n}\Bigg)^2 u^2(n)+\Bigg(\frac{\delta p}{\delta T}\Bigg)^2 u^2(T)+\Bigg(\frac{\delta p}{\delta V}\Bigg)^2 u^2(V)} =\\
+&= \sqrt{\Bigg(\frac{RT}{V}\Bigg)^2 u^2(n)+\Bigg(\frac{nR}{V}\Bigg)^2 u^2(T)+\Bigg(\frac{nRT}{-V^2}\Bigg)^2 u^2(V)} =\\
+&= \sqrt{\Bigg(\frac{nRT}{V}\Bigg)^2 \frac{u^2(n)}{n^2}+\Bigg(\frac{nRT}{V}\Bigg)^2 \frac{u^2(T)}{T^2}+\Bigg(\frac{nRT}{-V}\Bigg)^2 \frac{u^2(V)}{V^2}}\\
+\end{align*}
+Dall'ultima espressione possiamo concludere che:
+\begin{equation}
+\label{formula incertezza composta}
+  u_r(p) = \sqrt{u_r^2(n)+u_r^2(T)+u_r^2(V)}
+\end{equation}
+Questa sarà quindi la formula da usare non solo in questo caso, ma anche in tutti gli altri casi simili a questo!
+
+Per concludere:
+\begin{itemize}
+  \item $u_r^2(n) = 10^{-12}$
+  \item $u_r^2(T) = \frac{(0.1~K)^2}{(300~K)^2} \simeq 1.1\times 10^{-7}$
+  \item $u_r^2(V) = \frac{3\times 10^{-3}~ m^3)^2}{(1~m^3)^2} \simeq 9\times 10^{-6}$
+\end{itemize}
+e quindi:
+\begin{equation}
+  \label{calcolo p}
+  u_r(p) = \sqrt{10^{-6}(10^{-6}+0.11+9)} \simeq 3\times 10^{-3}
+\end{equation}
+e inoltre:
+$$
+  u(p) = u_r(p)\times p = 14.9~ Pa \simeq 15~Pa
+$$
+Possiamo in conclusione esprimere la misura completa della sua incertezza inelle due notazioni:
+$$
+  p = 4986~ Pa\pm 15~ Pa = 4986(15)~ Pa
+$$
+\subparagraph{Nota} come possiamo notare dalla Formula \ref{calcolo p} e dalla \ref{forumla incertezza composta}, l'incertezza relativa di $p$ risulta essere pressochè identica all'incertezza relativa di $V$. Questo perchè $u_r(V)^2$ è il termine predominante sotto la radice. Avremo \textbf{sempre}, quindi, che se un termine particolare è superiore agli altri di almeno un fattore 5, esso risulterà come termine dominante e l'incertezza relativa risultante protrà essere approssimata ad esso.
 \chapter{Rappresentazione Grafica dei Risultati Sperimentali - Interpolazione e Curve di Regressione}
 \section{Rappresentazione Grafica dei Risultati Sperimentali}
 La rappresentazione grafica di effettua per ottenere una "visione d'insieme" di una grandezza, inf unzione del tempo (o di un altro parametro). Si utilizzano tipicamente assi coortinati che devono riportare la descrizione della grandezza rappresentata e all'occorrenza \textbf{anche la sua unità di misura}.
@@ -822,6 +894,8 @@ Una caratteristica da notare nell'interpolazione a seno cardinale e che si nota 
   \begin{center}
     \begin{tabular}{|l|r|}
     \hline
+    Lineare                 & dB\\
+    \hline
        2                    & $\simeq +3$ \\
     \hline
        $\frac{1}{2}$        & $\simeq -3$ \\
@@ -833,5 +907,49 @@ Una caratteristica da notare nell'interpolazione a seno cardinale e che si nota 
     \end{tabular}
   \end{center}
 \end{table}
+Per la prima è sufficiente andare a memoria o effettuare un rapido calcolo con la calcolatrice.\\
+Per la seconda è necessario usare le proprietà dei logaritmi:
+\begin{equation}
+  \label{logaritmi:frazione}
+  log_{10}(\frac{1}{x}) = log_{10}(x^{-1}) = -log_{10}(x)  
+\end{equation}
+Per la terza possiamo ancora usare le proprietà dei logaritmi:
+\begin{equation}
+  \label{logaritmi:differenza}
+  10log_{10}(5) = 10log_{10}(\frac{10}{2}) = 10log_{10}(10)-10log_{10}(2) \simeq 10 - 3 = 7  
+\end{equation}
+mentre per l'ultima si utilizza nuovamente la \ref{logaritmi:frazione}.
 \section{Conversione di Ampiezze}
+\begin{table}[H]
+  \caption{}
+  \label{tab:}
+
+  \begin{center}
+    \begin{tabular}{|l|r|}
+    \hline
+    Lineare                               & dB\\
+    \hline
+       $\sqrt{2}$                         & $\simeq +3$ \\
+    \hline
+       2                                  & $\simeq +6$ \\
+    \hline
+       $\frac{\sqrt{2}}{2} \simeq 0.707$  & $\simeq -3$ \\
+    \hline
+       $5$                                & $\simeq 14$ \\
+    \hline
+       $\frac{1}{5}$                      & $\simeq -14$ \\
+    \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+È abbastanza semplice notare come per alcuni valori noti sia sufficiente, se si è già calcolato o se lo si ricorda meglio, raddoppiare il valore in dB della potenza.
+
+Altre operazioni di derivazione (senza calcolatrice o ragionamenti troppo complessi) che possiamo facilmente effettuare sono, per esempio, quelle similari alla prima conversione della tabella. Se conosciamo $10log_{10}(2) = 3$, allora possiamo ricavare facilmente, con le proprietà dei logaritmi:
+$$
+  20log_{10}(2^{\frac{1}{2}}) = \frac{20}{2}log_{10}(2) = 10log_{10}(2)
+$$
+Possiamo usare un ragionamento simile a \ref{logaritmi:differenza} per ottenere la terza conversione della tabella: conoscendo la conversione di $\sqrt{2}$ e tenendo presente il fatto che dividere per 2 nel processo di conversione possiamo interpretarlo come sottrarre 6:
+$$
+  20log_{10}(\frac{\sqrt{2}}{2}) = 20log_{10}(\sqrt{2})-20log_{10}(2) = +3-6 = -3
+$$ 
 \end{document}
