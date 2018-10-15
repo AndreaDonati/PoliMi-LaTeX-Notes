@@ -227,10 +227,10 @@ Nota: i "dBx" sono normali decibel, quindi possono essere sommati/sottratti a de
 {\Large {\textbf{Attenzione:}}} NON è in nessun modo sommare tra loro i dBx!! Un rapido esempio è che
 $$1 W + 1 W = 2 W$$
 $$+30 dBm + 30 dBm \neq + 60 dBm = \ kW$$
-\subsection*{Calcoli Approssimati con i dB ????}
 \subsection{Esempi di Calcoli e Conversioni con dB}
 $$P = 10\ W \rightarrow P_{dBW} = 10 log_{10}\Bigg(\frac{P}{1W}\Bigg) = 10 log_{10}\Bigg(\frac{10 W}{1 W}\Bigg) = 10 log_{10}(10) = 10\ dBW$$
 $$P = +90\ dBW = 10 log_{10}\Bigg(\frac{P}{1W}\Bigg) \rightarrow P = \Bigg( 10 \frac{PdbW}{10}\Bigg)\times 1 W = 10^9 W $$
+Per altri esempi e una migliore spiegazione si rimanda al Capitolo \ref{esercizi:conversione}.
 \newpage
 \chapter{Incertezza di Misura}
 Abbiamo detto che la misura è un \textbf{numero} associato alla sua unità di \textbf{misura}. Adesso è il momento di aggiungere anche un qualcosa che esprime anche "quanto mi fido" della misura in questione, cioè l'\textbf{incertezza}. Possiamo quindi esprimere le misure, da ora in poi, come: $$ MIS_{x} = x_{numero}\ x_{unità\ di\ misura} \pm INC_{x}\ x_{unità\ di\ misura} $$
@@ -886,6 +886,7 @@ In Figura \ref{interpolazione:esempio} possiamo vedere due esempi di interpolazi
 Una caratteristica da notare nell'interpolazione a seno cardinale e che si nota dalla Figura \ref{interpolazione:esempio} è la "precisione" dell'interpolazione che diminuisce in prossimità degli estremi dell'intervallo di campionamento, mentre vicino al centro dell'intervallo è molto più "fedele". Questo è dovuto al fatto che tale metodo di interpolazione sfrutta, per determinare un tratto di curva tra due punti sperimentali, l'informazione di tutti gli altri punti sperimentali. In prossimità degli estremi, è quindi impossibile avere informazioi sulle parti "a destra" e "a sinistra", perchè non sono state campionate.
 \subsection{Regressione}
 \chapter{Esercizi di Conversione}
+\label{esercizi:conversione}
 \section{Conversione di Potenze}
 \begin{table}[H]
   \caption{}
