@@ -545,6 +545,87 @@ $$
   u_{B,triangolare}(x) = \frac{\Delta x}{\sqrt{24}} < u_{B,uniforme}(x) = \frac{\Delta x}{\sqrt{12}}
 $$
 Infatti la PDF$_{Tri}$ è "meno dispersa" della PDF$_{Uni}$.
+\newpage
+\section{Incertezza Composta $u_C$}
+L'incertezza composta deriva appunto dalla composizione di incertezza di categoria A e di categoria B.
+\subsection{Incertezza Composta per Misure Dirette e indirette}
+\subsubsection{Misure Dirette}
+Nel caso di misure dirette (\textit{e.g.} misure di V con un voltmetro) possiamo calcolare l'incertezza composta come:
+$$
+  u^2_C = u^2_A + u^2_B
+$$
+\subsubsection{Misure Indirette}
+Nel caso di misure \textbf{indirette}, invece, il discorso è molto più complesso.
+
+Un esempio di misura indiretta piò essere la misura di una potenza elettrica \textbf{senza wattmetro}, cioè ottenuta da R ed I tramite la formula $P = RI^2$. In questo caso la \textbf{misura è funzione di più misure}: $y = f(x_1,x_2,\ldots ,x_N)$
+È possibile calcolare $u_B(x)$ partendo dalla conoscenza di un \textbf{ intervallo di confidenza} con probabilità $P$, usando una PDF notmale con confidenza $P$, centrata sul valore centrale dell'intervallo.
+
+Stimeremo l'incertezza in questo caso come:
+$$
+  u_B(x) = \sigma(x) = \sigma_x
+$$\\
+
+In altri casi si può calcolare $u_B(x)$ partendo dalla conoscenza di una \textbf{incertezza estesa} $U_B = k u_B$, conoscendo il fattore di copertura $k$. Dalla definizione di incertezza estesa possiamo quindi ricavare $u_B(x)$ come:
+$$
+  u_B(x) = \frac{U_B(x)}{k}
+$$
+Definiamo le componenti delle misure indirette:
+\begin{itemize}
+  \item \textbf{Misurando}: $Y = f(X_1,X_2,\ldots,X_N)$ ricavato \textbf{indirettamente} dalla conoscenza di N altre grandezze (dette parametri di ingresso)
+  \item \textbf{Relazione Funzionale} (o equazione della misura): la funzione $f(X_i)$
+  \item Ricordiamo inoltre che $Y$ e $X_i$ sono le variabili, mentre $y$ e $x_i$ i valori delle variabili
+\end{itemize}
+Naturalmente dalla conoscenza dei valori degli ingressi è possibile ricavare il \textbf{valore dell'uscita}: $y = f(x_i)$.
+
+Saranno invece le \textbf{incertezze degli ingressi}, opportunamente combinate, a fornire l'\textbf{incertezza dell'uscita}:
+$$
+  u_C(y) = \Phi[u(x_i);f(\cdotp)]
+$$
+Dati i valori della relazione funzionale, è possibile sviluppare in \textbf{serie di Taylor} al primo ordine la relazone funzionale $f$ in un intorno del valore di misura (o \textbf{punto di lavoro}):
+$$
+  (y-\bar{y}) \simeq \Bigg(\frac{\delta f}{\delta x_1}\Bigg)_{\bar{y}} (x_1 + \bar{x_1})+\ldots+\Bigg(\frac{\delta f}{\delta x_N}\Bigg)_{\bar{y}} (x_N + \bar{x_N}) 
+$$
+Definiamo quindi \textbf{coefficienti di sensibilità} le derivate prime parziali della relazione funzionale rispetto alla variabile $x_i$:
+$$
+  c_i \equiv \Bigg(\frac{\delta f}{\delta x_1}\Bigg)_{\bar{y}}
+$$
+$c_i$ indica come varia il bisurando $Y$ in corrispondenza di una variazione del parametro $X_i$ di dipendenza.
+\subparagraph*{Covarianza:} definiamo covarianza (con $i \ne j$):
+$$
+  E \Bigg[(x_i - \bar{x_i})(x_j - \bar{x_j})\Bigg] \equiv \sigma^2(x_i,x_j) = u (x_i,x_j)
+$$
+
+Possiamo quindi scrivere l'espressione dell'incertezza composta al quadrato come:
+$$
+  u_C^2 = \sum^N_{i = 1}\Bigg(\frac{\delta f}{\delta x_i}\Bigg)^2 u^2(x_i)+2\sum^{N-1}_{i = 1}\sum^{N}_{j = i +1}\Bigg(\frac{\delta f}{\delta x_i}\Bigg)\Bigg(\frac{\delta f}{\delta x_j}\Bigg)u(x_i,x_j)
+$$ dove:
+$$
+  \Bigg(\frac{\delta f}{\delta x_i}\Bigg)^2
+$$
+è la somma pesata, con pesi $c_i^2$, delle incertezze (varianze) degli ingressi $x_i$ più la somma dei termini di \textit{covarianza}, sempre pesati con le derivate prime della relazione funzionale.
+
+Possiamo affermare a questo punto che il \textbf{valore della misura} della grandezza $Y$ è:
+$$
+  y = \bar{y} = f(\bar{x_1},\bar{x_2},\ldots,\bar{x_N})
+$$ ed ha una \textbf{incertezza composta} che vale:
+$$
+  u_c(y) = \sqrt{  u_C^2 = \sum^N_{i = 1}c_i^2 u^2(x_i)+2\sum^{N-1}_{i = 1}\sum^{N}_{j = i +1}c_i c_j u(x_i,x_j)}
+$$
+Sappiamo anche che in generale ciascuna incertezza $u(x_i)$ è:
+$$
+  u_c(x_i) = \sqrt{u_A^2(x_i)+u_B^2(x_i)} = \sqrt{s^2(\bar{x_i})+u_B^2(x_i)} = \sqrt{\frac{s^2(x_i)}{n}+u_B^2(x_i)}
+$$
+\textcolor{red}{MANCA LA PARTE DI COEFFICIENTI DI CORRELAZIONE}\\
+Nel caso di \textbf{variabili d'ingresso statisticamente indipendenti} tutti i termini di covarianza e i coefficienti i correlazione sono nulli ($r_{ij} = 0$ tra le variaili $x_i$ e $x_j$ con $i \neq j$) e pertanto:
+$$
+  u_c(y) = \sqrt{\sum^{N}_{i_1}\Bigg(\frac{\delta f}{\delta x_i}\Bigg)^2 u^2(x_i)}
+$$ e quindi:
+$$
+  u^2_c(y) = \sum^{N}_{i = 1}c_i^2 u^2 (x_i)
+$$ risulta essere una \textit{somma di varianze}.
+
+Nella maggior parte dei casi analizzati riusciremo a dedurre che le variabili d'ingresso sono statisticamente indipendenti, quindi potremo applicare queste ultime due formule.
+\\\textcolor{red}{MANCA LA PARTE DI casi particolari di relazioni funzionali}\\
 \chapter{Rappresentazione Grafica dei Risultati Sperimentali - Interpolazione e Curve di Regressione}
 \section{Rappresentazione Grafica dei Risultati Sperimentali}
 La rappresentazione grafica di effettua per ottenere una "visione d'insieme" di una grandezza, inf unzione del tempo (o di un altro parametro). Si utilizzano tipicamente assi coortinati che devono riportare la descrizione della grandezza rappresentata e all'occorrenza \textbf{anche la sua unità di misura}.
