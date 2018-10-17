@@ -5,6 +5,7 @@
 \usepackage[italian]{babel}
 \usepackage{graphicx}
 \usepackage{tikz}
+\usepackage{circuitikz}
 \usepackage{pgfplots}
   \usepgflibrary{arrows}
 \usepackage{float}
@@ -203,7 +204,7 @@ Possiamo vedere questo elenco anche come una \it catena di riferibilità\rm, che
 Le unità logaritmiche esprimono sotto forma di logaritmo il rapporto tra due grandezze \bf omogenee\rm. Notiamo che le grandezze in rapporto devono necessariamente essere omogenee, perché l'operatore logaritmo agisce solamente su numeri puri.
 Una caratteristica che torna utile nelle unità logaritmiche è una delle proprietà dei logaritmi, cioè che le operazioni di moltiplicazione e divisione tra numeri si traducono in somme e differenze.
 
-Le unità logaritmiche sono utilizzate molto el campo dell'elettronica e delle telecomunicazioni. I logaritmi più comunemente utilizzati sono quello in base 10 ($log_{10}$), quello in base $e$ ($log_{e} = ln$) e in informatica quello in base 2 ($log_{2}$).
+Le unità logaritmiche sono utilizzate molto nel campo dell'elettronica e delle telecomunicazioni. I logaritmi più comunemente utilizzati sono quello in base 10 ($log_{10}$), quello in base $e$ ($log_{e} = ln$) e in informatica quello in base 2 ($log_{2}$).
 \subsection{Il Bel}
 Il \textbf{bel} esprime il rapporto di potenze in scala logaritmica utilizzando una base decimale: $$\Bigg(\frac{P_{2}}{P_{1}}\Bigg)_{(bel)} = log_{10}\Bigg(\frac{P_{2}}{P_{1}}\Bigg)$$
 Il nome "bel" deriva dal suo inventore \textit{Alexander Graham-Bell} il quale, dovendo fare dei confronti tra potenze trasmesse per via aerea, si accorse che decadevano in maniera esponenziale.\\
@@ -212,7 +213,7 @@ Il nome "bel" deriva dal suo inventore \textit{Alexander Graham-Bell} il quale, 
 È un \textit{sottomultiplo} ($\frac{1}{10}$) del bel, esprime quindi anch'esso il rapporto di potenze (o anche ampiezze), mediante il logaritmo in base 10. $$\Bigg(\frac{P_{2}}{P_{1}}\Bigg)_{(dB)} = 10log_{10}\Bigg(\frac{P_{2}}{P_{1}}\Bigg)$$
 Ricordando che il deciBel, come il bel, esprime rapporti di potenze, possiamo dire che $ 1\ dB \simeq 1.25 = 1 + 25\% $. Quindi si può dire che $P_{2}$ è "più grande" di $P_{1}$ del 25\%.\\
 I rapporti di ampiezze, quando tensione e correnti sono misurate \textbf{su uno stesso carico}, si esprimono in deciBel secondo la relazione $$ 20log_{10}\Bigg(\frac{A_{2}}{A_{1}}\Bigg) $$
-Questa formula discende direttamente dal decibel.$$Inserire\  dimostrazione?????$$
+Questa formula discende direttamente dal decibel.
 \subsection*{"dBx"}
 Con dBx si indica il valore in decibel espresso rispetto ad un \textbf{riferimento x}. Scelto un livello di potenza $P_{x}$ come riferimento, un qualunque valore di potenza P può essere espresso in \textbf{decibel rispetto al riferimento} come
 $$
@@ -224,7 +225,7 @@ $$P_{(dBW)} = 10log_{10}\Bigg( \frac{P}{1W} \Bigg)$$
 $$P_{(dBk)} = 10log_{10}\Bigg( \frac{P}{1kW} \Bigg)$$
 Che esprimono la variazione della potenza misurata rispetto ad un riferimento "standard" di 1 milliWatt, Watt oppure kiloWatt.\\ \\
 Nota: i "dBx" sono normali decibel, quindi possono essere sommati/sottratti a decibel.\\ \\
-{\Large {\textbf{Attenzione:}}} NON è in nessun modo sommare tra loro i dBx!! Un rapido esempio è che
+{\Large {\textbf{Attenzione:}}} NON è in nessun modo possibile sommare tra loro i dBx!! Un rapido esempio è che
 $$1 W + 1 W = 2 W$$
 $$+30 dBm + 30 dBm \neq + 60 dBm = \ kW$$
 \subsection{Esempi di Calcoli e Conversioni con dB}
@@ -233,7 +234,7 @@ $$P = +90\ dBW = 10 log_{10}\Bigg(\frac{P}{1W}\Bigg) \rightarrow P = \Bigg( 10 \
 Per altri esempi e una migliore spiegazione si rimanda al Capitolo \ref{esercizi:conversione}.
 \newpage
 \chapter{Incertezza di Misura}
-Abbiamo detto che la misura è un \textbf{numero} associato alla sua unità di \textbf{misura}. Adesso è il momento di aggiungere anche un qualcosa che esprime anche "quanto mi fido" della misura in questione, cioè l'\textbf{incertezza}. Possiamo quindi esprimere le misure, da ora in poi, come: $$ MIS_{x} = x_{numero}\ x_{unità\ di\ misura} \pm INC_{x}\ x_{unità\ di\ misura} $$
+Abbiamo detto che la misura è un \textbf{numero} associato alla sua unità di \textbf{misura}. Adesso è il momento di aggiungere un qualcosa che esprime anche "quanto mi fido" della misura in questione, cioè l'\textbf{incertezza}. Possiamo quindi esprimere le misure, da ora in poi, come: $$ MIS_{x} = x_{numero}\ x_{unità\ di\ misura} \pm INC_{x}\ x_{unità\ di\ misura} $$
 Addirittura a volte arriviamo ad esprimere anche l'incertezza dell'incertezza, che dice quanto fidarsi dell'incertezza. Esprime l'attendibilità della stima di incertezza in questione.
 \section{Variabilità delle Misure} Misure ripetute dello stesso parametro fisico non forniscono lo stesso valore. È considerabile come una legge della natura, è impossibile che due misure consecutive diano esattamente lo stesso risultato per ogni cifra decimale. La caratteristica che ci permette di determinare l'incertezza della misura è la \textbf{deviazione standard} (o dispersione $\sigma$) della misura in questione, mentre il valore della misura sarà la \textbf{media} ($\mu$).
 $$SLIDE\ GAUSSIANA$$
@@ -247,7 +248,7 @@ ma questa risulterebbe un'affermazione errata, dato che il valore \textbf{vero} 
 La teoria degli errori definiva alcuni tipi di errori che si verificano più spesso:
 \begin{itemize}
   \item \textbf{Errori Sistematici:} si presentano nella stessa entità ogni volta che si ripete la misura (\textit{offset} o polarizzazione).\\
-  Per esempio possiamo pensare ad un peso di massa \textit{m} che viene posto su una bilancia digitale, leggendo il valore riportato dalla bilancia si noterà un \textit{offset} costante di 100g in più rispetto al valore m.
+  Per esempio possiamo pensare ad un peso di massa \textit{m} che viene posto su una bilancia digitale, leggendo il valore riportato dalla bilancia si noterà un \textit{offset} costante di 100g in più rispetto al valore $m$.
   \item \textbf{Errori Accidentali:} si presentano in maniera diversa e "impredicibile" ogni volta che si ripete la misura (fluttuazione casuale a media nulla).\\
   Per esempio:
 \end{itemize}
@@ -279,7 +280,7 @@ Per $X$ variabile casuale reale (che possiamo vedere come il possibile valore di
   Indice di scarto, rispetto alla media, \textbf{lineare}.
 \end{itemize}
 \subsection{La PDF Gaussiana}
-È la PDF "più comune" per la descrizione della media di fenomeni casuali quali le misure. Avendo infatti un significativo numero di misurazioni sappiamo, dalla statistica, grazie al teorema del limite centrale, che la media di una VC tende ad avere una PDF gaussiana in una "approssimazione dei grandi numeri". Assumendo quindi la PDF di una Gaussiana:\\
+È la PDF "più comune" per la descrizione della media di fenomeni casuali quali le misure. Avendo infatti un significativo numero di misurazioni sappiamo, dalla statistica, grazie al teorema del limite centrale, che la media di una VC tende ad avere una PDF gaussiana in una "approssimazione dei grandi numeri", assumendo quindi la PDF di una Gaussiana:\\
 $$ p(x) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{[x-\mu]^2}{2\sigma^2}} $$
 \begin{figure}[H]
   \begin{center}
@@ -305,7 +306,7 @@ Le \textbf{aree} sottese dalla PDF sono le probabilità di avere valori (misure)
   \end{center}
 \end{figure}
 \newpage
-Il concetto di "vicinanza o lontananza dalla media" non si possono esprimere semplicemente attraverso i valori. Bisogna rapportare questi valori alla varianza $\sigma$: ad esempio, se sono lontano dalla media "di 10 milioni di kilometri" (che come valore è "molto grande" e quindi ci sembra di essere molto lontani), ma con una $\sigma$ di 100 milioni di kilometri, in realtà sono lontano dalla media solo di $\frac{\sigma}{10}$, quindi sono piuttosto vicino.
+I concetti di "vicinanza o lontananza dalla media" non si possono esprimere semplicemente attraverso i valori. Bisogna rapportare questi valori alla varianza $\sigma$: ad esempio, se sono lontano dalla media "di 10 milioni di kilometri" (che come valore è "molto grande" e quindi ci sembra di essere molto lontani), ma con una $\sigma$ di 100 milioni di kilometri, in realtà sono lontano dalla media solo di $\frac{\sigma}{10}$, quindi sono piuttosto vicino.
 
 
 Livelli di confidenza è il nome che diamo a fattori moltiplicativi di $\sigma$ che indicano con quanta sicurezza cadremo in un intervallo di ampiezza $livello\ di\ confidenza \times \sigma$.
@@ -331,7 +332,7 @@ Con pochi passaggi matematici si può arrivare anche al metodo alternativo per i
 $$
   s^2(x) = \frac{1}{n-1}\Bigg[\Bigg(\sum^{n}_{k=1}x^2_k\Bigg)-n\bar{x}^2\Bigg]
 $$
-\paragraph{Gradi di Libertà della Stima} è il nome che diamo all' $n-1$ nella formula della varianza, diremo che quella stima della varianza ha $v = n-1$ gradi di libertà.\\
+\paragraph{Gradi di Libertà della Stima} è il nome che diamo all' $n-1$ nella formula della varianza, diremo che quella stima della varianza ha $\nu = n-1$ gradi di libertà.\\
 
 \textit{Perché quindi dividiamo per il numero di gradi di libertà e non per n?}
 \begin{itemize}
@@ -367,13 +368,14 @@ $$
 $$
 
 Definiamo quindi l'\textbf{incertezza di categoria A} la dispersione del valor medio delle misure ripetute, calcolabile come:
-$$
-  u_A(x) = s(\bar{x}) = \frac{s(x)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum^n_{k=1}(x_k-\bar{x})^2}
-$$
+\begin{equation}
+  \label{inc.cat.A}
+    u_A(x) = s(\bar{x}) = \frac{s(x)}{\sqrt{n}} = \sqrt{\frac{1}{n(n-1)}\sum^n_{k=1}(x_k-\bar{x})^2}
+\end{equation}
 
 Nel caso di incertezza \textbf{solo} di categoria A, il risultato di misura è allora $x = \bar{x} \pm \frac{s(x)}{\sqrt{n}}$, con una qualità che migliora (quindi l'incertezza diminuisce) al crescere di $n$.
 \subsection{Incertezza Relativa}
-Parleremo di \textbf{incertezza relativa} quando normalizziamo il valore di incertezza dipo al valore di misura:
+Parliamo di \textbf{incertezza relativa} quando normalizziamo il valore di incertezza dipo al valore di misura:
 $$
   u_r(x) = \frac{u(x)}{\bar{x}}
 $$
@@ -547,7 +549,7 @@ $$
 Infatti la PDF$_{Tri}$ è "meno dispersa" della PDF$_{Uni}$.
 \newpage
 \section{Incertezza Composta $u_C$}
-L'incertezza composta deriva appunto dalla composizione di incertezza di categoria A e di categoria B.
+L'incertezza composta deriva appunto dalla composizione di diverse incertezze, che possono essere di categoria A e di categoria B.
 \subsection{Incertezza Composta per Misure Dirette e indirette}
 \subsubsection{Misure Dirette}
 Nel caso di misure dirette (\textit{e.g.} misure di V con un voltmetro) possiamo calcolare l'incertezza composta come:
@@ -558,7 +560,7 @@ $$
 Nel caso di misure \textbf{indirette}, invece, il discorso è molto più complesso.
 
 Un esempio di misura indiretta piò essere la misura di una potenza elettrica \textbf{senza wattmetro}, cioè ottenuta da R ed I tramite la formula $P = RI^2$. In questo caso la \textbf{misura è funzione di più misure}: $y = f(x_1,x_2,\ldots ,x_N)$
-È possibile calcolare $u_B(x)$ partendo dalla conoscenza di un \textbf{ intervallo di confidenza} con probabilità $P$, usando una PDF notmale con confidenza $P$, centrata sul valore centrale dell'intervallo.
+È possibile calcolare $u_B(x)$ partendo dalla conoscenza di un \textbf{ intervallo di confidenza} con probabilità $P$, usando una PDF normale con confidenza $P$, centrata sul valore centrale dell'intervallo.
 
 Stimeremo l'incertezza in questo caso come:
 $$
@@ -589,7 +591,7 @@ Definiamo quindi \textbf{coefficienti di sensibilità} le derivate prime parzial
 $$
   c_i \equiv \Bigg(\frac{\delta f}{\delta x_1}\Bigg)_{\bar{y}}
 $$
-$c_i$ indica come varia il bisurando $Y$ in corrispondenza di una variazione del parametro $X_i$ di dipendenza.
+$c_i$ indica come varia il misurando $Y$ in corrispondenza di una variazione del parametro $X_i$ di dipendenza.
 \subparagraph*{Covarianza:} definiamo covarianza (con $i \ne j$):
 $$
   E \Bigg[(x_i - \bar{x_i})(x_j - \bar{x_j})\Bigg] \equiv \sigma^2(x_i,x_j) = u (x_i,x_j)
@@ -617,18 +619,20 @@ $$
 $$
 Per arrivare a semplicifare la formula dell'uncertezza combinata, andiamo a definire i \textbf{coefficienti di correlazione}:
 $$
-  i_{ij}(x_i,x_j) \equiv \frac{u(x_i,x_j)}{u(x_i)\cdot u(x_j)}~\epsilon [-11;+1]~
+  i_{ij}(x_i,x_j) \equiv \frac{u(x_i,x_j)}{u(x_i)\cdot u(x_j)}~\epsilon [-1;+1]~
 $$ definito come il rapporto tra la covarianza di due variabili e il prodotto delle loro varianze. È importante notare che se $X_i$ e $X_j$ sono variabili aleatorie tali per cui il comportamento di una non influisce sulla variazione dell'altra (cioè sono \textbf{statisticamente indipendenti}), allora il loro coefficiente di correlazione sarà pari a 0.
 $$
     r_{ij} = 0~~~~\text{se $X_i$ e $X_j$ sono statisticamente indipendenti}
 $$
 Nel caso di \textbf{variabili d'ingresso statisticamente indipendenti} tutti i termini di covarianza e i coefficienti i correlazione sono nulli ($r_{ij} = 0$ tra le variabili $x_i$ e $x_j$ con $i \neq j$) e pertanto:
 $$
-  u_c(y) = \sqrt{\sum^{N}_{i_1}\Bigg(\frac{\delta f}{\delta x_i}\Bigg)^2 u^2(x_i)}
+  u_c(y) = \sqrt{\sum^{N}_{i = 1}\Bigg(\frac{\delta f}{\delta x_i}\Bigg)^2 u^2(x_i)}
 $$ e quindi:
-$$
-  u^2_c(y) = \sum^{N}_{i = 1}c_i^2 u^2 (x_i)
-$$ risulta essere una \textit{somma di varianze}.
+\begin{equation}
+  \label{incertezza composta: formula generale}  
+    u^2_c(y) = \sum^{N}_{i = 1}c_i^2 u^2 (x_i)
+\end{equation}  
+risulta essere una \textit{somma di varianze}.
 
 Nella maggior parte dei casi analizzati riusciremo a dedurre che le variabili d'ingresso sono statisticamente indipendenti, quindi potremo applicare queste ultime due formule.
 \subsubsection{Casi Particolari di Relazioni Funzionali}
@@ -647,13 +651,15 @@ Nei due seguenti casi abbiamo che le variabili d'ingresso $X_i$ sono statisticam
   $$
   \item Misurando prodotto o rapporto delle $x_i$:
   $$
-    u{r,c}(y) = \sqrt{\sum^{N}_{i = 1}n_i^2 u_r^2(x_i)}
+    u_{r,c}(y) = \sqrt{\sum^{N}_{i = 1}n_i^2 u_r^2(x_i)}
   $$
     Se inoltre $n_i = 1$ per ogni $i$, cioè la relazione funzionale è espressa da prodotti e rapporti semplici:
     $$
       u_{r,c}^2(y) = \sum^{N}_{i = 1}u_r^2(x_i)
     $$
 \end{itemize}
+
+
 \subsection{Esercizio di Esempio: Legge dei Gas Perfetti}
 La relazione funzionale è:
 \begin{equation}
@@ -672,7 +678,7 @@ Possiamo immediatamente calcolare il \textbf{valore} della misura:
 $$
   p = \frac{2~[mol]\cdot 8.31~\Bigg[\frac{Pa\cdot m^3}{mol\cdot k}\Bigg]\cdot 300~[K]}{1~[m^3]} = 4986~Pa \simeq 5~kPa
 $$
-Per calcolare l'incertezza innanzitutto ci accorgiamo che è necessario calcolare una incertezza composta, con relazione funzionale espressa nella Formula \ref{gas perfetti}. Per calcolare questa quindi necessitiamo di sapre le incertezze di tutte le variabili coinvolte nella relazione funzionale.
+Per calcolare l'incertezza innanzitutto ci accorgiamo che è necessario calcolare una incertezza composta, con relazione funzionale espressa nella Formula \ref{gas perfetti}. Per calcolare questa quindi necessitiamo di sapere le incertezze di tutte le variabili coinvolte nella relazione funzionale.
 
 L'incertezza di R è trascurabile per ipotesi, quella di n è nota così come quella di T, ma non conosciamo l'incertezza di V. Procediamo quindi a calcolarla: anche questa in un certo senso è il calcolo di un incertezza composta, con la relazione funzionale $ V = L^3 $, quindi scriviamo:
 $$
@@ -691,7 +697,27 @@ Dall'ultima espressione possiamo concludere che:
 \end{equation}
 Questa sarà quindi la formula da usare non solo in questo caso, ma anche in tutti gli altri casi simili a questo!
 
-Per concludere:
+\subparagraph*{Nota} in generale possiamo affermare che, avendo una relazione funzionale del tipo
+$$
+  p = \frac{nRT}{V} = n^1 R^1 T^1 V^{-1}
+$$
+Nel caso di variabili aleatorie statisticamente indipendenti, avremo:
+$$
+  u_r(p) = \sqrt{(1)^2u_r^2(n)+(1)^2u_r^2(T)+(-1)^2u_r^2(V)}
+$$ e quindi otteniamo la \ref{formula incertezza composta}.
+
+Ma se in un qualche caso avessimo esponenti diversi da $\pm 1$, come ad esempio:
+$$
+  p = \frac{n^2 R T^4}{V^3} = n^2 R^1 T^4 V^{-3}  
+$$
+la formula per il calcolo dell'incertezza relativa sarà:
+$$
+  u_r(p) = \sqrt{(2)^2u_r^2(n)+(4)^2u_r^2(T)+(-3)^2u_r^2(V)}
+$$ e quindi
+$$
+  u_r(p) = \sqrt{(4u_r^2(n)+16u_r^2(T)+92u_r^2(V)}  
+$$
+\paragraph{Per concludere:}
 \begin{itemize}
   \item $u_r^2(n) = 10^{-12}$
   \item $u_r^2(T) = \frac{(0.1~K)^2}{(300~K)^2} \simeq 1.1\times 10^{-7}$
@@ -710,11 +736,203 @@ Possiamo in conclusione esprimere la misura completa della sua incertezza inelle
 $$
   p = 4986~ Pa\pm 15~ Pa = 4986(15)~ Pa
 $$
-\subparagraph{Nota} come possiamo notare dalla Formula \ref{calcolo p} e dalla \ref{forumla incertezza composta}, l'incertezza relativa di $p$ risulta essere pressochè identica all'incertezza relativa di $V$. Questo perchè $u_r(V)^2$ è il termine predominante sotto la radice. Avremo \textbf{sempre}, quindi, che se un termine particolare è superiore agli altri di almeno un fattore 5, esso risulterà come termine dominante e l'incertezza relativa risultante protrà essere approssimata ad esso.
+\subparagraph{Nota} come possiamo notare dalla Formula \ref{calcolo p} e dalla \ref{formula incertezza composta}, l'incertezza relativa di $p$ risulta essere pressochè identica all'incertezza relativa di $V$. Questo perchè $u_r(V)^2$ è il termine predominante sotto la radice. Avremo \textbf{sempre}, quindi, che se un termine particolare è superiore agli altri di almeno un fattore 5, esso risulterà come termine dominante e l'incertezza relativa risultante protrà essere approssimata ad esso.
+
+\subsection{Esercizio di Esempio: Circuito Elettrico}
+Calcolo dell'incertezza composta in una misura indiretta su un circuito elettrico. Dato il circuito come in Figura:
+\begin{figure}[H]
+  \begin{center}
+    \begin{circuitikz}
+      \draw (0,0)
+      to[V,v=$V_G$] (0,2) % The voltage source
+      to[R=$R_G$] (0,4) % The resistenza
+      to[short] (4,4)
+      to[R=$R_1$] (4,2) % The resistor
+      to[R=$R_2$] (4,0) % The resistor
+      to[short] (0,0);
+    \end{circuitikz}
+    \caption{Il circuito in esame.}
+  \end{center}
+\end{figure}
+Vogliamo calcolare il valore di resistenza del resistore $R_2$ conoscendo $V_G$, $R_G$ ed $R_1$, nello specifico:
+\begin{itemize}
+  \item $V_G$ = 12 $V$ e $U_G(V_G) = 10~mV$ con $k = 2$
+  \item $R_G$ è nota attraverso 10 letture ripetute $R_{G,k}$:
+      \begin{itemize}
+        \item $\bar{R_G}$ = 50 $\Omega$
+        \item $s(R_{G,k}) = 12.65~\Omega$
+      \end{itemize}
+  \item $R_1$ = 1 $k\Omega\pm 5\Omega$
+  \item $V = 7.77$ $V$ letta con un voltmetro a $3\frac{1}{2}$ cifre, con $\pm$ 19.99 $V$ di dinamica e "ideale" (solo errore di quantizzazione).
+\end{itemize}
+L'esercizio richiede di:
+\begin{enumerate}
+  \item Calcolare l'incertezza assoluta e relativa di tutti i parametri coinvolti nella misura
+  \item Calcolare $R_2$, la sua incertezza e la sua incertezza relativa ($u(R_2)$ e $u_r(R_2)$)
+  \item Quali parametri e quali sono trascurabili per il calcolo di $u(R_2)$
+\end{enumerate}
+Come intuiamo dal testo dell'esercizio, si tratta di calcolare una incertezza composta. Troviamo quindi la \textbf{relazione funzionale} che ci permette di calcolare $R_2$
+\begin{align*}
+  &I = \frac{V_G}{R_G+R_1+R_2} = \frac{V}{R_2}\\
+  &R_2\cdot V_G = (R_G+R_1+R_2)\cdot V\\
+  &R_2(V-g-V) = (R_G+R_1)\cdot V \\ \\
+  &R_2 = \frac{V}{(V_G-V)(R_G+R_1)} = f(V_G,V,R_G,R_1)
+\end{align*}
+Una volta identificata la relazione funzionale, possiamo usare la formula \ref{incertezza composta: formula generale} (eventualmente modificata al caso particolare di variabili statisticamente indipendenti) per calcolare l'incertezza composta di $R_2$. Ci accorgiamo però che dobbiamo prima calcolare le incertezze assolute e relative di tutti i parametri coinvolti nella misura, rispondendo al punto 1 dell'esercizio.
+
+Per $V_G$
+\begin{align*}
+  &u(V_G) = \frac{U(V_G)}{k} = 5\times 10^{-3}~V \\
+  &u_r(V_G) = \frac{u(V_G)}{V_G} = \frac{5\times 10^{-3}~V}{12~V} = 4.2\times 10^{-4}\\
+\end{align*}
+
+Mentre per V (misurata come da testo dell'esercizio) calcoliamo un'incertezza standard di categoria B assumendo una distribuzione dei valori di misura di tipo \textbf{uniforme}:
+\footnotemark[1]\footnotetext[1]{Assumiamo la distribuzione uniforme perché (a parole semplici) con il voltmetro descritto posso leggere 7.77, il valore prima e il valore dopo saranno 7.76 e 7.78. I valori di misura sono quindi distribuiti uniformemente nell'intervallo $(7.765;7.775)$. Abbiamo che il $\Delta V$ minimo (la risoluzione dello strumento) è 10 mV.}
+\begin{align*}
+  &u(V) = \frac{\delta V}{\sqrt{12}} = \frac{0.01~V}{\sqrt{12}} = 2.9\times 10^{-3}~V\\
+  &u_r(V) = \frac{u(V)}{V} = \frac{2.9\times 10^{-3}~V}{7.77~V} = 3.7\times 10^{-4}\\
+\end{align*}
+Per $R_1$
+\begin{align*}
+  &u(R_1) = 5~\Omega \\
+  &u_r(R_1) = \frac{u(R_1)}{R_1} = \frac{5~\Omega}{1000~\Omega} = 5\times 10^{-3}
+\end{align*}
+Per $R_G$
+\begin{align*}
+  &u(R_G) = u(\bar{R_G}) = \frac{s(R_{G,k})}{\sqrt{n}} = \frac{12.65~\Omega}{\sqrt{10}} = 4~\Omega \\
+  &u_r(R_G) = \frac{u(R_G)}{R_G} = \frac{4~\Omega}{50~\Omega} = 8\times 10^{-2}
+\end{align*}
+Abbiamo quindi calcolato tutte le incertezze assolute e relative delle variabili coinvolte nella misura, rispondendo al punto 1 dell'eserzio. Procediamo ora col punto 2:
+
+\textcolor{red}{Esercizio non fatto oggi a lezione lo faremo ok}
+\section{Compatibilità tra Due Misure}
+Si dice che due misure sono compatibili se la loro distanza è "abbastanza piccola" rispetto alla combinazione delle due incertezze. Dobbiamo esprimere con formule il fatto che la distanza tra la misura $x_1$ e la $x_2$ sia abbastanza piccola:
+$$
+  d = |x_1-x_2| \le k \sqrt{u^2(x_1)+u^2(x_2)-2r_{12}u(x_1)u(x_2)}
+$$
+È quindi necessario che la distanza tra i due risultati sia minore o uguale alla "combinazione" delle incertezze associate alle due misure.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=16cm,
+        height=4cm,
+        keepaspectratio,
+    ]{images/esempioCompatibilita.png}
+    \caption{Tre esempi di misure compatibili/incompatibili}
+    \label{compatibilita:esempio}
+  \end{center}
+\end{figure}
+
+Tra più misure compatibili è possibile calcolare una \textbf{media pesata}: nel caso di $N$ risultati di misura compatibili, indipendenti e normalmente distribuiti, la miglir stima della misura è:
+\begin{equation}
+  \label{media pesata misure compatibili}  
+    x = \bar{x_{IMP}} = \frac{\sum^N_{i=1}w_i x_i}{\sum^N_{i=1}w_i} = \frac{\sum^N_{i=1}\frac{x_i}{u^2(x_i)}}{\sum^N_{i=1}\frac{1}{u^2(x_i)}}
+\end{equation}
+Dove i pesi $w_i = \frac{1}{u^2(x_i)}$ sono i \textbf{reciproci delle varianze} stimate e dunque indicano il grado di confidenza che abbiamo sugli $x_i$. Se $u(x_i)$ è sufficientemente "basso" abbiamo una misura "credibile".
+
+A questo punto possiamo calcolare anche \textbf{l'incertezza della media pesata} come:
+\begin{equation}
+  \label{incertezza media pesata misure compatibili}
+    u^2(\bar{x_IMP}) = \frac{1}{\sum^n_{i=1}w_i} = \frac{1}{\sum^n_{i=1}\frac{1}{u^2(x_i)}}
+\end{equation}
+\subsection{Gradi di Libertà per Incertezza di Categoria B}
+Ricordiamo che ogni stima di incertezza è \textbf{a sua volta incerta} e la bontà di questa stima è esprimibile attraverso il numero di gradi di libertà ($v_a$ = n-1 per l'incertezza di categoria A).
+Anche nel caso di incertezza di categoria B si può \textbf{stimare}, non calcolare secondo una formula predeterminata, il numero $v_B$ di gradi di libertò della stima dell'incertezza (ricordando che è sempre meglio sottostimare $v_B$ piuttosto che soreastimarlo).
+
+Per l'incertezza di categoria B si può avere nel caso migliore (\textit{e.g} incertezza di quantizzazione) $v_B = \infty$ e nel caso più conservativo (\textit{worst case} $v_B = 1$).
+Il numero di gradi di libertà $v_b$ deve essere stimato sulla base di quanto "si crede" alla stima di $u_B$, com'è anche vero per l'incertezza di categoria A.
+\subsubsection{Significato del Numero di gradi di Libertà}
+Consideriamo un campione di $n$ dati. Di questo campione si possono stimare la varianza e la deviazione standard del valor medio (ossia l'incertezza della misura). Però, operando su un campione casuale, anche la stima della varianza è un numero casuale che presenta una potenziale \textbf{dispersione}. Il numero di gradi di libertà de è un indicatore della possibile variabilità della nostra stima dell'incertezza.
+
+Questo è vero perché si può dimostrare che:
+$$
+  \sigma^2[s(\bar{x})] = \frac{\sigma^2(\bar{x})}{2\nu}
+$$
+e quindi:
+$$
+  INC(INC) = \sigma[u(x)] \simeq \frac{u(x)}{\sqrt{2\nu}}
+$$
+Si vede quindi che all'aumentare dei gradi di libertà l'incertezza dell'incertezza diminuisce.
+
+Ovviamente anche di questa possiamo calcolare l'incertezza relativa:
+$$
+  u_r(u(x)) = \frac{\sigma[u(x)]}{u(x)} \simeq \frac{1}{\sqrt{2\nu}}
+$$
+
+\subsubsection{Gradi di Libertà e Cifre Significative per l'Incertezza}
+Calcolato il nostro $\nu$ possiamo anche parlare di $\nu^{-1}$:
+$$
+  \nu^{-1} = \frac{2\sigma^2[u(x)]}{u^2(x)} = 2 u_r^2[u(x)]
+$$
+che è un indice dell'incertezza dell'incertezza. $\nu$ e $\nu^{-1}$ possono darci un'idea del numero di misure necessarie al fine di avere un espressione dell'incertezza con diverse cifre significative, ad esempio, con $u_r(u(x)) = 0.7\sqrt{\nu} \simeq \sqrt{\nu}$:
+\begin{itemize}
+  \item $u_r(u(x)) = 10^{-1}$ abbiamo $\nu \simeq 100$ e la cifra significativa per l'incertezza sarà 1
+  \item $u_r(u(x)) = 10^{-2}$ abbiamo $\nu \simeq 10000$ e le cifre significative per l'incertezza saranno 2
+  \item $u_r(u(x)) = 10^{-3}$ abbiamo $\nu \simeq 1000000$ e le cifre significative per l'incertezza sarnno 3 
+\end{itemize}
+Questo ci suggerisce che (tranne per casi particolar\textit{issmi}) è sempre inutile cercare di esprimere l'incertezza con 3 (o più) cifre significative. Sia perché si dovrebbero prendere un milione di misure, sia perché molto spesso gli altri dati con cui abbiamo a che fare nel corso delle misurazioni/nel corso dei calcoli non sono conosciuti \textit{così} bene.
+
+\subsection{Esercizio su Compatibilità e Media Pesata}
+Due differenti misure della stessa potenza a radiofrequenza, emessa da un telefono cellulare, vengono effettuate con strumenti diversi e in maniera del tutto indipendente.
+\begin{itemize}
+  \item La prima misura è analigica ("senz limiti di risoluzione") ed è ricavata de letture ripetute ($n=5$) del misurando, che hanno fornito i valori:
+  $$
+    P_{1,1} = 3.4~W~~~P_{1,1} = 3.4~W~~~P_{1,1} = 3.4~W~~~P_{1,1} = 3.4~W~~~P_{1,1} = 3.4~W 
+  $$
+  \item La seconda misura è digitale, effettuata con un wattmetro ideale a 100 livelli e portata $20~W$, ha fornito una lettura $P_2 = 3.2~W$
+\end{itemize}
+L'esercizio richiede di:
+\begin{enumerate}
+  \item Calcolare i due valori di misura, $P_1$ e $P_2$, e le corrispondenti incertezze standard.
+  \item Valutare la compatibilità tra i due risultati di misura, in particolar modo per fattori di copertura $k$ pari ad 1,2 e 3.
+  \item Ricavare la miglior stima per il valore della potenza $P$ misurata e la sua incertezza standard $u(P)$.
+\end{enumerate}
+Per il primo punto il calcolo di valore ed incertezza per $P_1$ è il classico calcolo "a macchinetta" di un'incertezza standard di categoria A: 
+\begin{itemize}
+  \item $P_1 = \bar{P_1} = \bar{P_{1,i} = 3~W}$\\ricavato come media campionaria: $\bar{P_1} = \frac{1}{n}\sum^n_{i=1}P_{1,i}$
+  \item $u(P_1)$ calcolata con la Formula: \ref{inc.cat.A} e $\simeq0.14~W$
+\end{itemize}
+Mentre il calcolo di valore ed incertezza di $P_2$ è il calcolo di un incertezza di categoria B. Infatti $P_2 = 3.2~W$ da una misura digitale con risoluzione $\Delta P_2 = \frac{20^W}{100~\text{livelli}} = 0.2~W$ (passo di quantizzazione).
+
+L'incertezza di $P_2$ invece è:
+$$
+  u(P_2) = \frac{\Delta P_2}{\sqrt{12}} \simeq 0.058~W \simeq 0.06~W\text{~~(incertezza di quantizzazione)}
+$$
+\\
+Per il punto \textbf{b)} per verificare la compatibilità tra le due misure si deve valutare la disuguaglianza
+$$
+  |P_1 - P_2| \le k \sqrt{u^2(P_1)+u^2(P_2)}
+$$
+con k fattore di copertura. Notiamo che il termine di covarianza non compare essendo per ipotesi le due misure statisticamente indipendenti.
+
+Sostituendo i valori numerici si ha:
+$$
+  0.2~W \le k\sqrt{0.0232~W^2} \simeq k\cdot0.1523~W \Rightarrow k \ge \frac{0.2}{0.1523} = 1.313
+$$
+
+Pertanto, le due misure \textbf{sono compatibili} con $k=2$ e ovviamente anche con $k=3$, \textbf{ma non} sono compatibili con $k=1$.
+\subparagraph{Nota} Disponendo di due misure $m_1\pm u(m_1)$ e $m_2\pm u(m_2)$ \textbf{poste a distanza} $d = m_1 - m_2$ \textbf{non} si può avere compatibilità:
+\begin{itemize}
+  \item per $k=1$ se [$u(m_1)+u(m_2) < d$]
+  \item per $k=2$ se [$u(m_1)+u(m_2) < \frac{d}{2}$]
+  \item per $k=3$ se [$u(m_1)+u(m_2) < \frac{d}{3}$]
+\end{itemize}
+Cioè se la somma di due incertezze è inferiore alla distanza tra le due misure (eventualmente divisa per $k$), allora non si può avere compatibilità (eventualmente con un fattore di copertura $k$). Inoltre, quando in generale si nota che svolgendo i calcoli con $k = 1$ la somma delle incertezze non copre la distanza tra le misure "\textit{di molto}", allora non lo farà neanche per $k=2$ e $k=3$, quindi le misure resteranno incompatibili per questi fattori.
+\\
+
+Venendo al punto \textbf{c)} ritenendo accettabile la condizione di compatibilità con $k=2$, possiamo calcolare la miglior stima della potenza $P$ misurata, ricorrendo al criterio delle \textbf{media pesata tra misure compatibili} (Formula \ref{media pesata misure compatibili}) ottenendo un valore $P_{MP} \simeq 3.169~W$. Osserviamo che $P_{MP}$ è più vicino a $P_2$ che non a $P_1$ perché $u(P_2)<u(P_1)$.
+
+Calcoliamo anche l'\textbf{incertezza della media pesata} (Formula: \ref{incertezza media pesata misure compatibili}):
+$$
+  u(P_{MP}) = \sqrt{\frac{1}{\frac{1}{u^2(P_1)}+\frac{1}{u^2(P_2)}}} = \sqrt{\frac{1}{329~W^{-2}}} \simeq 0.055~W
+$$
+osservando che $u(p_{MP})$ è inferiore alle incertezze delle due misure mediate.
+
+In conclusione possiamo dire che $P = 3.169(55)~W$ o anche $P=3.17(6)~W$ è il \textbf{risultato della misura}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Rappresentazione Grafica dei Risultati Sperimentali - Interpolazione e Curve di Regressione}
 \section{Rappresentazione Grafica dei Risultati Sperimentali}
 La rappresentazione grafica di effettua per ottenere una "visione d'insieme" di una grandezza, inf unzione del tempo (o di un altro parametro). Si utilizzano tipicamente assi coortinati che devono riportare la descrizione della grandezza rappresentata e all'occorrenza \textbf{anche la sua unità di misura}.
-
 Si distinguono infatti due tipi di grafici:
 \begin{itemize}
   \item Grafici \textbf{quantitativi}: grafici in cui sugli assi compaiono dei valori numerici, dei quali bisogna sempre indicare l'unità di misura corrispondente.
