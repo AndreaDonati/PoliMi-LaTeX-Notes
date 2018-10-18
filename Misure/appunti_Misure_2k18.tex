@@ -875,9 +875,9 @@ Questo ci suggerisce che (tranne per casi particolar\textit{issmi}) è sempre in
 \subsection{Esercizio su Compatibilità e Media Pesata}
 Due differenti misure della stessa potenza a radiofrequenza, emessa da un telefono cellulare, vengono effettuate con strumenti diversi e in maniera del tutto indipendente.
 \begin{itemize}
-  \item La prima misura è analigica ("senz limiti di risoluzione") ed è ricavata de letture ripetute ($n=5$) del misurando, che hanno fornito i valori:
+  \item La prima misura è analogica ("senza limiti di risoluzione") ed è ricavata de letture ripetute ($n=5$) del misurando, che hanno fornito i valori:
   $$
-    P_{1,1} = 3.4~W~~~P_{1,1} = 3.4~W~~~P_{1,1} = 3.4~W~~~P_{1,1} = 3.4~W~~~P_{1,1} = 3.4~W 
+    P_{1,1} = 3.4~W~~~P_{1,2} = 3.2~W~~~P_{1,3} = 3~W~~~P_{1,4} = 2.8~W~~~P_{1,5} = 2.6~W 
   $$
   \item La seconda misura è digitale, effettuata con un wattmetro ideale a 100 livelli e portata $20~W$, ha fornito una lettura $P_2 = 3.2~W$
 \end{itemize}
@@ -1103,6 +1103,54 @@ In Figura \ref{interpolazione:esempio} possiamo vedere due esempi di interpolazi
 \end{figure}
 Una caratteristica da notare nell'interpolazione a seno cardinale e che si nota dalla Figura \ref{interpolazione:esempio} è la "precisione" dell'interpolazione che diminuisce in prossimità degli estremi dell'intervallo di campionamento, mentre vicino al centro dell'intervallo è molto più "fedele". Questo è dovuto al fatto che tale metodo di interpolazione sfrutta, per determinare un tratto di curva tra due punti sperimentali, l'informazione di tutti gli altri punti sperimentali. In prossimità degli estremi, è quindi impossibile avere informazioi sulle parti "a destra" e "a sinistra", perchè non sono state campionate.
 \subsection{Regressione}
+
+Un diagramma spetimentale, ottenuto da risultati di misura, spesso mostra una dipendenza $y = f(x)$ che appare ragionevolmente approssimabile con una \textbf{funzione nota}. Nei casi in cui questo non accade, è possibile che conosciamo già questa funzione da un'analisi teorica del fenomeno in studio ma,, se la dispersione dei dati è talmente grande che non riusicmo a definire con sufficiente affidabilità i \textbf{valori dei parametri del modello}.
+
+Tramite la \textbf{regressione} è possibile ricavare questi valori (parametri caratteristici del fenomeno misurato) da una misura/osservazione di punti.
+
+\subsubsection{Regressione ai Minimi Quadrati}
+Consideriamo una generica dipendenza di una variabile fisica $y$ da un'altra variabile $x$, attraverso una funzione $f$ con più parametri $A,B,\ldots$:
+$$
+  y = f(A,B,\ldots,x)
+$$
+Effettuiamo quindi $n$ misure $y_i$ della variabile $y$ in funzione della variabile $x$ osservata nei punti $x_i$. Per \textbf{stimare i parametri} che meglio rappresentano la realtà misurata definiamo una \textbf{funzione "distanza"} tra la misura e la funzione $f$. Il nostro obiettivo sarà quindi quello di \textbf{minimizzare tale distanza}. Esistono diverse funzioni "distanza", quella più comunemente usara è la somma degli \textbf{scarti quadratici} tra $f$ e il valore misurato.
+Lo scarto è definito come:
+\begin{equation}
+  \label{regressione:scarto quadratico}  
+    \delta_i = y_i - f(x_i)
+\end{equation}
+e la funzione "distanza" da minimizzare è:
+\begin{equation}
+  \label{regressione:funzione quadratica}  
+    \Phi = \sum^n_{i=1}\delta_i^2
+\end{equation}
+
+\subsubsection{Regressione Lineare}
+Unu importante caso di regressione, semplice da risolvere analiticamente, è quello della regressione \textbf{lineare}. Consideriamo una dipendenza lineare $y = m\cdot x+b$ di cui si vogliono ricavare i due parametri $m$ e $b$. Per il punto $i$-esimo di misura, lo scarto $\delta_i$ tra il valore empirico $y_i$ e quello della cirva di regressione $f(x_i)$ vale:
+\begin{equation}
+  \label{regressione:scarto lineare} 
+  \delta_i = y_i - [m\cdot x_i + b]
+\end{equation}
+e dobbiamo trovare i \textbf{valori dei parametri} $m$ e $b$ per i quali è \textbf{minima la "distanza"}:
+\begin{equation}
+  \label{regressione:funzione lineare}  
+    \Phi = \sum^n_{i=1}\delta_i^2 0 \sum^n_{i=1}[y_i - (m\cdot x+b)]^2
+\end{equation}
+
+Per \textbf{trovare il minimo di} $\Phi$, annulliamo le due derivate prime parziali rispetto a $m$ e $b$:
+\begin{align*}
+  &\frac{\delta \Phi}{\delta m} = 0 \Rightarrow  m\cdot \sum x_i^2 + b \sum x_i = \sum x_i y_i \\
+  &\frac{\delta \Phi}{\delta m} = 0 \Rightarrow  m\cdot \sum x_i^2 + nb= \sum y_i
+\end{align*}
+dove tutte le sommatorie sono ovviamente estese per $i$ che va da 1 a $n$. Si è ottwnuto a questo punto un \textbf{sistema lineare} di due equazioni in due incognite ($m$ e $b$) che come sappiamo è risolvibile.
+
+La soluzione del sistema (che si ottiene facilmente per sostituzione) è:
+\begin{align*}
+  &m = \frac{n\sum x_i y_i -\sum x_i - \sum y_i}{n\sum x_i^2 - (\sum x_i)^2}\\ \\
+  &b = \frac{\sum x_i^2 \sum y_i -\sum x_i \sum x_i y_i}{n\sum x_i^2 - (\sum x_i)^2} = \frac{\sum y_i - m \sum x_i}{n} = \bar{y} - m \bar{x}
+\end{align*}
+
+
 \chapter{Esercizi di Conversione}
 \label{esercizi:conversione}
 \section{Conversione di Potenze}
