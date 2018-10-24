@@ -1029,6 +1029,7 @@ possiamo notare che anche per tutte le altre decadi vale questo (ovviamente a me
 Quindi, per prendere misure sensate per ricostruire la curva senza occupare troppo tempo/effetturare troppe misurazioni conviene prendere 4 misure per ogni decade, cioè \textbf{una ogni terzo}. In questo modo con 19 misurazioni si ha un'escursione di 6 decadi (da 0 dino a $10^5$). 
 \section{Interpolazione e Regressione}
 \subsection{Interpolazione}
+\label{interpolazione}
 Essendo una misura un insisme finto e discreto di valori sperimetali, quando andiamo a rappresentarla su un grafico avremo una disposizione di questi punti sperimentali \textbf{discreta} (non continua). Sarebbe quindi utile e interessante andare a "riempire" lo spazio tra due punti sperimentali adiacenti. Questa operazione di "riempimento" prende il nome di \textbf{interpolazione}, ed è effettuata tramita una \textbf{funzione interpolante}.
 
 Una funzione interpolante è una funzione continua che, passando per i due punti in questione, ci fornisce l'andamento presunto (interpolato) della relazione ingresso-uscita.
@@ -1047,9 +1048,10 @@ Come si può vedere dalla figura \ref{interpolazione:lineare}, questo metodo non
 \begin{center}
 \begin{quote}
 Per campionare correttamente (senza perdita di informazioni) un segnale a banda limitata, è sufficiente campionarlo con una frequenza di campionamento pari almeno al doppio della massima frequenza del segnale.
-$$
-  f_{campionamento} \ge 2f_{max}
-$$
+\begin{equation}
+  \label{shannon}
+  f_{campionamento} \ge 2f_{max}  
+\end{equation}
 \end{quote}
 \end{center}
 \begin{figure}
@@ -1149,8 +1151,131 @@ La soluzione del sistema (che si ottiene facilmente per sostituzione) è:
   &m = \frac{n\sum x_i y_i -\sum x_i - \sum y_i}{n\sum x_i^2 - (\sum x_i)^2}\\ \\
   &b = \frac{\sum x_i^2 \sum y_i -\sum x_i \sum x_i y_i}{n\sum x_i^2 - (\sum x_i)^2} = \frac{\sum y_i - m \sum x_i}{n} = \bar{y} - m \bar{x}
 \end{align*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\chapter{ADC e DAC}
+\section{A cosa servono ADC e DAC?}
+Gli ADC consentono di fare misure di frandezze fisiche fornendo il valore misurato in formato numerico ........
+\section{Convertitore D/A (Digitale/Analogico)}
+In ingresso abbiamo $n$ "fili" (\textbf{linee digitali}) che rappresentano $n$ bit, mentre in uscita abbiamo un "filo" (\textbf{linea analogica}) dove ci sarà la tensuone $v_{out}$, che sarà \textit{quantizzata}. Diremo che il convertitore D/A avrà $N$ livelli dove $N = 2^n$.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=8cm,
+        height=7cm,
+        keepaspectratio,
+    ]{images/convDA.png}
+    \caption{Uno schema generale di un convertitore D/A.}
+    \label{convDA}
+  \end{center}
+\end{figure}
+\section{Convertitore A/D (Analogico/Digitale)}
+In ingresso a questo convertitore abbiamo un "filo" sul quale troviamo la tensione analogica d'ingresso (\textbf{range} o dinamica), mentre in uscita troviamo $n$ bit (o $N$ livelli) che rappresentano il valore numerico della tensione in ingresso.
 
+Un parametro fondamentale di un convertitore D/A è la \textbf{velocità di campionamento (\textit{sampling})}, misurata in \textit{Hertz} [$Hz$], con la quale il componente è in grado di convertire la tensione di ingresso rappresentandola sull'uscita.
+
+Scopriremo che velocità e numero di bit sono in una condizione di \textit{trade-off}, ossia sono parametri "contrastanti": aumentandone uno dobbiamo necessariamente diminuire l'altro.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=8cm,
+        height=7cm,
+        keepaspectratio,
+    ]{images/convAD.png}
+    \caption{Uno schema generale di un convertitore A/D.}
+    \label{convAD}
+  \end{center}
+\end{figure}
+\subsection{Voltmetro o Convertitore A/D}
+È uno strumento che riceve in ingresso una tensione analogica e la "digitalizza" \textbf{discretizzando} prima nel dominio del \textbf{tempo} e poi nel dominio dell'\textbf{ampiezza}. Abbiamo due discretizzazioni diverse perchè il segnale in ingresso è analogico "in due sue dimensioni": tempo e ampiezza.
+
+In particolare, la \textbf{quantizzazione} nel dominio del tempo avviene con risoluzione $T_{Sa} = \frac{1}{f_{Sa}}$ [$s$]. Dove $T_{Sa}$ è detto \textbf{periodo di campionamento} e $f_{Sa}$ \textbf{frequenza di campionamento}.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=8cm,
+        height=7cm,
+        keepaspectratio,
+    ]{images/ADC.png}
+    \caption{Uno schema generale di un Voltmetro.}
+    \label{voltmetro}
+  \end{center}
+\end{figure}
+Dalla Figura \ref{voltmetro} possiamo vedere i due componenti che realizzano le due diverse discretizzazioni. Il primo, che discretizza nel dominio del tempo, è un \textbf{campionatore S\&H} (Sample \& Hold) il quale nome suggerisce il funzionamento: campiona la tensione in ingresso e la \textbf{mantiene} per un certo intervallo di tempo, dando al prossimo componente tempo per la conversione. Il secondo quantizzatore realizza la discretizzazione in ampiezza ricevendo in ingresso il segnale dal componente precedente e emettendo in uscita il valore digitale.
+
+\section{Discretizzazione nel Tempo}
+La discretizzazione nel tempo avviene campionando la tensione (segnale) in istanti di tempo regolarmente spaziati di una distanza $T_c$ detta periodo di campionamento ($f_c=\frac{1}{T_c}$ frequenza di campionamento) che dovrà essere, come vederemo tra poco, "abbastanza piccolo".
+\subsection{Campionamento di un Segnale}
+Abbiamo già visto nella Sezione \ref{interpolazione}, con la formula \ref{shannon} e il relativo teorema (di Shannon), come sia necessaria una certa \textit{frequenza di campionamento} ($f_{Sa}$ o $f_c$) per ricostruire un segnale, che deve essere almeno il doppio della massima frequenza (o \textbf{banda}) del segnale in ingresso.
+
+Cosa succede se \textit{sottocampioniamo}? Si verificano degli errori di \textit{aliasing}. Per spiegare semplicemente questo fenomeno possiamo pensare ad un esempio applicabile alla vita di tutti i giorni: osservando la ruota di un'automobile che viaggia su un rettilineo. Per un certo range di velocità riusciamo a vedere la ruota che si muove nel senso di marcia, esattamente come ci aspettiamo. Per velocità superiori ad un certo limite (secondo il buon Shannon: per periodi di giro della ruota superiori al periodo di campionamento dell'occhio umano) invece, sembra che la ruota inizi a girare in senso antiorario, \textbf{contrario} al senso di marcia. Questo perchè tra un campionamento del nostro occhio e l'altro la ruota no effettua un giro completo, ma poco meno di un giro completo: se questo si verifica ad ogni giro della ruota ecco che la vediamo girare in senso antiorario.
+
+\section{Quantizzazione in Ampiezza}
+\label{quantizzazione ampiezza}
+La quantizzazione in ampiezza avviene suddividendo la dinamica $D$ di misura (intervallo di valori di tensione analogica misurabili in ingresso) in $N$ sottointervalli (livelli) di \textbf{larghezza costante} $\Delta V = \frac{D}{N}$ (risoluzione).
+
+Alle tensioni analogiche che cadono nell'intrevallo $i$-esimo si associa un \textbf{valore numerico} corrispondente all'intero $i-1$ (cioè andiamo da $0$ a $N-1$) che identifica l'intervallo in questione. Naturalmente questo introduce un errore nella misura perchè il numero di soglie è discreto e quindi a più valori di tensione analogici (diversi) associamo lo stesso valore digitale.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=8cm,
+        height=7cm,
+        keepaspectratio,
+    ]{images/quantizzazioneAmpiezza.png}
+    \caption{Schematizzazione del concetto di soglia e livelli.}
+    \label{quantizzazioneAmpiezza}
+  \end{center}
+\end{figure}
+
+\section{Errori nei convertitori}
+\label{quantizzazione errore}
+\begin{itemize}
+  \item \textbf{Quantizzazione}: grazie ad espedienti di traslazione della caratteristica di $\frac{1}{2}$ bit possiamo avere un errore di quantizzazione equidistribuito tra il valore centrale della misura e un intervallo simmetrico di larghezza $\frac{1}{2}LSB$ (\textit{LSB: Least Significant Bit}).
+  \item gli altri sono stati saltati che bello.
+\end{itemize}
+\section{Convertitore D/A a Rete di R}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=8cm,
+        height=7cm,
+        keepaspectratio,
+    ]{images/convertitoreR.png}
+    \caption{Schema circuitale di un convertitore a rete di R.}
+    \label{convertitoreR}
+  \end{center}
+\end{figure}
+In figura \ref{convertitoreR} possiamo vedere lo schema circuitale di un convertitore a rete di R, che da un'unica tensione di riferimento costante ($V_{ref}$) preleva $n$ correnti pesate attraverso $n$ \textit{switch} (interruttori) $S_0,S_1,\ldots,S_{n-1}$ dove $n$ è il numero di bit in ingresso al convertitore.
+
+Su ciascuno \textit{switch} $S_i$ è posta uns resistenza $r_i = 2^{(n-1)-i}\cdot R$. Gli \textit{switch} sono comandati dalle cifre binarie $b_i$ del numero da convertire in tensione, con pesi tlai che:
+\begin{align*}
+  &b_0~~~ = LSB~~~~\text{Least Significant Bit}\\
+  &b_{n-1} = MSB~~~\text{Most Significant Bit}
+\end{align*}
+E l'operazionale serve da sommatore delle correnti pesate che passano attraverso gli \textit{switch} e converte la corrente risultante $i_o$, attraverso la restistenza di \textit{feedback}, in un'uscita di tensione $v_o$.
+
+L'accuratezza del DAC dipende da $V_{ref}$, dalle $r_i$ e dalla qualità degli \textit{switch} (che abbiamo supposto ideali). I valori di tensione analogica $ V_o $ in uscita, \textbf{discreti} (quantizzati) e generati da campioni generali a $n$ bit, hanno una \textbf{incertezza}:
+\begin{equation}
+\label{incertezza convertitore R}
+  u(V_o) = \frac{\frac{V_{o,max}}{2^n}}{\sqrt{12}}
+\end{equation}
+che come ricordiamo è l'espressione di una tipica incertezza di categoria B relativa ad un intervallo \textbf{uniforme} di distribuzione. Infatti abbiamo che il valore analogico \textit{esatto} della tensione in entrata è uniformemente distribuito nell'intervallo centrato nella soglia $i-esima$ e di ampiezza $ \frac{1}{2}LSB $ (come detto in Sezione \ref{quantizzazione ampiezza} e corretto in Sezione \ref{quantizzazione errore} e come visualizzato meglio in Figura \ref{intervallo voltmetro uniforme}).
+\begin{figure}
+  \begin{center}
+    \includegraphics[
+        width=8cm,
+        height=7cm,
+        keepaspectratio,
+    ]{images/intervalloVoltmetroUniforme.png}
+    \caption{Distribuzione uniforme per i valori in output del convertutore D/A a rete di R.}
+    \label{convertitoreR}
+  \end{center}
+\end{figure}
+\section{Voltmetri Digitali (DVM) e DMM}
+\textcolor{red}{vedi te cosa scrivere prima della prossima lezione}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Esercizi di Conversione}
 \label{esercizi:conversione}
 \section{Conversione di Potenze}
@@ -1219,4 +1344,37 @@ Possiamo usare un ragionamento simile a \ref{logaritmi:differenza} per ottenere 
 $$
   20log_{10}(\frac{\sqrt{2}}{2}) = 20log_{10}(\sqrt{2})-20log_{10}(2) = +3-6 = -3
 $$ 
+\chapter{Esercizi sull'Incertezza}
+\section{Esercizio su Compatibilità e Media Pesata}
+\subsubsection*{Dati}
+\begin{itemize}
+  \item $I[A]$ nota attraverso $n = 6$ misurazioni che hanno fornito i valori:
+  $$
+      I_{1,1} = 3.12~A~~~I_{1,2} = 2.98~A~~~I_{1,3} = 3.06~A~~~I_{1,4} = 2.95~A~~~I_{1,5} = 2.93~A
+  $$
+  \item $V = 5~V$ misurata con un multimetro a $3\frac{1}{2}$ cifre e fondoscala di $20~V$. (Quindi con $\Delta V = 10~mV$)
+\end{itemize}
+Calcolare $P=V\cdot I = ?$ (valore e incertezza).\\
+
+Partiamo dal calcolare l'incertezza di categoria B per \textbf{V}, supponiamo il multimetro ideale (con solo errore di quantizzazione) con una distribuzione del valore di misura \textbf{uniforme}.
+\begin{align*}
+  u(V) = \frac{\Delta V}{\sqrt{12}} = 2.9~mV
+\end{align*}
+Per \textbf{I} invece dobbiamo calcolare un'incertezza di categoria A. Lo facciamo sempre tramite la Formula \ref{inc.cat.A} e abbiamo:
+\begin{align*}
+  \bar{I} = \frac{1}{n}\sum^n_{i=1}I_i = 3~A \\
+  u(I) = \frac{s(I_i)}{\sqrt{n}} = 0.0031~A
+\end{align*}
+Ora abbiamo tutte le componenti per calcolare \textbf{P} e la sua incertezza (composta) con la Formula \ref{incertezza composta: formula generale}. Ricordando che la relazione funzionale è una produttoria semplice, e possiamo quindi sommare i quadrati delle incertezze relative.
+$$
+  P = 15~W = \bar{I}\cdot V
+$$
+\begin{align*}
+  u_r(\bar{I}) = \frac{u(\bar{I})}{\bar{I}} = 1\%.\\
+  u_r(V) = \frac{u(V)}{V} = 0.58\%\\
+  \Rightarrow
+  u_r(P) = \sqrt{u_r^2(\bar{I})+u_r^2(V)} = 1.2~V \\
+  \Rightarrow
+  u(P) = u_r(P)\cdot P = 0.18~W
+\end{align*}
 \end{document}
