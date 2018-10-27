@@ -1,7 +1,7 @@
 # PoliMi-LaTeX-Notes
 Here I keep a collection of notes I took and transcripted into LaTeX format during the years I attended the IT Engineering course at Politecnico di Milano.
 
-Feel free to download whatever you want and contact me if you have suggestions.
+Feel free to download whatever you want and contact me if you have any suggestion.
 
 ## Databases
 
