@@ -401,7 +401,7 @@ Un esempio di arrotondamento per difetto che comporta meno del 5\% di errore pu�
 $$
   u(m) = 89.1\ kg\ = 89\ kg
 $$
-perchè in questo caso lo 0.1 su 89 kilogrammi è sicuramente meno del 5\%.
+perché in questo caso lo 0.1 su 89 kilogrammi è sicuramente meno del 5\%.
 \subsection{Esercizio: Calcolo Incertezza di Cat. A}
 Si dispone di n = 10 misure ripetute $V_k$ di una tensione incognita $V$.\\
 Calcolare $V$ $u_A(V)$.
@@ -462,7 +462,7 @@ $$
   u_A(V) = \frac{1.1547\ V}{\sqrt{10}} = 0.365148... \simeq 0.37\ V
 $$
 
-In questo ultimo caso abbiamo un esempio di arrotondamento dell'incertezza alla seconda cifra decimale, per eccesso. Ma se, ad esempio, il risultato fosse stato 0.36\textbf{4}321? Questo 4 come terza cifra decimale ci avrebbe permesso di arrotondare il risultato per difetto? Ovviamente no, perchè avrebbe comportato un errore molto maggiore rispetto al 5\%.
+In questo ultimo caso abbiamo un esempio di arrotondamento dell'incertezza alla seconda cifra decimale, per eccesso. Ma se, ad esempio, il risultato fosse stato 0.36\textbf{4}321? Questo 4 come terza cifra decimale ci avrebbe permesso di arrotondare il risultato per difetto? Ovviamente no, perché avrebbe comportato un errore molto maggiore rispetto al 5\%.
 \subsection{Cifre significative per il risultato di una misura}
 Esistono due maniere per esprimere una misura, in forma estesa e in forma compatta, con i numeri dell'esercizio precedente avremmo:
 \begin{center}
@@ -736,7 +736,7 @@ Possiamo in conclusione esprimere la misura completa della sua incertezza inelle
 $$
   p = 4986~ Pa\pm 15~ Pa = 4986(15)~ Pa
 $$
-\subparagraph{Nota} come possiamo notare dalla Formula \ref{calcolo p} e dalla \ref{formula incertezza composta}, l'incertezza relativa di $p$ risulta essere pressochè identica all'incertezza relativa di $V$. Questo perchè $u_r(V)^2$ è il termine predominante sotto la radice. Avremo \textbf{sempre}, quindi, che se un termine particolare è superiore agli altri di almeno un fattore 5, esso risulterà come termine dominante e l'incertezza relativa risultante protrà essere approssimata ad esso.
+\subparagraph{Nota} come possiamo notare dalla Formula \ref{calcolo p} e dalla \ref{formula incertezza composta}, l'incertezza relativa di $p$ risulta essere pressochè identica all'incertezza relativa di $V$. Questo perché $u_r(V)^2$ è il termine predominante sotto la radice. Avremo \textbf{sempre}, quindi, che se un termine particolare è superiore agli altri di almeno un fattore 5, esso risulterà come termine dominante e l'incertezza relativa risultante protrà essere approssimata ad esso.
 
 \subsection{Esercizio di Esempio: Circuito Elettrico}
 Calcolo dell'incertezza composta in una misura indiretta su un circuito elettrico. Dato il circuito come in Figura:
@@ -1103,7 +1103,7 @@ In Figura \ref{interpolazione:esempio} possiamo vedere due esempi di interpolazi
     \label{interpolazione:esempio}
   \end{center}
 \end{figure}
-Una caratteristica da notare nell'interpolazione a seno cardinale e che si nota dalla Figura \ref{interpolazione:esempio} è la "precisione" dell'interpolazione che diminuisce in prossimità degli estremi dell'intervallo di campionamento, mentre vicino al centro dell'intervallo è molto più "fedele". Questo è dovuto al fatto che tale metodo di interpolazione sfrutta, per determinare un tratto di curva tra due punti sperimentali, l'informazione di tutti gli altri punti sperimentali. In prossimità degli estremi, è quindi impossibile avere informazioi sulle parti "a destra" e "a sinistra", perchè non sono state campionate.
+Una caratteristica da notare nell'interpolazione a seno cardinale e che si nota dalla Figura \ref{interpolazione:esempio} è la "precisione" dell'interpolazione che diminuisce in prossimità degli estremi dell'intervallo di campionamento, mentre vicino al centro dell'intervallo è molto più "fedele". Questo è dovuto al fatto che tale metodo di interpolazione sfrutta, per determinare un tratto di curva tra due punti sperimentali, l'informazione di tutti gli altri punti sperimentali. In prossimità degli estremi, è quindi impossibile avere informazioi sulle parti "a destra" e "a sinistra", perché non sono state campionate.
 \subsection{Regressione}
 
 Un diagramma spetimentale, ottenuto da risultati di misura, spesso mostra una dipendenza $y = f(x)$ che appare ragionevolmente approssimabile con una \textbf{funzione nota}. Nei casi in cui questo non accade, è possibile che conosciamo già questa funzione da un'analisi teorica del fenomeno in studio ma,, se la dispersione dei dati è talmente grande che non riusicmo a definire con sufficiente affidabilità i \textbf{valori dei parametri del modello}.
@@ -1188,7 +1188,7 @@ Scopriremo che velocità e numero di bit sono in una condizione di \textit{trade
   \end{center}
 \end{figure}
 \subsection{Voltmetro o Convertitore A/D}
-È uno strumento che riceve in ingresso una tensione analogica e la "digitalizza" \textbf{discretizzando} prima nel dominio del \textbf{tempo} e poi nel dominio dell'\textbf{ampiezza}. Abbiamo due discretizzazioni diverse perchè il segnale in ingresso è analogico "in due sue dimensioni": tempo e ampiezza.
+È uno strumento che riceve in ingresso una tensione analogica e la "digitalizza" \textbf{discretizzando} prima nel dominio del \textbf{tempo} e poi nel dominio dell'\textbf{ampiezza}. Abbiamo due discretizzazioni diverse perché il segnale in ingresso è analogico "in due sue dimensioni": tempo e ampiezza.
 
 In particolare, la \textbf{quantizzazione} nel dominio del tempo avviene con risoluzione $T_{Sa} = \frac{1}{f_{Sa}}$ [$s$]. Dove $T_{Sa}$ è detto \textbf{periodo di campionamento} e $f_{Sa}$ \textbf{frequenza di campionamento}.
 \begin{figure}[H]
@@ -1202,6 +1202,7 @@ In particolare, la \textbf{quantizzazione} nel dominio del tempo avviene con ris
     \label{voltmetro}
   \end{center}
 \end{figure}
+
 Dalla Figura \ref{voltmetro} possiamo vedere i due componenti che realizzano le due diverse discretizzazioni. Il primo, che discretizza nel dominio del tempo, è un \textbf{campionatore S\&H} (Sample \& Hold) il quale nome suggerisce il funzionamento: campiona la tensione in ingresso e la \textbf{mantiene} per un certo intervallo di tempo, dando al prossimo componente tempo per la conversione. Il secondo quantizzatore realizza la discretizzazione in ampiezza ricevendo in ingresso il segnale dal componente precedente e emettendo in uscita il valore digitale.
 
 \section{Discretizzazione nel Tempo}
@@ -1209,13 +1210,13 @@ La discretizzazione nel tempo avviene campionando la tensione (segnale) in istan
 \subsection{Campionamento di un Segnale}
 Abbiamo già visto nella Sezione \ref{interpolazione}, con la formula \ref{shannon} e il relativo teorema (di Shannon), come sia necessaria una certa \textit{frequenza di campionamento} ($f_{Sa}$ o $f_c$) per ricostruire un segnale, che deve essere almeno il doppio della massima frequenza (o \textbf{banda}) del segnale in ingresso.
 
-Cosa succede se \textit{sottocampioniamo}? Si verificano degli errori di \textit{aliasing}. Per spiegare semplicemente questo fenomeno possiamo pensare ad un esempio applicabile alla vita di tutti i giorni: osservando la ruota di un'automobile che viaggia su un rettilineo. Per un certo range di velocità riusciamo a vedere la ruota che si muove nel senso di marcia, esattamente come ci aspettiamo. Per velocità superiori ad un certo limite (secondo il buon Shannon: per periodi di giro della ruota superiori al periodo di campionamento dell'occhio umano) invece, sembra che la ruota inizi a girare in senso antiorario, \textbf{contrario} al senso di marcia. Questo perchè tra un campionamento del nostro occhio e l'altro la ruota no effettua un giro completo, ma poco meno di un giro completo: se questo si verifica ad ogni giro della ruota ecco che la vediamo girare in senso antiorario.
+Cosa succede se \textit{sottocampioniamo}? Si verificano degli errori di \textit{aliasing}. Per spiegare semplicemente questo fenomeno possiamo pensare ad un esempio applicabile alla vita di tutti i giorni: osservando la ruota di un'automobile che viaggia su un rettilineo. Per un certo range di velocità riusciamo a vedere la ruota che si muove nel senso di marcia, esattamente come ci aspettiamo. Per velocità superiori ad un certo limite (secondo il buon Shannon: per periodi di giro della ruota superiori al periodo di campionamento dell'occhio umano) invece, sembra che la ruota inizi a girare in senso antiorario, \textbf{contrario} al senso di marcia. Questo perché tra un campionamento del nostro occhio e l'altro la ruota no effettua un giro completo, ma poco meno di un giro completo: se questo si verifica ad ogni giro della ruota ecco che la vediamo girare in senso antiorario.
 
 \section{Quantizzazione in Ampiezza}
 \label{quantizzazione ampiezza}
 La quantizzazione in ampiezza avviene suddividendo la dinamica $D$ di misura (intervallo di valori di tensione analogica misurabili in ingresso) in $N$ sottointervalli (livelli) di \textbf{larghezza costante} $\Delta V = \frac{D}{N}$ (risoluzione).
 
-Alle tensioni analogiche che cadono nell'intrevallo $i$-esimo si associa un \textbf{valore numerico} corrispondente all'intero $i-1$ (cioè andiamo da $0$ a $N-1$) che identifica l'intervallo in questione. Naturalmente questo introduce un errore nella misura perchè il numero di soglie è discreto e quindi a più valori di tensione analogici (diversi) associamo lo stesso valore digitale.
+Alle tensioni analogiche che cadono nell'intrevallo $i$-esimo si associa un \textbf{valore numerico} corrispondente all'intero $i-1$ (cioè andiamo da $0$ a $N-1$) che identifica l'intervallo in questione. Naturalmente questo introduce un errore nella misura perché il numero di soglie è discreto e quindi a più valori di tensione analogici (diversi) associamo lo stesso valore digitale.
 
 \begin{figure}[H]
   \begin{center}
@@ -1270,7 +1271,7 @@ che come ricordiamo è l'espressione di una tipica incertezza di categoria B rel
         keepaspectratio,
     ]{images/intervalloVoltmetroUniforme.png}
     \caption{Distribuzione uniforme per i valori in output del convertutore D/A a rete di R.}
-    \label{convertitoreR}
+    \label{intervallo voltmetro uniforme}
   \end{center}
 \end{figure}
 \section{Voltmetri Digitali (DVM) e DMM}
@@ -1288,6 +1289,146 @@ Le principali caratteristiche dei voltmetri che tratteremo durante il corso sono
   \item Risuzione al rumore di modo differenziale
 \end{itemize}
 Trattiamo in generale voltmetri (DVM e DMM) dotati di display digitale dal quale leggere i valori delle misurazioni, quindi siamo \textbf{sicuri} di essere in assenza di errore di parallasse, per esempio.
+
+Il parametro caratteristico di \textbf{risoluzione} è molto importante. Può essere dimensionale (in Volt) o adimensionale. Più è piccolo il $\Delta V$ di risoluzione più il voltmetro si dice ad alta definizione (perché piò risolvere più livelli).
+
+Formule per il calcolo dei parametri caratteristici principali dei voltmetri:
+\begin{itemize}
+  \item $ \Delta V = \frac{D}{N} = \frac{\text{Dinamica}}{\text{n. livelli}} $
+  \item $ \delta = \frac{\Delta V}{D} = \frac{1}{N_{max}}$. Si esprime come "parti per..."
+  \item $ m $ cifre decimali $ \rightarrow N = 10^m$
+  \item $ n $ bit $ \rightarrow N = 2^n $
+  \item $ m = \log_{10}(2^n) = n\log_{10}(2) = 0.3\cdot n $
+\end{itemize} 
+
+Le \textbf{mezze cifre} dei voltmetri nascono dal $ 0.3 \cdot n $. La \textbf{mezza cifra} è quella che non varia mai per tutte le 9 cifre possibili, ma fa solo una parte della scala. Per esempio: da 0 a 4096 ci vogliono 3 cifre che variano per tutti i 9 numeri, mentre l'ultima mostrerà sempre solo le cifre da 0 a 4. Un voltmetro a 5 cifre \textbf{piene} invece mostra tutti i numeri da 0 a 99999.
+
+\begin{table}[H]
+  \caption{Prestazioni dei Voltmetri}
+  \label{tab:voltmetri}
+
+  \begin{center}
+    \begin{tabular}{|l|c|r|}
+    \hline
+    \textbf{Velocità } &\textbf{Accuratezza} &\textbf{Tipo di Voltmetro} \\
+    \hline
+    [letture/s] & [1/incertezza]  &  (voltmetro) \\
+    \hline  
+       alta   &  bassa  & Flash a 8 bit \\
+    \hline
+       media  &  media  & Approssimazioni Successive a 10-16 bit \\
+    \hline
+       bassa  &  alta   & Integratori a 16-26 bit \\
+    \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+Per tutti i voltmetri il rapporto Velocità ad Accuratezza è sempre "costante", cioè sono in trade-off. Si ottengon odei buoni compromessi però, come possiamo vedere dalla Tabella \ref{tab:voltmetri}.
+
+Per quanto riguarda l'incertezza, essa può essere calcolata come: 
+\begin{align*}  
+  &u_{q,B} = \frac{\Delta V}{\sqrt{12} } = 0.3~\Delta V \\
+  &u_{r_q} = \frac{u_{1,b}}{Dinamica} \simeq \frac{0.3 \Delta V}{N \cdot \Delta V} \simeq \frac{0.3}{2^n} \simeq \frac{0.3}{65000}
+\end{align*}
+\subsection{Voltmetri Differenziali}
+I voltmetri differenziali hanno tale nome perché eseguono la misura in base a una \textbf{differenza} tra una tensione $ V_x $ che è quella che si vuole misurare e una tensione $ V_r $ (tesione di riferimento), tentando di rendere questa differenza il più prossima possibile allo 0. In formule:
+\begin{align*}
+  V_x - kV_r \simeq 0
+\end{align*}
+In uscita verrà scritto il valore NON di $ V_x $ ma il valore di $ V_r $ che per noi poi è uguale a $ V_x $. Il trick è trovare la $ V_r $ corretta per far scattare il comparatore.
+
+$ V_r $ è una tensione di riferimento \textbf{variabile} e per generarla di ricorre al \textbf{riferimento interno}, che è una tensione $ V_0 $ di elevata precisione e stabilità. L'\textbf{accuratezza} di $ V_0 $ e dunque di $ V_r $ si ripercuote sull'accuratezza dei singoli confronti e infine su quella dell'intera misura.
+
+In entrambi i tipi di voltmetri (differenziali e integrali) viene fatto un largo uso dell'\textit{Op-Amp} (\textit{Op}erational \textit{Amp}lifier o Amplificatore Operazionale) con la sua funzione di \textbf{comparatore}.
+\subsection{Voltmetro a Rampa Analogica}
+Questo voltmetro effettua la misura di un intervallo di tempo e calcolia la $ V_r* $ che manda a display. Perché misurare il tempo? Perché ad'ora il secondo è il campione più preciso che riusciamo a realizzare, quindi possiamo misurare con molta precisione l'intervallo di tempo.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=12cm,
+        height=6cm,
+        keepaspectratio,
+    ]{images/voltmetroAnalogico.png}
+    \caption{Lo schema a blocchi di un Voltmetro a Rampa Analogica.}
+  \end{center}
+\end{figure}
+Descriviamo il suo funzionamento:
+
+Il primo \textbf{comparatore di livello} prende in ingresso la tensione Vx incognita e la $ V_r $ interna allo strumento. Il \textbf{Generatore di Rampe} (a stato solido) a dente di sega durante la fase di salita varia tuttte le $ V_r $ possibili in tutta la dinamica di Vx possibili. La $ V_r $ viene anche mandata ad un altro comparatore che la compara con zero e ci fa sapere quando la $ V_r $ è positiva o negativa. 
+
+La \textbf{Logica di controllo} ha 2 ingressi, uno "dice" se è scattato il comparatore con 0 e un altro "dice" se che è scattato il comparatore con $ V_r $. La logica di controllo decide il segno di Vx in base a quale dei due comparatorei scatta prima. Questo misuratore valuta il modulo della tensione che si traduce in un tempo, che misuriamo con un \textbf{contatore elettronico}. Prima del contatore c'è il \textbf{gate} che resta aperto un tempo $ \Delta T_{Gate} $ e durante questo tempo arrivano anche i segnali del clock. Il comparatore conta se il gate fa uscire 1 quindi so tradurre un intervallo di tempo in numero di colpi di clock.
+Sfruttando il fatto che durante la rampa di salita del dente di sega prima o poi passa per Vx, al primo comparatore che scatta la logica di controllo apre il gate e lo chiude al secondo che scatta.
+L'intervallo di tempo che misuro è proporzionale a Vx.
+
+La \textbf{risoluzione} di questo voltmetro è di 4 o 5 cifre (10'000 o 100'000 conteggi). La pendenza della rampa è proporzionale all'intervallo di tempo che misuriamo $ p = |V_x|: \Delta T_G = V_M:\frac{T_{rampa}}{2} $.\\
+
+Quindi questo voltmetro opera secondo una \textbf{conversione tensione/tempo} e la tensione $ V_x $ viene misurata contando un certo numero di periodi di \textit{clock} Tc in un intervallo di tempo $ \Delta T_G $ (proporzionale al modulo di $ V_x $) secondo la relazione:
+\begin{align*}
+  |V_x| = \frac{\Delta T_G}{\frac{T_{rampa}}{2}}V_M = \frac{N_c T_c}{\frac{T_{rampa}}{2}}V_M
+\end{align*}
+
+Gli \textbf{errori} in questo conteggio tipendono dagli errori nella misura dell'intervallo di tempo, quindi dagli errori che vengono commessi all'inizio e alla fine del conteggio, come mostrato in Figura \ref{erroreConteggio}.
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=12cm,
+        height=6cm,
+        keepaspectratio,
+    ]{images/erroreConteggio.png}
+    \caption{}
+    \label{erroreConteggio}
+  \end{center}
+\end{figure}
+\begin{align*}
+  &T_{stop} - T_{start} = \Delta T_G \propto |V_x|\\
+  &\Delta T_G = N\cdot T_c + e_1 - e_2\\
+  &\sigma^2 (\Delta T_G) = \sigma^2(e_i) + \sigma^2(e_2)\\
+  &u(\Delta T_G) = \sigma(\Delta T_G) = \sqrt{2}\frac{T_c}{\sqrt{12}} 
+\end{align*}
+
+Come possiamo vedere dalle seguenti formule:
+\begin{align*}
+  &\delta = \frac{1}{N} = \frac{\Delta V}{D} = \frac{T_c}{T_{rampa}} = \frac{f_{rampa}}{f_c}\\
+  &m = \log_{10}(N) = \log_10(\frac{f_c}{f_{rampa}})\\
+  &n = \log_2(N) = \log_2(\frac{f_c}{f_{rampa}})
+\end{align*}
+la risoluzione migliora al crescere del rapporto $ \frac{f_c}{f_{rampa}} $. Conviene quindi lavorare con $ f_c $ alta, ma questo costringe ad avere un contatore al "molte cifre" e "veloce". Altri parametri sono:
+\begin{align*}
+  &|V_x| = p\cdot \Delta T_G \text{ da } \Delta T_G = N_c T_c = \frac{|V_x|}{p}\\
+  &\text{con $p$ pendenza della rampa analogica } p = \frac{2V_M}{T_{rampa}}~ \Bigg[\frac{V}{s}\Bigg] 
+\end{align*} 
+Una sbatta vera è quindi la frequenza della rampa che dobbiamo avere perché deve essere alta, e quindi deve essere alta anche la fclock perché N = fc/frampa e quindi tocca avere anche fclock alta. La risoluzione aumenta a fc/frampa che aumenta. Ma in questo caso deve essere rapido e capiente.
+
+\subsection{Voltmetro - Convertitore Flash}
+È il più veloce convertitore A/D con $ T_{mis} = 1\cdot T_c $ (la misura occupa un colpo id clock) e raggiunge frequeze di conversione fino a 50 $ \frac{GSa}{s}$.
+
+La complessià circuitale (e il costo) cresce esponenzialmente con il numero di bit (come $ 2^n $) e quindi si lavora a \textbf{bassa risoluzione}, che solamente è $ n \sim 8~\text{bit} $. Esistono anche convesioni da 10 e da 12 bit, mentre le conversioni da 13 bit in poi non hanno molto senso, perché ad alta velocità il \textbf{rumore} darà minor numero di \textbf{bit equivalenti}.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=12cm,
+        height=6cm,
+        keepaspectratio,
+    ]{images/voltmetroAnalogico.png}
+    \caption{Lo schema a blocchi di un Voltmetro a Rampa Analogica.}
+  \end{center}
+\end{figure}
+Devo distinguiere tante soglie di comparazione che sono mandate agli ingressi degli opamp usati da comparatori di tensione con Vx che viene mandata in parallelo a tutti i comparatori. Divido quindi in n soglie equivalenti. Di stati possibili di commutazione tra gli uni e li zeri ci sono 255 casi possibili.
+I comparatori sono messi in modo che fino ad un certo punto avranno in uscita 1 e dopo un certo punto avranno uscita 0. Allora il codificatore binario riesce a scrivere tutto in uscita digitale. Questo avviene tutto in un colpo di clock.
+Parti da Vref e metti tutti i resistori uguali fino a 0. Per costruire un convertitore Flash \textbf{bipolare} conviene dimezzare il quanto di tensione intorno a 0 e mettere dei reistori 1/2 e 3/2 R e i conti tornano fiddatti.
+È imortante sapere le formule seguenti perché vengon ospesso chieste nel pre-compito dell'esame. 
+\textcolor{red}{QUINDI COPIA STE FORMULE A PAG 34/81}.
+Usato in tutte le misure in cui la velocità è un parametro importante. Copiaci anche sta 35. Ocio che alla fine dei lucidi chè tutto un recap delle cose più importanti per ogni lucido FIGO.
+\subsubsection{Esercizio Convertitore Flash}
+Dinamica $ = \pm 10~V $ quindi la \textbf{dinamica} che dobbiamo usare nell'esercizio è $ 20~V $!
+
+$ n = 8 $ bit (perché questi ha il Flash).
+
+$ f_{sample} = 1~\frac{GSa}{s} $
+
+\textcolor{red}{E copiaci anche sto esercizio.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Esercizi di Conversione}
 \label{esercizi:conversione}
