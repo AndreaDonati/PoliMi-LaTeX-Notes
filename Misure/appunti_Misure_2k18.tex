@@ -550,7 +550,7 @@ Infatti la PDF$_{Tri}$ è "meno dispersa" della PDF$_{Uni}$.
 \newpage
 \section{Incertezza Composta $u_C$}
 L'incertezza composta deriva appunto dalla composizione di diverse incertezze, che possono essere di categoria A e di categoria B.
-\subsection{Incertezza Composta per Misure Dirette e indirette}
+\subsection{Incertezza Composta per Misure Dirette e Indirette}
 \subsubsection{Misure Dirette}
 Nel caso di misure dirette (\textit{e.g.} misure di V con un voltmetro) possiamo calcolare l'incertezza composta come:
 $$
@@ -559,7 +559,7 @@ $$
 \subsubsection{Misure Indirette}
 Nel caso di misure \textbf{indirette}, invece, il discorso è molto più complesso.
 
-Un esempio di misura indiretta piò essere la misura di una potenza elettrica \textbf{senza wattmetro}, cioè ottenuta da R ed I tramite la formula $P = RI^2$. In questo caso la \textbf{misura è funzione di più misure}: $y = f(x_1,x_2,\ldots ,x_N)$
+Un esempio di misura indiretta può essere la misura di una potenza elettrica \textbf{senza wattmetro}, cioè ottenuta da R ed I tramite la formula $P = RI^2$. In questo caso la \textbf{misura è funzione di più misure}: $y = f(x_1,x_2,\ldots ,x_N)$.
 È possibile calcolare $u_B(x)$ partendo dalla conoscenza di un \textbf{ intervallo di confidenza} con probabilità $P$, usando una PDF normale con confidenza $P$, centrata sul valore centrale dell'intervallo.
 
 Stimeremo l'incertezza in questo caso come:
@@ -620,7 +620,7 @@ $$
 Per arrivare a semplicifare la formula dell'uncertezza combinata, andiamo a definire i \textbf{coefficienti di correlazione}:
 $$
   i_{ij}(x_i,x_j) \equiv \frac{u(x_i,x_j)}{u(x_i)\cdot u(x_j)}~\epsilon [-1;+1]~
-$$ definito come il rapporto tra la covarianza di due variabili e il prodotto delle loro varianze. È importante notare che se $X_i$ e $X_j$ sono variabili aleatorie tali per cui il comportamento di una non influisce sulla variazione dell'altra (cioè sono \textbf{statisticamente indipendenti}), allora il loro coefficiente di correlazione sarà pari a 0.
+$$ definiti come il rapporto tra la covarianza di due variabili e il prodotto delle loro varianze. È importante notare che se $X_i$ e $X_j$ sono variabili aleatorie tali per cui il comportamento di una non influisce sulla variazione dell'altra (cioè sono \textbf{statisticamente indipendenti}), allora il loro coefficiente di correlazione sarà pari a 0.
 $$
     r_{ij} = 0~~~~\text{se $X_i$ e $X_j$ sono statisticamente indipendenti}
 $$
@@ -680,7 +680,7 @@ $$
 $$
 Per calcolare l'incertezza innanzitutto ci accorgiamo che è necessario calcolare una incertezza composta, con relazione funzionale espressa nella Formula \ref{gas perfetti}. Per calcolare questa quindi necessitiamo di sapere le incertezze di tutte le variabili coinvolte nella relazione funzionale.
 
-L'incertezza di R è trascurabile per ipotesi, quella di n è nota così come quella di T, ma non conosciamo l'incertezza di V. Procediamo quindi a calcolarla: anche questa in un certo senso è il calcolo di un incertezza composta, con la relazione funzionale $ V = L^3 $, quindi scriviamo:
+L'incertezza di R è trascurabile per ipotesi, quella di n è nota così come quella di T, ma non conosciamo l'incertezza di V. Procediamo quindi a calcolarla: anche questo in un certo senso è il calcolo di un'incertezza composta, con la relazione funzionale $ V = L^3 $, quindi scriviamo:
 $$
   u(V) = \sqrt{\Bigg(\frac{\delta V}{\delta L}\Bigg)^2 u^2(L)} = \sqrt{[3~m^2]^2\cdot[10^{-3}~m]^2} = \sqrt{9\times 10^{-6}~m^6} = 3\times 10^{-3}~ m^3
 $$
@@ -715,7 +715,7 @@ $$
   u_r(p) = \sqrt{(2)^2u_r^2(n)+(4)^2u_r^2(T)+(-3)^2u_r^2(V)}
 $$ e quindi
 $$
-  u_r(p) = \sqrt{(4u_r^2(n)+16u_r^2(T)+92u_r^2(V)}  
+  u_r(p) = \sqrt{4u_r^2(n)+16u_r^2(T)+92u_r^2(V)}  
 $$
 \paragraph{Per concludere:}
 \begin{itemize}
@@ -823,10 +823,10 @@ $$
   \end{center}
 \end{figure}
 
-Tra più misure compatibili è possibile calcolare una \textbf{media pesata}: nel caso di $N$ risultati di misura compatibili, indipendenti e normalmente distribuiti, la miglir stima della misura è:
+Tra più misure compatibili è possibile calcolare una \textbf{media pesata}: nel caso di $N$ risultati di misura compatibili, indipendenti e normalmente distribuiti, la miglior stima della misura è:
 \begin{equation}
   \label{media pesata misure compatibili}  
-    x = \bar{x_{IMP}} = \frac{\sum^N_{i=1}w_i x_i}{\sum^N_{i=1}w_i} = \frac{\sum^N_{i=1}\frac{x_i}{u^2(x_i)}}{\sum^N_{i=1}\frac{1}{u^2(x_i)}}
+    x = \bar{x}_{IMP} = \frac{\sum^N_{i=1}w_i x_i}{\sum^N_{i=1}w_i} = \frac{\sum^N_{i=1}\frac{x_i}{u^2(x_i)}}{\sum^N_{i=1}\frac{1}{u^2(x_i)}}
 \end{equation}
 Dove i pesi $w_i = \frac{1}{u^2(x_i)}$ sono i \textbf{reciproci delle varianze} stimate e dunque indicano il grado di confidenza che abbiamo sugli $x_i$. Se $u(x_i)$ è sufficientemente "basso" abbiamo una misura "credibile".
 
@@ -837,12 +837,13 @@ A questo punto possiamo calcolare anche \textbf{l'incertezza della media pesata}
 \end{equation}
 \subsection{Gradi di Libertà per Incertezza di Categoria B}
 Ricordiamo che ogni stima di incertezza è \textbf{a sua volta incerta} e la bontà di questa stima è esprimibile attraverso il numero di gradi di libertà ($v_a$ = n-1 per l'incertezza di categoria A).
-Anche nel caso di incertezza di categoria B si può \textbf{stimare}, non calcolare secondo una formula predeterminata, il numero $v_B$ di gradi di libertò della stima dell'incertezza (ricordando che è sempre meglio sottostimare $v_B$ piuttosto che soreastimarlo).
+Anche nel caso di incertezza di categoria B si può \textbf{stimare}, non calcolare secondo una formula predeterminata, il numero $\nu_b$ di gradi di libertà della stima dell'incertezza (ricordando che è sempre meglio sottostimare $\nu_b$ piuttosto che sovrastimarlo).
 
-Per l'incertezza di categoria B si può avere nel caso migliore (\textit{e.g} incertezza di quantizzazione) $v_B = \infty$ e nel caso più conservativo (\textit{worst case} $v_B = 1$).
-Il numero di gradi di libertà $v_b$ deve essere stimato sulla base di quanto "si crede" alla stima di $u_B$, com'è anche vero per l'incertezza di categoria A.
+Per l'incertezza di categoria B si può avere nel caso migliore (\textit{e.g} incertezza di quantizzazione) $\nu_b = \infty$ e nel caso più conservativo (\textit{worst case} $\nu_b = 1$).
+Il numero di gradi di libertà $\nu_b$ deve essere stimato sulla base di quanto "si crede" alla stima di $u_B$, com'è anche vero per l'incertezza di categoria A.
+
 \subsubsection{Significato del Numero di gradi di Libertà}
-Consideriamo un campione di $n$ dati. Di questo campione si possono stimare la varianza e la deviazione standard del valor medio (ossia l'incertezza della misura). Però, operando su un campione casuale, anche la stima della varianza è un numero casuale che presenta una potenziale \textbf{dispersione}. Il numero di gradi di libertà de è un indicatore della possibile variabilità della nostra stima dell'incertezza.
+Consideriamo un campione di $n$ dati. Di questo campione si possono stimare la varianza e la deviazione standard del valor medio (ossia l'incertezza della misura). Però, operando su un campione casuale, anche la stima della varianza è un numero casuale che presenta una potenziale \textbf{dispersione}. Il numero di gradi di libertà è un indicatore della possibile variabilità della nostra stima dell'incertezza.
 
 Questo è vero perché si può dimostrare che:
 $$
@@ -873,13 +874,13 @@ che è un indice dell'incertezza dell'incertezza. $\nu$ e $\nu^{-1}$ possono dar
 Questo ci suggerisce che (tranne per casi particolar\textit{issmi}) è sempre inutile cercare di esprimere l'incertezza con 3 (o più) cifre significative. Sia perché si dovrebbero prendere un milione di misure, sia perché molto spesso gli altri dati con cui abbiamo a che fare nel corso delle misurazioni/nel corso dei calcoli non sono conosciuti \textit{così} bene.
 
 \subsection{Esercizio su Compatibilità e Media Pesata}
-Due differenti misure della stessa potenza a radiofrequenza, emessa da un telefono cellulare, vengono effettuate con strumenti diversi e in maniera del tutto indipendente.
+Due differenti misure della stessa potenza a radiofrequenza, emessa da un telefono cellulare, vengono effettuate con strumenti diversi e in maniera del tutto \textbf{indipendente}.
 \begin{itemize}
   \item La prima misura è analogica ("senza limiti di risoluzione") ed è ricavata de letture ripetute ($n=5$) del misurando, che hanno fornito i valori:
   $$
     P_{1,1} = 3.4~W~~~P_{1,2} = 3.2~W~~~P_{1,3} = 3~W~~~P_{1,4} = 2.8~W~~~P_{1,5} = 2.6~W 
   $$
-  \item La seconda misura è digitale, effettuata con un wattmetro ideale a 100 livelli e portata $20~W$, ha fornito una lettura $P_2 = 3.2~W$
+  \item La seconda misura è digitale, effettuata con un wattmetro ideale a 100 livelli e portata $20~W$, e ha fornito una lettura $P_2 = 3.2~W$
 \end{itemize}
 L'esercizio richiede di:
 \begin{enumerate}
@@ -887,19 +888,19 @@ L'esercizio richiede di:
   \item Valutare la compatibilità tra i due risultati di misura, in particolar modo per fattori di copertura $k$ pari ad 1,2 e 3.
   \item Ricavare la miglior stima per il valore della potenza $P$ misurata e la sua incertezza standard $u(P)$.
 \end{enumerate}
-Per il primo punto il calcolo di valore ed incertezza per $P_1$ è il classico calcolo "a macchinetta" di un'incertezza standard di categoria A: 
+Per il \textbf{primo punto} il calcolo di valore ed incertezza per $P_1$ è il classico calcolo "a macchinetta" di un'incertezza standard di categoria A: 
 \begin{itemize}
-  \item $P_1 = \bar{P_1} = \bar{P_{1,i} = 3~W}$\\ricavato come media campionaria: $\bar{P_1} = \frac{1}{n}\sum^n_{i=1}P_{1,i}$
+  \item $P_1 = \bar{P_1} = \bar{P}_{1,i} = 3~W$\\ricavato come media campionaria: $\bar{P_1} = \frac{1}{n}\sum^n_{i=1}P_{1,i}$
   \item $u(P_1)$ calcolata con la Formula: \ref{inc.cat.A} e $\simeq0.14~W$
 \end{itemize}
-Mentre il calcolo di valore ed incertezza di $P_2$ è il calcolo di un incertezza di categoria B. Infatti $P_2 = 3.2~W$ da una misura digitale con risoluzione $\Delta P_2 = \frac{20^W}{100~\text{livelli}} = 0.2~W$ (passo di quantizzazione).
+Mentre il calcolo di valore ed incertezza di $P_2$ è il calcolo di un'incertezza di categoria B. Infatti $P_2 = 3.2~W$ da una misura digitale con risoluzione $\Delta P_2 = \frac{20~W}{100~\text{livelli}} = 0.2~W$ (passo di quantizzazione).
 
 L'incertezza di $P_2$ invece è:
 $$
   u(P_2) = \frac{\Delta P_2}{\sqrt{12}} \simeq 0.058~W \simeq 0.06~W\text{~~(incertezza di quantizzazione)}
 $$
 \\
-Per il punto \textbf{b)} per verificare la compatibilità tra le due misure si deve valutare la disuguaglianza
+Per il punto \textbf{2.} per verificare la compatibilità tra le due misure si deve valutare la disuguaglianza
 $$
   |P_1 - P_2| \le k \sqrt{u^2(P_1)+u^2(P_2)}
 $$
@@ -920,7 +921,7 @@ Pertanto, le due misure \textbf{sono compatibili} con $k=2$ e ovviamente anche c
 Cioè se la somma di due incertezze è inferiore alla distanza tra le due misure (eventualmente divisa per $k$), allora non si può avere compatibilità (eventualmente con un fattore di copertura $k$). Inoltre, quando in generale si nota che svolgendo i calcoli con $k = 1$ la somma delle incertezze non copre la distanza tra le misure "\textit{di molto}", allora non lo farà neanche per $k=2$ e $k=3$, quindi le misure resteranno incompatibili per questi fattori.
 \\
 
-Venendo al punto \textbf{c)} ritenendo accettabile la condizione di compatibilità con $k=2$, possiamo calcolare la miglior stima della potenza $P$ misurata, ricorrendo al criterio delle \textbf{media pesata tra misure compatibili} (Formula \ref{media pesata misure compatibili}) ottenendo un valore $P_{MP} \simeq 3.169~W$. Osserviamo che $P_{MP}$ è più vicino a $P_2$ che non a $P_1$ perché $u(P_2)<u(P_1)$.
+Venendo al punto \textbf{3.} ritenendo accettabile la condizione di compatibilità con $k=2$, possiamo calcolare la miglior stima della potenza $P$ misurata, ricorrendo al criterio delle \textbf{media pesata tra misure compatibili} (Formula \ref{media pesata misure compatibili}) ottenendo un valore $P_{MP} \simeq 3.169~W$. Osserviamo che $P_{MP}$ è più vicino a $P_2$ che non a $P_1$ perché $u(P_2)<u(P_1)$.
 
 Calcoliamo anche l'\textbf{incertezza della media pesata} (Formula: \ref{incertezza media pesata misure compatibili}):
 $$
