@@ -1402,33 +1402,85 @@ la risoluzione migliora al crescere del rapporto $ \frac{f_c}{f_{rampa}} $. Conv
 Una sbatta vera è quindi la frequenza della rampa che dobbiamo avere perché deve essere alta, e quindi deve essere alta anche la fclock perché N = fc/frampa e quindi tocca avere anche fclock alta. La risoluzione aumenta a fc/frampa che aumenta. Ma in questo caso deve essere rapido e capiente.
 
 \subsection{Voltmetro - Convertitore Flash}
-È il più veloce convertitore A/D con $ T_{mis} = 1\cdot T_c $ (la misura occupa un colpo id clock) e raggiunge frequeze di conversione fino a 50 $ \frac{GSa}{s}$.
+È il più veloce convertitore A/D con $ T_{mis} = 1\cdot T_c $ (la misura occupa un colpo di clock) e raggiunge frequenze di conversione fino a 50 $ \frac{GSa}{s}$.
 
 La complessià circuitale (e il costo) cresce esponenzialmente con il numero di bit (come $ 2^n $) e quindi si lavora a \textbf{bassa risoluzione}, che solamente è $ n \sim 8~\text{bit} $. Esistono anche convesioni da 10 e da 12 bit, mentre le conversioni da 13 bit in poi non hanno molto senso, perché ad alta velocità il \textbf{rumore} darà minor numero di \textbf{bit equivalenti}.
-\begin{figure}[H]
+\begin{figure}
   \begin{center}
     \includegraphics[
         width=12cm,
         height=6cm,
         keepaspectratio,
-    ]{images/voltmetroAnalogico.png}
-    \caption{Lo schema a blocchi di un Voltmetro a Rampa Analogica.}
+    ]{images/voltmetroFlash.png}
+    \caption{Lo schema a blocchi di un Voltmetro - Convertitore Flash.}
+    \label{voltmetroFlash}
   \end{center}
 \end{figure}
-Devo distinguiere tante soglie di comparazione che sono mandate agli ingressi degli opamp usati da comparatori di tensione con Vx che viene mandata in parallelo a tutti i comparatori. Divido quindi in n soglie equivalenti. Di stati possibili di commutazione tra gli uni e li zeri ci sono 255 casi possibili.
-I comparatori sono messi in modo che fino ad un certo punto avranno in uscita 1 e dopo un certo punto avranno uscita 0. Allora il codificatore binario riesce a scrivere tutto in uscita digitale. Questo avviene tutto in un colpo di clock.
-Parti da Vref e metti tutti i resistori uguali fino a 0. Per costruire un convertitore Flash \textbf{bipolare} conviene dimezzare il quanto di tensione intorno a 0 e mettere dei reistori 1/2 e 3/2 R e i conti tornano fiddatti.
-È imortante sapere le formule seguenti perché vengon ospesso chieste nel pre-compito dell'esame. 
-\textcolor{red}{QUINDI COPIA STE FORMULE A PAG 34/81}.
-Usato in tutte le misure in cui la velocità è un parametro importante. Copiaci anche sta 35. Ocio che alla fine dei lucidi chè tutto un recap delle cose più importanti per ogni lucido FIGO.
+
+Nel circuito di questo voltmetro (che possiamo vedere in Figura \ref{voltmetroFlash}) l'\textit{Op-Amp} è usato con la sua funzione di comparatore, cioè "alza" l'uscita quando il segnale all'ingresso + supera in modulo quello sull'ingresso -. In questo caso è $ V_x $ che viene mandaa in parallelo in ingresso a tutti i comparatori al morsetto +, mentre $ V_{ref} $ al morsetto -.
+
+Analizzando il circuito vediamo come vengono distinte $ N-1 $ soglie (dove $ N $ è sempre il numero dei livelli) attraverso una rete di resistori di valore $ R $ (tutti identici) se vogliamo campionare un segnale \textit{non}-polarizzato, mentre si usano agli estremi resistori di valroe $ \frac{3}{2} R$ e $ \frac{R}{2} $ con lo scopo di dimezzare la soglia del primo livello in ampiezza per non avere \textit{offset} nella caratteristica di conversione nel convertire segnali \textbf{bipolari}.
+
+In formule\footnotemark[1]\footnotetext[1]{È importante ricordare queste formule e il loro significato, anche perchè è spesso necessario usarle per rispondere al pre-compito in sede d'esme.}:
+\begin{itemize}
+  \item $ N $ resistori tutti uguali:
+  \begin{align*}
+    &I = \frac{V_{ref}}{N\cdot R}\\
+    &V_i = i(R\cdot I) = i(\Delta V) = i\frac{V_{ref}}{N}\text{ con i che va da 1 a $N-1$ e quindi abbiamo $ N-1 $ soglie.}
+  \end{align*}
+  \item Primo e ultimo resistore diversi:
+  \begin{align*}
+    &I = \frac{V_{ref}}{2R+(N-2)R} = \frac{V_{ref}}{N\cdot R}\\
+    &V_i = \left[ \frac{R}{2}+(i+1)R\right] I = \left( i-\frac{1}{2} \right)\frac{V_{ref}}{N}\text{ con $ N-1 $ soglie.}
+  \end{align*}
+\end{itemize} 
+Dato questo circuito quindi, se prendiamo ad esempio un numero di bit $ n = 8 $, possiamo distinguere 255 soglie di comparazione equivalenti avendo 255 possibili stati di commutazione 1/0 dell'uscita dei comparatori.
+
+I comparatori sono messi in modo tale da avere, per un qualsiasi segnale d'ingresso, un'uscita che fino ad una certa "altezza" del circuito sarà 1, mentre sarà 0 per i livelli più "alti". Con un ingresso fatto come appena descritto, il codificatore binario riesce a scrivere tutto in uscita digitale, convertendo le $ N-1 $ soglie in ingresso in $ n $ bit in uscita (che rappresentano il valore binario della tensione misurata). \\
+
+
+Questo voltmetro è usato in tutte le misure in cui la velocità è un parametro importante, come negli \textbf{oscilloscopi digitali} dove una risoluzione modesta non è un fattore limitante.\\
+
+Per quanto riguarda la risoluzione, quella assoluta dipende naturalmente dalla dinamica e dal valore misurato, mentre quella relativa (per un convertitore a $ N = 256 $ livelli - $ n = 8 $ bit) risulta essere:
+$$
+  \delta = \frac{1}{256} \simeq 4\times 10^{-3}\text{~~~o \textit{"4 parti per mille"}}.
+$$
+\begin{figure}
+  \begin{center}
+    \includegraphics[
+        width=12cm,
+        height=8cm,
+        keepaspectratio,
+    ]{images/voltmetroFlash2.png}
+    \caption{Schema a blocchi alternativo di un Voltmetro - Convertitore Flash.}
+    \label{voltmetroFlash2}
+  \end{center}
+\end{figure}
+In figura \ref{voltmetroFlash2} anche un'altra possibile struttura per un convertitore Flash, che supporta una dinamica del segnale d'ingresso \textbf{bipolare} senza usare resistenze di valore diverso, ma modificando l'"acquisizione" dell'ingresso.
+
 \subsubsection{Esercizio Convertitore Flash}
-Dinamica $ = \pm 10~V $ quindi la \textbf{dinamica} che dobbiamo usare nell'esercizio è $ 20~V $!
-
-$ n = 8 $ bit (perché questi ha il Flash).
-
-$ f_{sample} = 1~\frac{GSa}{s} $
-
-\textcolor{red}{E copiaci anche sto esercizio.}
+Dati dell'esercizio:
+\begin{itemize}
+  \item Dinamica $ D = \pm 10~V$. \textbf{Attenzione:} la dinamica \textbf{varia tra} -10 V e + 10 V, quindi abbiamo una \textbf{piena dinamica} di 20 V. È questo il dato che dobbiamo usare nei calcoli.
+  \item $ N = 8 $ bit
+  \item $ f_{sample} = 1~\frac{GSa}{s} $
+\end{itemize}
+Richieste:
+\begin{itemize}
+  \item $ \Delta V =~? $
+  \item $ u(V) =~? $
+  \item $ f_{x,max} =~? $
+\end{itemize}
+~\\ \\
+Soluzione:
+\begin{align*}
+  \\
+  &\Delta V = \frac{D}{2^n} = \frac{20~V}{256} \simeq 80~mV\\
+  \\
+  &u(V) = u_q(V) = \frac{\Delta V}{\sqrt{12}} \simeq 23~mV\text{~~l'incertezza è solo quella di quantizzazione}\\
+  \\
+  &f_{x,max} = \frac{f_{sample}}{2} = 500~MHz \text{~~~ dal teorema di Shannon (\ref{shannon})}
+\end{align*}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Esercizi di Conversione}
 \label{esercizi:conversione}
