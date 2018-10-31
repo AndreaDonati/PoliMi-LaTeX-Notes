@@ -933,16 +933,16 @@ In conclusione possiamo dire che $P = 3.169(55)~W$ o anche $P=3.17(6)~W$ è il \
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Rappresentazione Grafica dei Risultati Sperimentali - Interpolazione e Curve di Regressione}
 \section{Rappresentazione Grafica dei Risultati Sperimentali}
-La rappresentazione grafica di effettua per ottenere una "visione d'insieme" di una grandezza, inf unzione del tempo (o di un altro parametro). Si utilizzano tipicamente assi coortinati che devono riportare la descrizione della grandezza rappresentata e all'occorrenza \textbf{anche la sua unità di misura}.
+La rappresentazione grafica si effettua per ottenere una "visione d'insieme" di una grandezza, in funzione del tempo (o di un altro parametro). Si utilizzano tipicamente assi coortinati che devono riportare la descrizione della grandezza rappresentata e all'occorrenza \textbf{anche la sua unità di misura}.
 Si distinguono infatti due tipi di grafici:
 \begin{itemize}
   \item Grafici \textbf{quantitativi}: grafici in cui sugli assi compaiono dei valori numerici, dei quali bisogna sempre indicare l'unità di misura corrispondente.
   \item Grafici \textbf{qualitativi}: i grafici che non sono quantitativi si dicono qualitativi, e sono spesso usati per indicare degli andamenti o delle tendenze.
 \end{itemize}
 \paragraph{Grafico in un piano cartesiano}~\\
-Come già si dovrebbe sapere, il grafico in un piano cartesiano è composto da due assi, uno per le \textit{ascisse} e uno per le \textit{ordinate}. Sull'asse delle \textit{ascisse} (asse X) ci sarà la variabile \textbf{indipendente}, anche detta "comando d'ingresso"- Sull'asse delle \textit{ordinate} (asse Y) ci sarà invece la variabile \textbf{dipendente}, anche detta "grandezza d'uscita".
+Come già si dovrebbe sapere, il grafico in un piano cartesiano è composto da due assi, uno per le \textit{ascisse} e uno per le \textit{ordinate}. Sull'asse delle \textit{ascisse} (asse X) ci sarà la variabile \textbf{indipendente}, anche detta "comando d'ingresso". Sull'asse delle \textit{ordinate} (asse Y) ci sarà invece la variabile \textbf{dipendente}, anche detta "grandezza d'uscita".
 
-Va notato che tipicamente avremo $u(x_i) << u(y_i)$, ossia la variabile di comando è nota con buona precisione (diremo che ha incertezza trascurabile), mentre la variabile di uscita presenta una maggiore incertezza, che andrà rappresentata su grafico tramite delle \textit{\textbf{barre d'errore}}. Possiamo vedere un esempio di queste barre d'errore bella Figura: \ref{rappresentazione:barrerrore}, nella quale le barre indicano un intervallo di confidenza, che va specificato: ad esempio scriveremo in aggiunta al grafico che esse rappresentano un intervallo di confidenza del $\pm 1 \sigma$ (68\%).
+Va notato che tipicamente avremo $u(x_i) << u(y_i)$, ossia la variabile di comando è nota con buona precisione (diremo che ha incertezza trascurabile), mentre la variabile di uscita presenta una maggiore incertezza, che andrà rappresentata su grafico tramite delle \textit{\textbf{barre d'errore}}. Possiamo vedere un esempio di queste barre d'errore nella Figura: \ref{rappresentazione:barrerrore}, nella quale le barre indicano un intervallo di confidenza, che va specificato: ad esempio scriveremo in aggiunta al grafico che esse rappresentano un intervallo di confidenza del $\pm 1 \sigma$ (68\%).
 \begin{figure}[H]
   \begin{center}
     \includegraphics[
@@ -980,7 +980,7 @@ Nella Figura \ref{rappresentazione:diagrammaPolare} possiamo vedere un esempio i
 \paragraph{Grafico in scala semilogaritmica}~\\
 Come già studiato nella Sezione \ref{sezione:unitaLog}, le unità logaritmiche sono utili per visualizzare grandezze che variano di diversi ordini di grandezza, con dettaglio relativo costante, cioè punti equispaziati in scala logaritmica stanno in uno \textbf{stesso rapporto} in scala lineare.
 
-I diagrammi \textit{semi}logaritmici sono tali perché hanno uno degli assi in scala logaritmica, mentre l'altro in scala lineare. In Figura \ref{diagrammi:semilogy} possiamo vedere un diagramma "\textit{semilog-}$y$" per la curva I-V di un diodo a semiconduttore in polarizzazione diretta: $I = I_0 e^(\frac{V}{V_T})$
+I diagrammi \textit{semi}logaritmici sono tali perché hanno uno degli assi in scala logaritmica, mentre l'altro in scala lineare. In Figura \ref{diagrammi:semilogy} possiamo vedere un diagramma "\textit{semilog-}$y$" per la curva I-V di un diodo a semiconduttore in polarizzazione diretta: $I = I_0 e^{(\frac{V}{V_T})}$
 \begin{figure}[H]
   \begin{center}
     \includegraphics[
@@ -1005,7 +1005,7 @@ Un ulteriore esempio di diagramma semilogaritmico è un diagramma di Bode della 
   \end{center}
 \end{figure}
 \paragraph{Grafico in scala semilogaritmica}~\\
-Quando si ha necessità di rappresentare ampie dinamiche di funzione per entrambe le variabili di controllo e controllata, si può ricorrere all'uso di diagrammi "interamente" logaritmici (\textit{log-log}). Come per esempio viene fatto nel diagramma di Bode del Modulo\footnotemark[1] per rappresentare l'ampiezza o guadagno in dB in funzione delle afrequenza riportata in scala logaritmica (vedi Figura \ref{diagrammi:BodeModulo}).
+Quando si ha necessità di rappresentare ampie dinamiche di funzione per entrambe le variabili di controllo e controllata, si può ricorrere all'uso di diagrammi "interamente" logaritmici (\textit{log-log}). Come per esempio viene fatto nel diagramma di Bode del Modulo\footnotemark[1] per rappresentare l'ampiezza o guadagno in dB in funzione della frequenza riportata in scala logaritmica (vedi Figura \ref{diagrammi:BodeModulo}).
 \begin{figure}[H]
   \begin{center}
     \includegraphics[
@@ -1027,11 +1027,11 @@ Da una rapida analisi dei logaritmi per la prima decade:
 \end{align*}
 possiamo notare che anche per tutte le altre decadi vale questo (ovviamente a meno degli opportuni fattori moltiplicativi).
 
-Quindi, per prendere misure sensate per ricostruire la curva senza occupare troppo tempo/effetturare troppe misurazioni conviene prendere 4 misure per ogni decade, cioè \textbf{una ogni terzo}. In questo modo con 19 misurazioni si ha un'escursione di 6 decadi (da 0 dino a $10^5$). 
+Quindi, per prendere misure sensate per ricostruire la curva senza occupare troppo tempo/effetturare troppe misurazioni conviene prendere 4 misure per ogni decade, cioè \textbf{una ogni terzo}. In questo modo con 19 misurazioni si ha un'escursione di 6 decadi (da 0 fino a $10^5$). 
 \section{Interpolazione e Regressione}
 \subsection{Interpolazione}
 \label{interpolazione}
-Essendo una misura un insisme finto e discreto di valori sperimetali, quando andiamo a rappresentarla su un grafico avremo una disposizione di questi punti sperimentali \textbf{discreta} (non continua). Sarebbe quindi utile e interessante andare a "riempire" lo spazio tra due punti sperimentali adiacenti. Questa operazione di "riempimento" prende il nome di \textbf{interpolazione}, ed è effettuata tramita una \textbf{funzione interpolante}.
+Essendo una misura un insieme finto e discreto di valori sperimetali, quando andiamo a rappresentarla su un grafico avremo una disposizione di questi punti sperimentali \textbf{discreta} (non continua). Sarebbe quindi utile e interessante andare a "riempire" lo spazio tra due punti sperimentali adiacenti. Questa operazione di "riempimento" prende il nome di \textbf{interpolazione}, ed è effettuata tramite una \textbf{funzione interpolante}.
 
 Una funzione interpolante è una funzione continua che, passando per i due punti in questione, ci fornisce l'andamento presunto (interpolato) della relazione ingresso-uscita.
 
@@ -1043,7 +1043,7 @@ La funzione interpolante in questo caso è definita come una funzione che è nul
 \begin{center}
   E QUA METTICI LA FUNZIONE INTERPOLANTE LINEARE
 \end{center}
-L'interpolaizione si effettua \textbf{sovrapponendo} (moltiplicandola) questa funzione ad ogni punto sperimentale e mediando i segmenti di retta ottenuti per ogni intervallo di punti.
+L'interpolazione si effettua \textbf{sovrapponendo} (moltiplicandola) questa funzione ad ogni punto sperimentale e mediando i segmenti di retta ottenuti per ogni intervallo di punti.
 
 Come si può vedere dalla figura \ref{interpolazione:lineare}, questo metodo non consente una buona ricostruzione del segnale, perché non sfrutta l'informazione contenuta in \textit{tutti} i punti, ma solo quella dei due adiacenti che vengono uniti. Se per esempio seguissimo alla lettera il \textbf{teorema di Shannon} per il campionamento:
 \begin{center}
@@ -1070,7 +1070,7 @@ ponendo quindi:
 $$
   f_{campionamento} = 2f_{max}
 $$
-otterremmo un insieme di punti che stanno su una retta parallela all'asse delle ascisse (sul valore $y$ di metà ampiezza del segnale campionato) e, applicando l'interpolazione lineare, andremmo a ricostruire tale retta. Siccome abbiamo campionato una sinusoide, è evidente che l'interpolazione lineare, in questo caso, è stata inefficacie. Come vedremo, in questo caso limte è necessaria l'interpolazione \textit{a seno cardinale}.
+otterremmo un insieme di punti che stanno su una retta parallela all'asse delle ascisse (sul valore $y$ di metà ampiezza del segnale campionato) e, applicando l'interpolazione lineare, andremmo a ricostruire tale retta. Siccome abbiamo campionato una sinusoide, è evidente che l'interpolazione lineare, in questo caso, è stata inefficace. Come vedremo, in questo caso limte è necessaria l'interpolazione \textit{a seno cardinale}.
 \paragraph{Interpolazione polinomiale cubica}~\\
 Questo tipo di interpolazione è quello usato da tool come MatLab e Excel per effettuare l'interpolazione. Ricostruisce una curva che passa per i punti sperimentali, mantenendo continue la derivata prima e seconda. Ha quindi l'effetto visivo di una "linea smussata".
 
@@ -1104,19 +1104,17 @@ In Figura \ref{interpolazione:esempio} possiamo vedere due esempi di interpolazi
     \label{interpolazione:esempio}
   \end{center}
 \end{figure}
-Una caratteristica da notare nell'interpolazione a seno cardinale e che si nota dalla Figura \ref{interpolazione:esempio} è la "precisione" dell'interpolazione che diminuisce in prossimità degli estremi dell'intervallo di campionamento, mentre vicino al centro dell'intervallo è molto più "fedele". Questo è dovuto al fatto che tale metodo di interpolazione sfrutta, per determinare un tratto di curva tra due punti sperimentali, l'informazione di tutti gli altri punti sperimentali. In prossimità degli estremi, è quindi impossibile avere informazioi sulle parti "a destra" e "a sinistra", perché non sono state campionate.
+Una caratteristica da notare nell'interpolazione a seno cardinale e che si nota dalla Figura \ref{interpolazione:esempio} è la "precisione" dell'interpolazione che diminuisce in prossimità degli estremi dell'intervallo di campionamento, mentre vicino al centro dell'intervallo è molto più "fedele". Questo è dovuto al fatto che tale metodo di interpolazione sfrutta, per determinare un tratto di curva tra due punti sperimentali, l'informazione di tutti gli altri punti sperimentali. In prossimità degli estremi, è quindi impossibile avere informazioni sulle parti "a destra" e "a sinistra", perché non sono state campionate.
 \subsection{Regressione}
 
-Un diagramma spetimentale, ottenuto da risultati di misura, spesso mostra una dipendenza $y = f(x)$ che appare ragionevolmente approssimabile con una \textbf{funzione nota}. Nei casi in cui questo non accade, è possibile che conosciamo già questa funzione da un'analisi teorica del fenomeno in studio ma,, se la dispersione dei dati è talmente grande che non riusicmo a definire con sufficiente affidabilità i \textbf{valori dei parametri del modello}.
-
-Tramite la \textbf{regressione} è possibile ricavare questi valori (parametri caratteristici del fenomeno misurato) da una misura/osservazione di punti.
+Un diagramma spetimentale, ottenuto da risultati di misura, spesso mostra una dipendenza $y = f(x)$ che appare ragionevolmente approssimabile con una \textbf{funzione nota}. Nei casi in cui questo non accade, è possibile che conosciamo già questa funzione da un'analisi teorica del fenomeno in studio ma, se la dispersione dei dati è talmente grande che non riusciamo a definire con sufficiente affidabilità i \textbf{valori dei parametri del modello}, tramite la \textbf{regressione} è possibile ricavare questi valori (parametri caratteristici del fenomeno misurato) da una misura/osservazione di punti.
 
 \subsubsection{Regressione ai Minimi Quadrati}
 Consideriamo una generica dipendenza di una variabile fisica $y$ da un'altra variabile $x$, attraverso una funzione $f$ con più parametri $A,B,\ldots$:
 $$
   y = f(A,B,\ldots,x)
 $$
-Effettuiamo quindi $n$ misure $y_i$ della variabile $y$ in funzione della variabile $x$ osservata nei punti $x_i$. Per \textbf{stimare i parametri} che meglio rappresentano la realtà misurata definiamo una \textbf{funzione "distanza"} tra la misura e la funzione $f$. Il nostro obiettivo sarà quindi quello di \textbf{minimizzare tale distanza}. Esistono diverse funzioni "distanza", quella più comunemente usara è la somma degli \textbf{scarti quadratici} tra $f$ e il valore misurato.
+Effettuiamo quindi $n$ misure $y_i$ della variabile $y$ in funzione della variabile $x$ osservata nei punti $x_i$. Per \textbf{stimare i parametri} che meglio rappresentano la realtà misurata definiamo una \textbf{funzione "distanza"} tra la misura e la funzione $f$. Il nostro obiettivo sarà quindi quello di \textbf{minimizzare tale distanza}. Esistono diverse funzioni "distanza", quella più comunemente usata è la somma degli \textbf{scarti quadratici} tra $f$ e il valore misurato.
 Lo scarto è definito come:
 \begin{equation}
   \label{regressione:scarto quadratico}  
@@ -1129,7 +1127,7 @@ e la funzione "distanza" da minimizzare è:
 \end{equation}
 
 \subsubsection{Regressione Lineare}
-Unu importante caso di regressione, semplice da risolvere analiticamente, è quello della regressione \textbf{lineare}. Consideriamo una dipendenza lineare $y = m\cdot x+b$ di cui si vogliono ricavare i due parametri $m$ e $b$. Per il punto $i$-esimo di misura, lo scarto $\delta_i$ tra il valore empirico $y_i$ e quello della cirva di regressione $f(x_i)$ vale:
+Un importante caso di regressione, semplice da risolvere analiticamente, è quello della regressione \textbf{lineare}. Consideriamo una dipendenza lineare $y = m\cdot x+b$ di cui si vogliono ricavare i due parametri $m$ e $b$. Per il punto $i$-esimo di misura, lo scarto $\delta_i$ tra il valore empirico $y_i$ e quello della curva di regressione $f(x_i)$ vale:
 \begin{equation}
   \label{regressione:scarto lineare} 
   \delta_i = y_i - [m\cdot x_i + b]
@@ -1137,15 +1135,15 @@ Unu importante caso di regressione, semplice da risolvere analiticamente, è que
 e dobbiamo trovare i \textbf{valori dei parametri} $m$ e $b$ per i quali è \textbf{minima la "distanza"}:
 \begin{equation}
   \label{regressione:funzione lineare}  
-    \Phi = \sum^n_{i=1}\delta_i^2 0 \sum^n_{i=1}[y_i - (m\cdot x+b)]^2
+    \Phi = \sum^n_{i=1}\delta_i^2 = \sum^n_{i=1}[y_i - (m\cdot x+b)]^2
 \end{equation}
 
 Per \textbf{trovare il minimo di} $\Phi$, annulliamo le due derivate prime parziali rispetto a $m$ e $b$:
 \begin{align*}
   &\frac{\delta \Phi}{\delta m} = 0 \Rightarrow  m\cdot \sum x_i^2 + b \sum x_i = \sum x_i y_i \\
-  &\frac{\delta \Phi}{\delta m} = 0 \Rightarrow  m\cdot \sum x_i^2 + nb= \sum y_i
+  &\frac{\delta \Phi}{\delta b} = 0 \Rightarrow  m\cdot \sum x_i^2 + nb= \sum y_i
 \end{align*}
-dove tutte le sommatorie sono ovviamente estese per $i$ che va da 1 a $n$. Si è ottwnuto a questo punto un \textbf{sistema lineare} di due equazioni in due incognite ($m$ e $b$) che come sappiamo è risolvibile.
+dove tutte le sommatorie sono ovviamente estese per $i$ che va da 1 a $n$. Si è ottenuto a questo punto un \textbf{sistema lineare} di due equazioni in due incognite ($m$ e $b$) che come sappiamo è risolvibile.
 
 La soluzione del sistema (che si ottiene facilmente per sostituzione) è:
 \begin{align*}
@@ -1158,7 +1156,7 @@ La soluzione del sistema (che si ottiene facilmente per sostituzione) è:
 \section{A cosa servono ADC e DAC?}
 Gli ADC consentono di fare misure di frandezze fisiche fornendo il valore misurato in formato numerico ........
 \section{Convertitore D/A (Digitale/Analogico)}
-In ingresso abbiamo $n$ "fili" (\textbf{linee digitali}) che rappresentano $n$ bit, mentre in uscita abbiamo un "filo" (\textbf{linea analogica}) dove ci sarà la tensuone $v_{out}$, che sarà \textit{quantizzata}. Diremo che il convertitore D/A avrà $N$ livelli dove $N = 2^n$.
+In ingresso abbiamo $n$ "fili" (\textbf{linee digitali}) che rappresentano $n$ bit, mentre in uscita abbiamo un "filo" (\textbf{linea analogica}) dove ci sarà la tensione $v_{out}$, che sarà \textit{quantizzata}. Diremo che il convertitore D/A avrà $N$ livelli dove $N = 2^n$.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[
@@ -1204,14 +1202,14 @@ In particolare, la \textbf{quantizzazione} nel dominio del tempo avviene con ris
   \end{center}
 \end{figure}
 
-Dalla Figura \ref{voltmetro} possiamo vedere i due componenti che realizzano le due diverse discretizzazioni. Il primo, che discretizza nel dominio del tempo, è un \textbf{campionatore S\&H} (Sample \& Hold) il quale nome suggerisce il funzionamento: campiona la tensione in ingresso e la \textbf{mantiene} per un certo intervallo di tempo, dando al prossimo componente tempo per la conversione. Il secondo quantizzatore realizza la discretizzazione in ampiezza ricevendo in ingresso il segnale dal componente precedente e emettendo in uscita il valore digitale.
+Dalla Figura \ref{voltmetro} possiamo vedere i due componenti che realizzano le due diverse discretizzazioni. Il primo, che discretizza nel dominio del tempo, è un \textbf{campionatore S\&H} (Sample \& Hold) il quale nome suggerisce il funzionamento: campiona la tensione in ingresso e la \textbf{mantiene} per un certo intervallo di tempo, dando al prossimo componente tempo per la conversione. Il secondo quantizzatore realizza la discretizzazione in ampiezza ricevendo in ingresso il segnale dal componente precedente ed emettendo in uscita il valore digitale.
 
 \section{Discretizzazione nel Tempo}
 La discretizzazione nel tempo avviene campionando la tensione (segnale) in istanti di tempo regolarmente spaziati di una distanza $T_c$ detta periodo di campionamento ($f_c=\frac{1}{T_c}$ frequenza di campionamento) che dovrà essere, come vederemo tra poco, "abbastanza piccolo".
 \subsection{Campionamento di un Segnale}
 Abbiamo già visto nella Sezione \ref{interpolazione}, con la formula \ref{shannon} e il relativo teorema (di Shannon), come sia necessaria una certa \textit{frequenza di campionamento} ($f_{Sa}$ o $f_c$) per ricostruire un segnale, che deve essere almeno il doppio della massima frequenza (o \textbf{banda}) del segnale in ingresso.
 
-Cosa succede se \textit{sottocampioniamo}? Si verificano degli errori di \textit{aliasing}. Per spiegare semplicemente questo fenomeno possiamo pensare ad un esempio applicabile alla vita di tutti i giorni: osservando la ruota di un'automobile che viaggia su un rettilineo. Per un certo range di velocità riusciamo a vedere la ruota che si muove nel senso di marcia, esattamente come ci aspettiamo. Per velocità superiori ad un certo limite (secondo il buon Shannon: per periodi di giro della ruota superiori al periodo di campionamento dell'occhio umano) invece, sembra che la ruota inizi a girare in senso antiorario, \textbf{contrario} al senso di marcia. Questo perché tra un campionamento del nostro occhio e l'altro la ruota no effettua un giro completo, ma poco meno di un giro completo: se questo si verifica ad ogni giro della ruota ecco che la vediamo girare in senso antiorario.
+Cosa succede se \textit{sottocampioniamo}? Si verificano degli errori di \textit{aliasing}. Per spiegare semplicemente questo fenomeno possiamo pensare ad un esempio applicabile alla vita di tutti i giorni: osservando la ruota di un'automobile che viaggia su un rettilineo. Per un certo range di velocità riusciamo a vedere la ruota che si muove nel senso di marcia, esattamente come ci aspettiamo. Per velocità superiori ad un certo limite (secondo il buon Shannon: per periodi di giro della ruota superiori al periodo di campionamento dell'occhio umano) invece, sembra che la ruota inizi a girare in senso antiorario, \textbf{contrario} al senso di marcia. Questo perché tra un campionamento del nostro occhio e l'altro la ruota non effettua un giro completo, ma poco meno di un giro completo: se questo si verifica ad ogni giro della ruota ecco che la vediamo girare in senso antiorario.
 
 \section{Quantizzazione in Ampiezza}
 \label{quantizzazione ampiezza}
@@ -1251,7 +1249,7 @@ Alle tensioni analogiche che cadono nell'intrevallo $i$-esimo si associa un \tex
 \end{figure}
 In figura \ref{convertitoreR} possiamo vedere lo schema circuitale di un convertitore a rete di R, che da un'unica tensione di riferimento costante ($V_{ref}$) preleva $n$ correnti pesate attraverso $n$ \textit{switch} (interruttori) $S_0,S_1,\ldots,S_{n-1}$ dove $n$ è il numero di bit in ingresso al convertitore.
 
-Su ciascuno \textit{switch} $S_i$ è posta uns resistenza $r_i = 2^{(n-1)-i}\cdot R$. Gli \textit{switch} sono comandati dalle cifre binarie $b_i$ del numero da convertire in tensione, con pesi tlai che:
+Su ciascuno \textit{switch} $S_i$ è posta una resistenza $r_i = 2^{(n-1)-i}\cdot R$. Gli \textit{switch} sono comandati dalle cifre binarie $b_i$ del numero da convertire in tensione, con pesi tali che:
 \begin{align*}
   &b_0~~~ = LSB~~~~\text{Least Significant Bit}\\
   &b_{n-1} = MSB~~~\text{Most Significant Bit}
@@ -1302,7 +1300,7 @@ Formule per il calcolo dei parametri caratteristici principali dei voltmetri:
   \item $ m = \log_{10}(2^n) = n\log_{10}(2) = 0.3\cdot n $
 \end{itemize} 
 
-Le \textbf{mezze cifre} dei voltmetri nascono dal $ 0.3 \cdot n $. La \textbf{mezza cifra} è quella che non varia mai per tutte le 9 cifre possibili, ma fa solo una parte della scala. Per esempio: da 0 a 4096 ci vogliono 3 cifre che variano per tutti i 9 numeri, mentre l'ultima mostrerà sempre solo le cifre da 0 a 4. Un voltmetro a 5 cifre \textbf{piene} invece mostra tutti i numeri da 0 a 99999.
+Le \textbf{mezze cifre} dei voltmetri nascono dal $ 0.3 \cdot n $. La \textbf{mezza cifra} è quella che non varia mai per tutte le 9 cifre possibili, ma fa solo una parte della scala. Per esempio: da 0 a 4096 ci vogliono 3 cifre che variano per tutti i 9 numeri, mentre l'ultima mostrerà sempre solo le cifre da 0 a 4. Un voltmetro a 5 cifre \textbf{piene} invece mostra tutti i numeri da 0 a 99'999.
 
 \begin{table}[H]
   \caption{Prestazioni dei Voltmetri}
@@ -1325,12 +1323,12 @@ Le \textbf{mezze cifre} dei voltmetri nascono dal $ 0.3 \cdot n $. La \textbf{me
   \end{center}
 \end{table}
 
-Per tutti i voltmetri il rapporto Velocità ad Accuratezza è sempre "costante", cioè sono in trade-off. Si ottengon odei buoni compromessi però, come possiamo vedere dalla Tabella \ref{tab:voltmetri}.
+Per tutti i voltmetri il rapporto Velocità ad Accuratezza è sempre "costante", cioè sono in trade-off. Si ottengono dei buoni compromessi però, come possiamo vedere dalla Tabella \ref{tab:voltmetri}.
 
 Per quanto riguarda l'incertezza, essa può essere calcolata come: 
 \begin{align*}  
   &u_{q,B} = \frac{\Delta V}{\sqrt{12} } = 0.3~\Delta V \\
-  &u_{r_q} = \frac{u_{1,b}}{Dinamica} \simeq \frac{0.3 \Delta V}{N \cdot \Delta V} \simeq \frac{0.3}{2^n} \simeq \frac{0.3}{65000}
+  &u_{r_q} = \frac{u_{r,b}}{Dinamica} \simeq \frac{0.3 \Delta V}{N \cdot \Delta V} \simeq \frac{0.3}{2^n} \simeq \frac{0.3}{65000}
 \end{align*}
 \subsection{Voltmetri Differenziali}
 I voltmetri differenziali hanno tale nome perché eseguono la misura in base a una \textbf{differenza} tra una tensione $ V_x $ che è quella che si vuole misurare e una tensione $ V_r $ (tesione di riferimento), tentando di rendere questa differenza il più prossima possibile allo 0. In formule:
@@ -1339,11 +1337,11 @@ I voltmetri differenziali hanno tale nome perché eseguono la misura in base a u
 \end{align*}
 In uscita verrà scritto il valore NON di $ V_x $ ma il valore di $ V_r $ che per noi poi è uguale a $ V_x $. Il trick è trovare la $ V_r $ corretta per far scattare il comparatore.
 
-$ V_r $ è una tensione di riferimento \textbf{variabile} e per generarla di ricorre al \textbf{riferimento interno}, che è una tensione $ V_0 $ di elevata precisione e stabilità. L'\textbf{accuratezza} di $ V_0 $ e dunque di $ V_r $ si ripercuote sull'accuratezza dei singoli confronti e infine su quella dell'intera misura.
+$ V_r $ è una tensione di riferimento \textbf{variabile} e per generarla si ricorre al \textbf{riferimento interno}, che è una tensione $ V_0 $ di elevata precisione e stabilità. L'\textbf{accuratezza} di $ V_0 $ e dunque di $ V_r $ si ripercuote sull'accuratezza dei singoli confronti e infine su quella dell'intera misura.
 
 In entrambi i tipi di voltmetri (differenziali e integrali) viene fatto un largo uso dell'\textit{Op-Amp} (\textit{Op}erational \textit{Amp}lifier o Amplificatore Operazionale) con la sua funzione di \textbf{comparatore}.
 \subsection{Voltmetro a Rampa Analogica}
-Questo voltmetro effettua la misura di un intervallo di tempo e calcolia la $ V_r* $ che manda a display. Perché misurare il tempo? Perché ad'ora il secondo è il campione più preciso che riusciamo a realizzare, quindi possiamo misurare con molta precisione l'intervallo di tempo.
+Questo voltmetro effettua la misura di un intervallo di tempo e calcola la $ V_r^* $ che manda a display. Perché misurare il tempo? Perché ad'ora il secondo è il campione più preciso che riusciamo a realizzare, quindi possiamo misurare con molta precisione l'intervallo di tempo.
 \begin{figure}[H]
   \begin{center}
     \includegraphics[
@@ -1356,11 +1354,11 @@ Questo voltmetro effettua la misura di un intervallo di tempo e calcolia la $ V_
 \end{figure}
 Descriviamo il suo funzionamento:
 
-Il primo \textbf{comparatore di livello} prende in ingresso la tensione Vx incognita e la $ V_r $ interna allo strumento. Il \textbf{Generatore di Rampe} (a stato solido) a dente di sega durante la fase di salita varia tuttte le $ V_r $ possibili in tutta la dinamica di Vx possibili. La $ V_r $ viene anche mandata ad un altro comparatore che la compara con zero e ci fa sapere quando la $ V_r $ è positiva o negativa. 
+Il primo \textbf{comparatore di livello} prende in ingresso la tensione $ V_x $ incognita e la $ V_r $ interna allo strumento. Il \textbf{Generatore di Rampe} (a stato solido) a dente di sega durante la fase di salita varia tuttte le $ V_r $ possibili in tutta la dinamica di $ V_x $ possibili. La $ V_r $ viene anche mandata ad un altro comparatore che la compara con zero e ci fa sapere quando la $ V_r $ è positiva o negativa. 
 
-La \textbf{Logica di controllo} ha 2 ingressi, uno "dice" se è scattato il comparatore con 0 e un altro "dice" se che è scattato il comparatore con $ V_r $. La logica di controllo decide il segno di Vx in base a quale dei due comparatorei scatta prima. Questo misuratore valuta il modulo della tensione che si traduce in un tempo, che misuriamo con un \textbf{contatore elettronico}. Prima del contatore c'è il \textbf{gate} che resta aperto un tempo $ \Delta T_{Gate} $ e durante questo tempo arrivano anche i segnali del clock. Il comparatore conta se il gate fa uscire 1 quindi so tradurre un intervallo di tempo in numero di colpi di clock.
-Sfruttando il fatto che durante la rampa di salita del dente di sega prima o poi passa per Vx, al primo comparatore che scatta la logica di controllo apre il gate e lo chiude al secondo che scatta.
-L'intervallo di tempo che misuro è proporzionale a Vx.
+La \textbf{Logica di Controllo} ha 2 ingressi, uno "dice" se è scattato il comparatore con 0 e un altro "dice" se che è scattato il comparatore con $ V_r $. La logica di controllo decide il segno di $ V_x $ in base a quale dei due comparatori scatta prima. Questo misuratore valuta il modulo della tensione che si traduce in un tempo, che misuriamo con un \textbf{contatore elettronico}. Prima del contatore c'è il \textbf{gate} che resta aperto un tempo $ \Delta T_{Gate} $ e durante questo tempo arrivano anche i segnali del clock. Il comparatore conta se il gate fa uscire 1 quindi so tradurre un intervallo di tempo in numero di colpi di clock.
+Sfruttando il fatto che durante la rampa di salita del dente di sega la $ V_r $ prima o poi passa per $ V_x $, al primo comparatore che scatta la logica di controllo apre il gate e lo chiude al secondo che scatta.
+L'intervallo di tempo che misuro è proporzionale a $ V_x $.
 
 La \textbf{risoluzione} di questo voltmetro è di 4 o 5 cifre (10'000 o 100'000 conteggi). La pendenza della rampa è proporzionale all'intervallo di tempo che misuriamo $ p = |V_x|: \Delta T_G = V_M:\frac{T_{rampa}}{2} $.\\
 
@@ -1369,7 +1367,7 @@ Quindi questo voltmetro opera secondo una \textbf{conversione tensione/tempo} e 
   |V_x| = \frac{\Delta T_G}{\frac{T_{rampa}}{2}}V_M = \frac{N_c T_c}{\frac{T_{rampa}}{2}}V_M
 \end{align*}
 
-Gli \textbf{errori} in questo conteggio tipendono dagli errori nella misura dell'intervallo di tempo, quindi dagli errori che vengono commessi all'inizio e alla fine del conteggio, come mostrato in Figura \ref{erroreConteggio}.
+Gli \textbf{errori} in questo conteggio dipendono dagli errori nella misura dell'intervallo di tempo, quindi dagli errori che vengono commessi all'inizio e alla fine del conteggio, come mostrato in Figura \ref{erroreConteggio}.
 
 \begin{figure}[H]
   \begin{center}
@@ -1392,7 +1390,7 @@ Gli \textbf{errori} in questo conteggio tipendono dagli errori nella misura dell
 Come possiamo vedere dalle seguenti formule:
 \begin{align*}
   &\delta = \frac{1}{N} = \frac{\Delta V}{D} = \frac{T_c}{T_{rampa}} = \frac{f_{rampa}}{f_c}\\
-  &m = \log_{10}(N) = \log_10(\frac{f_c}{f_{rampa}})\\
+  &m = \log_{10}(N) = \log_{10}(\frac{f_c}{f_{rampa}})\\
   &n = \log_2(N) = \log_2(\frac{f_c}{f_{rampa}})
 \end{align*}
 la risoluzione migliora al crescere del rapporto $ \frac{f_c}{f_{rampa}} $. Conviene quindi lavorare con $ f_c $ alta, ma questo costringe ad avere un contatore al "molte cifre" e "veloce". Altri parametri sono:
@@ -1400,7 +1398,7 @@ la risoluzione migliora al crescere del rapporto $ \frac{f_c}{f_{rampa}} $. Conv
   &|V_x| = p\cdot \Delta T_G \text{ da } \Delta T_G = N_c T_c = \frac{|V_x|}{p}\\
   &\text{con $p$ pendenza della rampa analogica } p = \frac{2V_M}{T_{rampa}}~ \Bigg[\frac{V}{s}\Bigg] 
 \end{align*} 
-Una sbatta vera è quindi la frequenza della rampa che dobbiamo avere perché deve essere alta, e quindi deve essere alta anche la fclock perché N = fc/frampa e quindi tocca avere anche fclock alta. La risoluzione aumenta a fc/frampa che aumenta. Ma in questo caso deve essere rapido e capiente.
+Una sbatta vera è quindi la frequenza della rampa che dobbiamo avere perché deve essere alta, e quindi deve essere alta anche la $ f_{clock} $ perché $ N = \frac{f_c}{f_{rampa}} $ e quindi tocca avere anche $ f_{clock} $ alta. La risoluzione aumenta a $ \frac{f_c}{f_{rampa}} $ che aumenta. Ma in questo caso deve essere rapido e capiente.
 
 \subsection{Voltmetro - Convertitore Flash}
 È il più veloce convertitore A/D con $ T_{mis} = 1\cdot T_c $ (la misura occupa un colpo di clock) e raggiunge frequenze di conversione fino a 50 $ \frac{GSa}{s}$.
@@ -1418,9 +1416,9 @@ La complessià circuitale (e il costo) cresce esponenzialmente con il numero di 
   \end{center}
 \end{figure}
 
-Nel circuito di questo voltmetro (che possiamo vedere in Figura \ref{voltmetroFlash}) l'\textit{Op-Amp} è usato con la sua funzione di comparatore, cioè "alza" l'uscita quando il segnale all'ingresso + supera in modulo quello sull'ingresso -. In questo caso è $ V_x $ che viene mandaa in parallelo in ingresso a tutti i comparatori al morsetto +, mentre $ V_{ref} $ al morsetto -.
+Nel circuito di questo voltmetro (che possiamo vedere in Figura \ref{voltmetroFlash}) l'\textit{Op-Amp} è usato con la sua funzione di comparatore, cioè "alza" l'uscita quando il segnale all'ingresso + supera in modulo quello sull'ingresso -. In questo caso è $ V_x $ che viene mandata in parallelo in ingresso a tutti i comparatori al morsetto +, mentre $ V_{ref} $ al morsetto - (partizionata da una rete di resistori).
 
-Analizzando il circuito vediamo come vengono distinte $ N-1 $ soglie (dove $ N $ è sempre il numero dei livelli) attraverso una rete di resistori di valore $ R $ (tutti identici) se vogliamo campionare un segnale \textit{non}-polarizzato, mentre si usano agli estremi resistori di valroe $ \frac{3}{2} R$ e $ \frac{R}{2} $ con lo scopo di dimezzare la soglia del primo livello in ampiezza per non avere \textit{offset} nella caratteristica di conversione nel convertire segnali \textbf{bipolari}.
+Analizzando il circuito vediamo come vengono distinte $ N-1 $ soglie (dove $ N $ è sempre il numero dei livelli) attraverso una rete di resistori di valore $ R $ (tutti identici) se vogliamo campionare un segnale \textit{non}-polarizzato, mentre si usano agli estremi resistori di valore $ \frac{3}{2} R$ e $ \frac{R}{2} $ con lo scopo di dimezzare la soglia del primo livello in ampiezza per non avere \textit{offset} nella caratteristica di conversione nel convertire segnali \textbf{bipolari}.
 
 In formule\footnotemark[1]\footnotetext[1]{È importante ricordare queste formule e il loro significato, anche perchè è spesso necessario usarle per rispondere al pre-compito in sede d'esme.}:
 \begin{itemize}
@@ -1457,7 +1455,7 @@ $$
     \label{voltmetroFlash2}
   \end{center}
 \end{figure}
-In figura \ref{voltmetroFlash2} anche un'altra possibile struttura per un convertitore Flash, che supporta una dinamica del segnale d'ingresso \textbf{bipolare} senza usare resistenze di valore diverso, ma modificando l'"acquisizione" dell'ingresso.
+In Figura \ref{voltmetroFlash2} vediamo anche un'altra possibile struttura per un convertitore Flash, che supporta una dinamica del segnale d'ingresso \textbf{bipolare} senza usare resistenze di valore diverso, ma modificando l'"acquisizione" dell'ingresso.
 
 \subsubsection{Esercizio Convertitore Flash}
 Dati dell'esercizio:
