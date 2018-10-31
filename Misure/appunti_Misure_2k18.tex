@@ -1273,7 +1273,7 @@ che come ricordiamo è l'espressione di una tipica incertezza di categoria B rel
     \label{intervallo voltmetro uniforme}
   \end{center}
 \end{figure}
-\section{Voltmetri Digitali (DVM) e DMM}
+\chapter{Voltmetri Digitali (DVM) e DMM}
 Vengono impiegati molto frequentemente nel campo delle misure e dell'acquisizione dati.
 
 Le principali caratteristiche dei voltmetri che tratteremo durante il corso sono:
@@ -1330,7 +1330,7 @@ Per quanto riguarda l'incertezza, essa può essere calcolata come:
   &u_{q,B} = \frac{\Delta V}{\sqrt{12} } = 0.3~\Delta V \\
   &u_{r_q} = \frac{u_{r,b}}{Dinamica} \simeq \frac{0.3 \Delta V}{N \cdot \Delta V} \simeq \frac{0.3}{2^n} \simeq \frac{0.3}{65000}
 \end{align*}
-\subsection{Voltmetri Differenziali}
+\section{Voltmetri Differenziali}
 I voltmetri differenziali hanno tale nome perché eseguono la misura in base a una \textbf{differenza} tra una tensione $ V_x $ che è quella che si vuole misurare e una tensione $ V_r $ (tesione di riferimento), tentando di rendere questa differenza il più prossima possibile allo 0. In formule:
 \begin{align*}
   V_x - kV_r \simeq 0
@@ -1480,6 +1480,158 @@ Soluzione:
   \\
   &f_{x,max} = \frac{f_{sample}}{2} = 500~MHz \text{~~~ dal teorema di Shannon (\ref{shannon})}
 \end{align*}
+
+
+\subsection{Voltmetro ad Approssimazioni Successive}
+Questo tipo di voltmetro è noto per essere il "compromesso" tra velocità e accuratezza. Il suo funzionamento si basa sul confrontare tutti gli $ n $ bit in uscita con l'entrata, per stabilire l'output corretto, attraverso un metodo di \textbf{bisezione}.
+
+Come possiamo vedere dalla figura \ref{apprSuccessive} questo voltmetro è composto da:
+\begin{itemize}
+  \item Convertitore D/A a $ n $ bit, attraverso il quale converte il numero rappresentato dagli $ n $ bit in un valore di tensione che verrà confrontato con l'entrata.
+  \item Comparatore e Logica di Controllo: il comparatore (neanche a dirlo) compara la tensione generata dal convertitore D/A e la tensione in ingresso e la logica di controllo si occupa di decidere se mantenere il bit in analisi a 1 oppure resettarlo a 0 (questa specifica funzione è implementata dal SAR - \textit{Successive Apprroximation Register})
+  \item \textit{Clock} che sincronizza il funzionamento del voltmetro
+\end{itemize}
+
+Diversamente dal Flash, questo voltmetro necessita di più cicli di clock per completare la misura, in particolare ne servono da un minimo di 2 fino ad un massimo di 5 per eseguire un solo confronto.
+
+Il funzionamento del singolo confronto può essere descritto dai seguenti passaggi (per semplicità usiamo 3 bit):
+\begin{enumerate}
+  \item La tensione $ V_x $ viene applicata al morsetto positivo dell'Op-Amp, il DAC (o D/A) comandato dal SAR ha tutti i bit "bassi" e il consensatore al mosetto - dell'Op-Amp è quindi scarico.
+  \item Il SAR mette il MSB a 1, quindi il DAC a 3 bit converte l'ingresso [100] in uscita analogica. Il segnale di 4 Volt viene quindi comparato con l'ingresso attraverso l'Op-Amp che comunica il risultato in uscita alla logica di controllo
+  \item Se il segnale generato risulta essere maggiore di $ V_x $ allora questo significa che il bit che è appena stato posto a 1 va resettato a 0. Se invece il segnale generato è minore di $ V_x $ la logica di controllo lo mantiene a 1 e passa al confronto del prossimo bit.
+\end{enumerate}
+Questi passaggi vengono ripetuti per ogni $ n-$esimo bit del voltmetro fino al LSB, ottenendo in uscita un valore del tipo, per l'esempio precedente: [101] per cui durante la conversione è stato necessario resettare il secondo bit. Quindi con soli $ n $ confronti si ottiene una \textbf{risoluzione} $ \delta = \frac{1}{N} = \frac{1}{2^n} $.\\
+
+
+L'uscita del DAC è la rappresentazione analogica in volt con pesi binari di ciò che abbiamo scritto dentro il DAC:
+$$
+  V_{D/A} = \frac{V_{FS}}{2^n}[b_{n-1}2^{n-1}+\cdots+b_1 2 +b_0]
+$$
+\begin{figure}
+  \begin{center}
+    \includegraphics[
+        width=12cm,
+        height=8cm,
+        keepaspectratio,
+    ]{images/apprSuccessive.png}
+    \caption{Schema a blocchi di un voltmetro ad Approssimazioni Successive.}
+    \label{apprSuccessive}
+  \end{center}
+\end{figure}
+Come sappiamo dalla teoria del corso di Fondamenti di Informatica, il peso della cifra meno significativa, che è il \textbf{limite di risoluzione}, è $\Delta V = \frac{V_{FS}}{2^n} = \frac{\Delta V}{N}$, mentre la più significativa vale $\frac{V_{FS}}{2}$\\
+
+Il singolo confronto, come abbiamo detto prima, occupa un tempo multiplo del tempo di \textit{clock}:
+$$
+  T_{confronto} = mT_c\text{~~~con $ m $ compreso tra 2 e 5}
+$$
+Quindi il tempo di misura è fissato indipendentemente da $ V_x $ e vale:
+$$
+  T_{mis} = n(mT_c) = nT_confronto
+$$
+
+A partire dalle considerazioni fatte fin'ora possiamo concludere che questo voltmetro è abbastanza veloce, è abbastanza accurato e non sembra che costi più di tanto mettergli qualche bit in più, anche in termini di tempo dato che se aggiungo 4 bit esso aumenta di un fattore 4. Non ha più senso però spingersi ad altissime risoluzioni, come abbiamo già detto, per il fatto del rumore che diventa di modulo più alto della risoluzione dello strumento quindi non ho più resistenza al rumore ma anzi lo vedo e lo misuro.
+
+\textbf{Il principale difetto} di questo strumento è che in presenza di rumore, se ho sfortuna, il SAR può mettere a 0 un bit che doveva lasciare a 1. Su quale bit pesa il rumore si vede da quanto è alto il massimo picco (o valore efficace) del rumore e qual è il $ \Delta V $ che sto confrontando (tipo V/8 o V/4). Un esempio di conversione scorretta è visibile in Figura \ref{conversioneScorretta}. 
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=12cm,
+        height=6cm,
+        keepaspectratio,
+    ]{images/erroreApprSucc.png}
+    \caption{Grafico in cui possiamo vedere un esempio di errore di conversione.}
+    \label{conversioneScorretta}
+  \end{center}
+\end{figure}
+\textbf{La risoluzione effettiva} dipende dal rumore presente agli stadi d'ingresso del comparatore (e non è sempre $ V_{FS} / 2^n$).
+
+\textbf{L'accuratezza}: dipende dal riferimento interno, dalla qualità del DAC e dal rumore del comparatore.
+
+\textbf{Stato dell'Arte}:
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=8cm,
+        height=6cm,
+        keepaspectratio,
+    ]{images/tabellaApprSucc.png}
+    \caption{Diversi set di parametri considerati ottimali per questo tipo di voltmetri.}
+  \end{center}
+\end{figure}
+
+Per limitare il rumore si può mettere un filtro \textit{passa-basso} a monte. si media l'errore ma si riduce anche la velocità di converisone. Le \textbf{le prestazioni} in generale del voltmetro possono raggiungere livelli più che sufficienti all'utilizzo che ne facciamo noi. Ad esempio: nel laboratorio in via Golgi abbiamo delle DAQ che al loro interno hanno quesi tipi di voltmetri, le cui caratteristiche sono:
+\begin{itemize}
+  \item $ T_{misura} = 5~\mu s $ ossia $ f_{sample} 0 200~\frac{kSa}{s} $
+  \item $ n $ = 12-16 bit
+\end{itemize}
+\newpage
+\subsubsection{Esercizio Voltmetro ad Approssimazioni Successive}
+Dati dell'esercizio:
+\begin{itemize}
+  \item Dinamica del segnale d'ingresso: $ 0-2~V $
+  \item $ n = 7 $ bit
+  \item $ f_{c} = 1~MHz $
+  \item $ T_{confronto} = 2T_{clock} $
+\end{itemize}~\\
+Richieste:
+\begin{enumerate}
+  \item Ricavare il tempo di misura $ T{mis} $
+  \item Ricavare il valore misurato $ V_{mis} $ rispetto ad una tensione sotto misura di valore $ V_x = 1205~mV $
+  \item Ricavare l'errore percentuale di $ V_{mis} $ 
+\end{enumerate}~\\
+Soluzioni:
+\begin{enumerate}
+  \item Conoscendo la frequenza di clock possiamo ricavare il tempo di clock e quindi il $ T_{confronto} $, con il quale possiamo calcolare il tempo di misura:
+  \begin{align*}
+    &T_c = \frac{1}{f_c} = 1 \mu s \\
+    &\Rightarrow T_{confr} = 2T_c = 2~\mu s \\
+    &\Rightarrow T_{mis} = nT_{confr} = 14~\mu s \\
+  \end{align*}
+  \item Come possiamo vedere dalla Figura \ref{esercizioApprSucc} il valore di misura risulta essere: $ V_{mis} = 1203.125~mV $
+  \item L'errore percentuale si calcola tramite la formula:
+  $$
+    \frac{|V_x  V_{mis}|}{V_x} = 0.1556 \%
+  $$
+\end{enumerate}
+\begin{figure}
+  \begin{center}
+    \includegraphics[
+        width=8cm,
+        height=6cm,
+        keepaspectratio,
+    ]{images/esercizioApprSucc.png}
+    \caption{Grafico di conversione ad approsimazioni successive.}
+  \end{center}
+\end{figure}
+Notiamo come in questo caso con soli 7 bit abbiamo una \textbf{risoluzione}:
+$$
+  \Delta V = \frac{V_{max}}{2^n} = \frac{2~V}{128} \simeq 15.6~mV
+$$
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Voltmetri Integratori (o a Integrazione)}
+Caratteristici per essere lenti, ma molto accurati. Completamente diversi dai differenziali perchè non sfruttano una differenza, ma il loro circuito interno calcola il risultato secondo l'integrale del segnale d'ingresso e dei rumori.
+\begin{equation}
+  V_m \propto \frac{1}{T_I}\int_0^{T_I}V(t)dt
+\end{equation}
+I voltmetri a integrazione hanno intrinsecamente una \textbf{reiezione al disturbo}
+$$
+  V(t) = V_x + V_d(t)\text{~~~segnale+ disturbo}
+$$
+La particolraità di questa relazione è:
+\begin{equation}
+  V_m \propto \frac{1}{T_I}\int_0^{T_I}[V_x + V_d(t)]dt = V_x + \frac{1}{T_I}\int_0^{T_I}V_d(t)dt
+\end{equation}
+Per quanto riguarda l'ultimo termine ($\frac{1}{T_I}\int_0^{T_I}V_d(t)dt$) noi abbiamo l'obiettivo di renderlo trascurabile.
+
+INTEGRARE IL DISTURBO SU UN MULTIPLO INTERO DEL SUO PERIODO MI DA SICURAMENTE 0!!! Quindi se $ T_I $ lo metto esattamente come un multiplo del periodo del disturbo allora l'ho fottuto tutto.
+Se invece non riesco a fare esattamente il multiplo perchè non conosco esattamente la frequenza (il periodo) del disturbo allora mi rimane una parte, ma la parte che rimane È PICCOLA.
+
+In generale comunque per $ T_I >> T_d $ la reiezione al disturbo migliora.
+
+SI HA PEGGIOR REIEZIONE QUANDO LE COMPONENTI DI DISTURBO HANNO PERIODO PIÙ LUNGO (FREQUENZA PIÙ LENTA).
+
+Dato un certo numero di disturbi che voglio rigettare allora conviene prendere $ T_I $ molto più grande della MINIMA FREQUENZA dei miei disturbi.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Esercizi di Conversione}
 \label{esercizi:conversione}
