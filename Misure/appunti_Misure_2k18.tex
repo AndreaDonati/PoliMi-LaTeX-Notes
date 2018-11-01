@@ -124,7 +124,6 @@ Le seguenti definizioni sono tratte dal VIM (\it Vocabolario Internazionale di M
     Come la riproducibilità, ma durante il collezionamento delle misurazioni è necessario \bf specificare \rm l'orario in cui esse sono state prese.
   
 \end{itemize}
-\newpage
 \section{Il Sistema Internazionale}
 
 Le note storiche sono facilmente reperibili sia on-line sia dai lucidi del professore, quindi sono state trascurate durante la stesura degli appunti.
@@ -1480,7 +1479,7 @@ Soluzione:
   \\
   &f_{x,max} = \frac{f_{sample}}{2} = 500~MHz \text{~~~ dal teorema di Shannon (\ref{shannon})}
 \end{align*}
-
+\newpage
 
 \subsection{Voltmetro ad Approssimazioni Successive}
 Questo tipo di voltmetro è noto per essere il "compromesso" tra velocità e accuratezza. Il suo funzionamento si basa sul confrontare tutti gli $ n $ bit in uscita con l'entrata, per stabilire l'output corretto, attraverso un metodo di \textbf{bisezione}.
@@ -1610,7 +1609,7 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Voltmetri Integratori (o a Integrazione)}
-Caratteristici per essere lenti, ma molto accurati. Completamente diversi dai differenziali perchè non sfruttano una differenza, ma il loro circuito interno calcola il risultato secondo l'integrale del segnale d'ingresso e dei rumori.
+Caratteristici per essere lenti, ma molto accurati. Completamente diversi dai differenziali perchè non sfruttano una differenza tra il valore in ingresso ed un riferimanto interno, ma il loro circuito calcola il risultato secondo l'integrale del segnale d'ingresso e dei rumori.
 \begin{equation}
   V_m \propto \frac{1}{T_I}\int_0^{T_I}V(t)dt
 \end{equation}
@@ -1618,20 +1617,77 @@ I voltmetri a integrazione hanno intrinsecamente una \textbf{reiezione al distur
 $$
   V(t) = V_x + V_d(t)\text{~~~segnale+ disturbo}
 $$
-La particolraità di questa relazione è:
+La particolarità di questa relazione è:
 \begin{equation}
-  V_m \propto \frac{1}{T_I}\int_0^{T_I}[V_x + V_d(t)]dt = V_x + \frac{1}{T_I}\int_0^{T_I}V_d(t)dt
+  V_m = \frac{1}{T_I}\int_0^{T_I}[V_x + V_d(t)]dt = V_x + \frac{1}{T_I}\int_0^{T_I}V_d(t)dt
 \end{equation}
-Per quanto riguarda l'ultimo termine ($\frac{1}{T_I}\int_0^{T_I}V_d(t)dt$) noi abbiamo l'obiettivo di renderlo trascurabile.
+Per quanto riguarda l'ultimo termine ($\frac{1}{T_I}\int_0^{T_I}V_d(t)dt$) noi abbiamo l'obiettivo di renderlo trascurabile, attraverso alcune strategie ed impostazioni di tempo (tempo di integrazione $ T_I $).
 
-INTEGRARE IL DISTURBO SU UN MULTIPLO INTERO DEL SUO PERIODO MI DA SICURAMENTE 0!!! Quindi se $ T_I $ lo metto esattamente come un multiplo del periodo del disturbo allora l'ho fottuto tutto.
-Se invece non riesco a fare esattamente il multiplo perchè non conosco esattamente la frequenza (il periodo) del disturbo allora mi rimane una parte, ma la parte che rimane È PICCOLA.
+Il modo \textbf{più efficace} per eliminare completamente un disturbo dalla misura, \textbf{conoscendo la sua frequenza}, è quello di settare il tempo di integrazione $ T_I $ ad un \textbf{multiplo del periodo del segnale di disturbo}. In questo modo, come si può intuire, l'integrale del segnale di disturbo sarà sicuramente \textbf{nullo}.
 
-In generale comunque per $ T_I >> T_d $ la reiezione al disturbo migliora.
+In formule:
+\begin{align*}
+  &\frac{1}{T_I}\int_0^{T_I}V_d(t)dt \rightarrow 0\text{~~per~~} T_I \rightarrow kT_d\text{~~dove~~} k \in \mathbb{N} 
+\end{align*}
+Se invece non riesco a settare $ T_I $ ad esattamente un multiplo perchè non conosco esattamente la frequenza (e quindi il periodo) del disturbo allora mi rimane una parte e, in casi fortunati o studiati intelligentemente, questa parte è sufficientemente piccola da risultare trascurabile.
 
-SI HA PEGGIOR REIEZIONE QUANDO LE COMPONENTI DI DISTURBO HANNO PERIODO PIÙ LUNGO (FREQUENZA PIÙ LENTA).
+In generale comunque per $ T_I >> T_d $ la reiezione al disturbo migliora, infatti è vero che:
+\begin{align*}
+    &\frac{1}{T_I}\int_0^{T_I}V_d(t)dt \rightarrow 0\text{~~per~~} T_I \rightarrow \infty\text{~~oppure~~} T_I >> T_d 
+\end{align*}
+Quindi se conosciamo la frequenza del disturbo è utile scegliere un $ T_I $ opportuno, mentre sappiamo che in generale per un "$ T_I $ lungo" la reiezione al disturbo \textbf{migliora}.
 
-Dato un certo numero di disturbi che voglio rigettare allora conviene prendere $ T_I $ molto più grande della MINIMA FREQUENZA dei miei disturbi.
+Date queste considerazioni, concludiamo che si ha una \textbf{peggiore} reiezione al disturbo quando le componenti di disturbo hanno periodo più lungo (quindi frequenza più lenta). Più questa frequenza è "vicina" a quella della continua (0), più è difficile eliminare il disturbo. I disturbi \textbf{non eliminabili} sono infatti quelli \textit{indistinguibili} dal segnale di misura. Anche se questi sono molto spesso errori di \textit{offset} e quindi eliminabili.
+
+Naturalmente questi ragionamenti valgono per ogni disturbo, ma se in una misura avessimo un \textit{pool} di disturbi di diversa natura che vogliamo eliminare, allora dato un certo numero di disturbi che voglio rigettare conviene prendere $ T_I $ molto più grande della \textbf{minima frequenza} dei disturbi considerati.
+
+\subsubsection{Trasmissione e Reiezione}
+La \textbf{trasmissione} $ (t) $ e la \textbf{reiezione} $ (r) $ del disturbo, in ampiezza, saranno:
+\begin{align*}
+  &t = \Bigg|\frac{V_{d,m}}{V_{d,0}}\Bigg| = \Bigg|\frac{sin(x)}{x}\Bigg| = |sinc(x)| \Rightarrow \frac{V_{OUT}}{V_{IN}}\\
+  \\
+  &r = \Bigg|\frac{V_{d,0}}{V_{d,m}}\Bigg| = \Bigg|\frac{x}{sin(x)}\Bigg| = \Bigg|\frac{1}{sinc(x)}\Bigg| \Rightarrow \frac{V_{IN}}{V_{OUT}}
+\end{align*}
+dove $x = \pi f T = \pi f_d T_I$.\\
+
+Quindi la \textbf{reiezione} cresce (tendenzialmente) al crescere di $ x $ e dunque di $ f_d $ e $ T_I $. Fissata quindi una delle due, possiamo scegliere l'altra per avere una reiezione ottimale.
+
+Fissata la frequenza del disturbo sappiamo scegliere il tempo di integrazione perfetto per eliminare tutti i disturbi a tale frequenza, mentre fissato il tempo di integrazione sappiamo le frequenze dei disturbi che possiamo elminare.
+
+\subsubsection{Integrazione - Reiezione in Potenza}
+La \textbf{trasmissione in potenza} e la \textbf{reiezione in potenza} sono:
+\begin{align*}
+  &T = t^2 = \frac{sin^2(x)}{x^2}\\
+  \\
+  &R = r^2 = \frac{x^2}{sin^2(x)}
+  \\
+  &\text{Quest'ultima in \textbf{scala logaritmica} diventa}\\
+  &R_{dB} = 10\log_{10}R = 20\log_{10}\Bigg|\frac{x}{sin(x)}\Bigg|
+\end{align*}
+In figura \ref{andamentiTR} possiamo vedere gli andamenti qualitativi di trasmissione e reiezione in funzione della frequenza del disturbo.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=10cm,
+        height=8cm,
+        keepaspectratio,
+    ]{images/andamentiTR.png}
+    \caption{Andamenti di trasmissione e reiezione}
+    \label{andamentiTR}
+  \end{center}
+\end{figure}
+E come possiamo vedere dalla figura \ref{andamentoSinc} all'aumentare di $ x_p = \pi f_d T_I $ la reiezione aumenta.
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=10cm,
+        height=8cm,
+        keepaspectratio,
+    ]{images/andamentoSinc.png}
+    \caption{Andamento del modulo si $ sinx(x_p) $.}
+    \label{andamentoSinc}
+  \end{center}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Esercizi di Conversione}
 \label{esercizi:conversione}
