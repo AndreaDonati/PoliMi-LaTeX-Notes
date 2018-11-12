@@ -336,7 +336,7 @@ $$
 \textit{Perché quindi dividiamo per il numero di gradi di libertà e non per n?}
 \begin{itemize}
   \item Non ha alcun senso calcolare la varianza per un campione che contenga solo un dato ($n=1$) ed in tal caso, dividendo per $n-1 = 0$ si ottiene come $s^2(x)$ una forma indefinita del tipo $\frac{0}{0}$.
-  \item Nella formula di $s^2(x)$ calcoliamo di fatto gli scarti quadratici dalla media campionaria, che è nota, e non dalla media della popolazione $\mu_x$ che è ignota: dunque degli $n$ scarti quadratici sommati solo $n-1$ sono tra loro indipendenti. Intuitivamente, conscendo la media di un campione di $n$ dati, ma conoscendo solamente $n-1$ di questi, si può facilmente ricavare l'$n-esimo$, quindi solo $n-1$ sono indipendenti.
+  \item Nella formula di $s^2(x)$ calcoliamo di fatto gli scarti quadratici dalla media campionaria, che è nota, e non dalla media della popolazione $\mu_x$ che è ignota: dunque degli $n$ scarti quadratici sommati solo $n-1$ sono tra loro indipendenti. Intuitivamente, conoscendo la media di un campione di $n$ dati, ma conoscendo solamente $n-1$ di questi, si può facilmente ricavare l'$n-esimo$, quindi solo $n-1$ sono indipendenti.
   \item Si dimostra che il valore attteso della varianza campionaria con l'$n-1$ al denominatore, è la varianza della popolazione:
   $$
     E[s^2(x)] = \sigma^2(x)
@@ -499,7 +499,7 @@ Ma a questo punto una domanda sorge spontanea:
 \end{center}
 Tanto la larghezza dell'intervallo quanto la PDF ad esso associata si scelgono sulla base di:
 \begin{itemize}
-  \item precedenti conosenze o dati di misura
+  \item precedenti conoscenze o dati di misura
   \item esperienza sul comportamento del misurando
   \item specifiche dei costruttori di materiali e strumenti coinvolti nella misura
   \item dati di calibrazioni
@@ -683,7 +683,7 @@ L'incertezza di R è trascurabile per ipotesi, quella di n è nota così come qu
 $$
   u(V) = \sqrt{\Bigg(\frac{\delta V}{\delta L}\Bigg)^2 u^2(L)} = \sqrt{[3~m^2]^2\cdot[10^{-3}~m]^2} = \sqrt{9\times 10^{-6}~m^6} = 3\times 10^{-3}~ m^3
 $$
-Ora, conscendo tutte le variabili/grandezze d'ingresso per valore ed incertezza, possiamo calcolare l'incertezza composta della grandezza misurata indirettamente:
+Ora, conoscendo tutte le variabili/grandezze d'ingresso per valore ed incertezza, possiamo calcolare l'incertezza composta della grandezza misurata indirettamente:
 \begin{align*}
 &u(p) = \sqrt{\Bigg(\frac{\delta p}{\delta n}\Bigg)^2 u^2(n)+\Bigg(\frac{\delta p}{\delta T}\Bigg)^2 u^2(T)+\Bigg(\frac{\delta p}{\delta V}\Bigg)^2 u^2(V)} =\\
 &= \sqrt{\Bigg(\frac{RT}{V}\Bigg)^2 u^2(n)+\Bigg(\frac{nR}{V}\Bigg)^2 u^2(T)+\Bigg(\frac{nRT}{-V^2}\Bigg)^2 u^2(V)} =\\
@@ -731,7 +731,7 @@ e inoltre:
 $$
   u(p) = u_r(p)\times p = 14.9~ Pa \simeq 15~Pa
 $$
-Possiamo in conclusione esprimere la misura completa della sua incertezza inelle due notazioni:
+Possiamo in conclusione esprimere la misura completa della sua incertezza nelle due notazioni:
 $$
   p = 4986~ Pa\pm 15~ Pa = 4986(15)~ Pa
 $$
@@ -1106,7 +1106,7 @@ In Figura \ref{interpolazione:esempio} possiamo vedere due esempi di interpolazi
 Una caratteristica da notare nell'interpolazione a seno cardinale e che si nota dalla Figura \ref{interpolazione:esempio} è la "precisione" dell'interpolazione che diminuisce in prossimità degli estremi dell'intervallo di campionamento, mentre vicino al centro dell'intervallo è molto più "fedele". Questo è dovuto al fatto che tale metodo di interpolazione sfrutta, per determinare un tratto di curva tra due punti sperimentali, l'informazione di tutti gli altri punti sperimentali. In prossimità degli estremi, è quindi impossibile avere informazioni sulle parti "a destra" e "a sinistra", perché non sono state campionate.
 \subsection{Regressione}
 
-Un diagramma spetimentale, ottenuto da risultati di misura, spesso mostra una dipendenza $y = f(x)$ che appare ragionevolmente approssimabile con una \textbf{funzione nota}. Nei casi in cui questo non accade, è possibile che conosciamo già questa funzione da un'analisi teorica del fenomeno in studio ma, se la dispersione dei dati è talmente grande che non riusciamo a definire con sufficiente affidabilità i \textbf{valori dei parametri del modello}, tramite la \textbf{regressione} è possibile ricavare questi valori (parametri caratteristici del fenomeno misurato) da una misura/osservazione di punti.
+Un diagramma sperimentale, ottenuto da risultati di misura, spesso mostra una dipendenza $y = f(x)$ che appare ragionevolmente approssimabile con una \textbf{funzione nota}. Nei casi in cui questo non accade, è possibile che conosciamo già questa funzione da un'analisi teorica del fenomeno in studio ma, se la dispersione dei dati è talmente grande che non riusciamo a definire con sufficiente affidabilità i \textbf{valori dei parametri del modello}, tramite la \textbf{regressione} è possibile ricavare questi valori (parametri caratteristici del fenomeno misurato) da una misura/osservazione di punti.
 
 \subsubsection{Regressione ai Minimi Quadrati}
 Consideriamo una generica dipendenza di una variabile fisica $y$ da un'altra variabile $x$, attraverso una funzione $f$ con più parametri $A,B,\ldots$:
@@ -1284,11 +1284,11 @@ Le principali caratteristiche dei voltmetri che tratteremo durante il corso sono
   \item \textbf{Risoluzione}
   \item Accuratezza
   \item \textbf{Velocità} di lettura
-  \item Risuzione al rumore di modo differenziale
+  \item Riduzione al rumore di modo differenziale
 \end{itemize}
 Trattiamo in generale voltmetri (DVM e DMM) dotati di display digitale dal quale leggere i valori delle misurazioni, quindi siamo \textbf{sicuri} di essere in assenza di errore di parallasse, per esempio.
 
-Il parametro caratteristico di \textbf{risoluzione} è molto importante. Può essere dimensionale (in Volt) o adimensionale. Più è piccolo il $\Delta V$ di risoluzione più il voltmetro si dice ad alta definizione (perché piò risolvere più livelli).
+Il parametro caratteristico di \textbf{risoluzione} è molto importante. Può essere dimensionale (in Volt) o adimensionale. Più è piccolo il $\Delta V$ di risoluzione più il voltmetro si dice ad alta definizione (perché può risolvere più livelli).
 
 Formule per il calcolo dei parametri caratteristici principali dei voltmetri:
 \begin{itemize}
@@ -1340,6 +1340,7 @@ $ V_r $ è una tensione di riferimento \textbf{variabile} e per generarla si ric
 
 In entrambi i tipi di voltmetri (differenziali e integrali) viene fatto un largo uso dell'\textit{Op-Amp} (\textit{Op}erational \textit{Amp}lifier o Amplificatore Operazionale) con la sua funzione di \textbf{comparatore}.
 \subsection{Voltmetro a Rampa Analogica}
+\label{rampa analogica}
 Questo voltmetro effettua la misura di un intervallo di tempo e calcola la $ V_r^* $ che manda a display. Perché misurare il tempo? Perché ad'ora il secondo è il campione più preciso che riusciamo a realizzare, quindi possiamo misurare con molta precisione l'intervallo di tempo.
 \begin{figure}[H]
   \begin{center}
@@ -1355,7 +1356,7 @@ Descriviamo il suo funzionamento:
 
 Il primo \textbf{comparatore di livello} prende in ingresso la tensione $ V_x $ incognita e la $ V_r $ interna allo strumento. Il \textbf{Generatore di Rampe} (a stato solido) a dente di sega durante la fase di salita varia tuttte le $ V_r $ possibili in tutta la dinamica di $ V_x $ possibili. La $ V_r $ viene anche mandata ad un altro comparatore che la compara con zero e ci fa sapere quando la $ V_r $ è positiva o negativa. 
 
-La \textbf{Logica di Controllo} ha 2 ingressi, uno "dice" se è scattato il comparatore con 0 e un altro "dice" se che è scattato il comparatore con $ V_r $. La logica di controllo decide il segno di $ V_x $ in base a quale dei due comparatori scatta prima. Questo misuratore valuta il modulo della tensione che si traduce in un tempo, che misuriamo con un \textbf{contatore elettronico}. Prima del contatore c'è il \textbf{gate} che resta aperto un tempo $ \Delta T_{Gate} $ e durante questo tempo arrivano anche i segnali del clock. Il comparatore conta se il gate fa uscire 1 quindi so tradurre un intervallo di tempo in numero di colpi di clock.
+La \textbf{Logica di Controllo} ha 2 ingressi, uno "dice" se è scattato il comparatore con 0 e un altro "dice" se è scattato il comparatore con $ V_r $. La logica di controllo decide il segno di $ V_x $ in base a quale dei due comparatori scatta prima. Questo misuratore valuta il modulo della tensione che si traduce in un tempo, che misuriamo con un \textbf{contatore elettronico}. Prima del contatore c'è il \textbf{gate} che resta aperto un tempo $ \Delta T_{Gate} $ e durante questo tempo arrivano anche i segnali del clock. Il comparatore conta se il gate fa uscire 1 quindi so tradurre un intervallo di tempo in numero di colpi di clock.
 Sfruttando il fatto che durante la rampa di salita del dente di sega la $ V_r $ prima o poi passa per $ V_x $, al primo comparatore che scatta la logica di controllo apre il gate e lo chiude al secondo che scatta.
 L'intervallo di tempo che misuro è proporzionale a $ V_x $.
 
@@ -1392,7 +1393,7 @@ Come possiamo vedere dalle seguenti formule:
   &m = \log_{10}(N) = \log_{10}(\frac{f_c}{f_{rampa}})\\
   &n = \log_2(N) = \log_2(\frac{f_c}{f_{rampa}})
 \end{align*}
-la risoluzione migliora al crescere del rapporto $ \frac{f_c}{f_{rampa}} $. Conviene quindi lavorare con $ f_c $ alta, ma questo costringe ad avere un contatore al "molte cifre" e "veloce". Altri parametri sono:
+la risoluzione migliora al crescere del rapporto $ \frac{f_c}{f_{rampa}} $. Conviene quindi lavorare con $ f_c $ alta, ma questo costringe ad avere un contatore a "molte cifre" e "veloce". Altri parametri sono:
 \begin{align*}
   &|V_x| = p\cdot \Delta T_G \text{ da } \Delta T_G = N_c T_c = \frac{|V_x|}{p}\\
   &\text{con $p$ pendenza della rampa analogica } p = \frac{2V_M}{T_{rampa}}~ \Bigg[\frac{V}{s}\Bigg] 
@@ -1402,7 +1403,7 @@ Una sbatta vera è quindi la frequenza della rampa che dobbiamo avere perché de
 \subsection{Voltmetro - Convertitore Flash}
 È il più veloce convertitore A/D con $ T_{mis} = 1\cdot T_c $ (la misura occupa un colpo di clock) e raggiunge frequenze di conversione fino a 50 $ \frac{GSa}{s}$.
 
-La complessià circuitale (e il costo) cresce esponenzialmente con il numero di bit (come $ 2^n $) e quindi si lavora a \textbf{bassa risoluzione}, che solamente è $ n \sim 8~\text{bit} $. Esistono anche convesioni da 10 e da 12 bit, mentre le conversioni da 13 bit in poi non hanno molto senso, perché ad alta velocità il \textbf{rumore} darà minor numero di \textbf{bit equivalenti}.
+La complessià circuitale (e il costo) cresce esponenzialmente con il numero di bit (come $ 2^n $) e quindi si lavora a \textbf{bassa risoluzione}, che solamente è $ n \sim 8~\text{bit} $. Esistono anche conversioni da 10 e da 12 bit, mentre le conversioni da 13 bit in poi non hanno molto senso, perché ad alta velocità il \textbf{rumore} darà minor numero di \textbf{bit equivalenti}.
 \begin{figure}
   \begin{center}
     \includegraphics[
@@ -1419,7 +1420,7 @@ Nel circuito di questo voltmetro (che possiamo vedere in Figura \ref{voltmetroFl
 
 Analizzando il circuito vediamo come vengono distinte $ N-1 $ soglie (dove $ N $ è sempre il numero dei livelli) attraverso una rete di resistori di valore $ R $ (tutti identici) se vogliamo campionare un segnale \textit{non}-polarizzato, mentre si usano agli estremi resistori di valore $ \frac{3}{2} R$ e $ \frac{R}{2} $ con lo scopo di dimezzare la soglia del primo livello in ampiezza per non avere \textit{offset} nella caratteristica di conversione nel convertire segnali \textbf{bipolari}.
 
-In formule\footnotemark[1]\footnotetext[1]{È importante ricordare queste formule e il loro significato, anche perchè è spesso necessario usarle per rispondere al pre-compito in sede d'esme.}:
+In formule\footnotemark[1]\footnotetext[1]{È importante ricordare queste formule e il loro significato, anche perchè è spesso necessario usarle per rispondere al pre-compito in sede d'eseme.}:
 \begin{itemize}
   \item $ N $ resistori tutti uguali:
   \begin{align*}
@@ -1525,7 +1526,7 @@ $$
 $$
 Quindi il tempo di misura è fissato indipendentemente da $ V_x $ e vale:
 $$
-  T_{mis} = n(mT_c) = nT_confronto
+  T_{mis} = n(mT_c) = nT_{confronto}
 $$
 
 A partire dalle considerazioni fatte fin'ora possiamo concludere che questo voltmetro è abbastanza veloce, è abbastanza accurato e non sembra che costi più di tanto mettergli qualche bit in più, anche in termini di tempo dato che se aggiungo 4 bit esso aumenta di un fattore 4. Non ha più senso però spingersi ad altissime risoluzioni, come abbiamo già detto, per il fatto del rumore che diventa di modulo più alto della risoluzione dello strumento quindi non ho più resistenza al rumore ma anzi lo vedo e lo misuro.
@@ -1558,7 +1559,7 @@ A partire dalle considerazioni fatte fin'ora possiamo concludere che questo volt
   \end{center}
 \end{figure}
 
-Per limitare il rumore si può mettere un filtro \textit{passa-basso} a monte. si media l'errore ma si riduce anche la velocità di converisone. Le \textbf{le prestazioni} in generale del voltmetro possono raggiungere livelli più che sufficienti all'utilizzo che ne facciamo noi. Ad esempio: nel laboratorio in via Golgi abbiamo delle DAQ che al loro interno hanno quesi tipi di voltmetri, le cui caratteristiche sono:
+Per limitare il rumore si può mettere un filtro \textit{passa-basso} a monte. si media l'errore ma si riduce anche la velocità di converisone. Le \textbf{prestazioni} in generale del voltmetro possono raggiungere livelli più che sufficienti all'utilizzo che ne facciamo noi. Ad esempio: nel laboratorio in via Golgi abbiamo delle DAQ che al loro interno hanno quesi tipi di voltmetri, le cui caratteristiche sono:
 \begin{itemize}
   \item $ T_{misura} = 5~\mu s $ ossia $ f_{sample} 0 200~\frac{kSa}{s} $
   \item $ n $ = 12-16 bit
@@ -1600,6 +1601,7 @@ Soluzioni:
         keepaspectratio,
     ]{images/esercizioApprSucc.png}
     \caption{Grafico di conversione ad approsimazioni successive.}
+    \label{esercizioApprSucc}
   \end{center}
 \end{figure}
 Notiamo come in questo caso con soli 7 bit abbiamo una \textbf{risoluzione}:
@@ -1609,19 +1611,19 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Voltmetri Integratori (o a Integrazione)}
-Caratteristici per essere lenti, ma molto accurati. Completamente diversi dai differenziali perchè non sfruttano una differenza tra il valore in ingresso ed un riferimanto interno, ma il loro circuito calcola il risultato secondo l'integrale del segnale d'ingresso e dei rumori.
+Caratteristici per essere lenti, ma molto accurati. Completamente diversi dai differenziali perchè non sfruttano una differenza tra il valore in ingresso ed un riferimento interno, ma il loro circuito calcola il risultato secondo l'integrale del segnale d'ingresso e dei rumori.
 \begin{equation}
   V_m \propto \frac{1}{T_I}\int_0^{T_I}V(t)dt
 \end{equation}
 I voltmetri a integrazione hanno intrinsecamente una \textbf{reiezione al disturbo}
 $$
-  V(t) = V_x + V_d(t)\text{~~~segnale+ disturbo}
+  V(t) = V_x + V_d(t)\text{~~~segnale + disturbo}
 $$
 La particolarità di questa relazione è:
 \begin{equation}
   V_m = \frac{1}{T_I}\int_0^{T_I}[V_x + V_d(t)]dt = V_x + \frac{1}{T_I}\int_0^{T_I}V_d(t)dt
 \end{equation}
-Per quanto riguarda l'ultimo termine ($\frac{1}{T_I}\int_0^{T_I}V_d(t)dt$) noi abbiamo l'obiettivo di renderlo trascurabile, attraverso alcune strategie ed impostazioni di tempo (tempo di integrazione $ T_I $).
+Per quanto riguarda l'ultimo termine $\left(\frac{1}{T_I}\int_0^{T_I}V_d(t)dt\right)$ noi abbiamo l'obiettivo di renderlo trascurabile, attraverso alcune strategie ed impostazioni di tempo (tempo di integrazione $ T_I $).
 
 Il modo \textbf{più efficace} per eliminare completamente un disturbo dalla misura, \textbf{conoscendo la sua frequenza}, è quello di settare il tempo di integrazione $ T_I $ ad un \textbf{multiplo del periodo del segnale di disturbo}. In questo modo, come si può intuire, l'integrale del segnale di disturbo sarà sicuramente \textbf{nullo}.
 
@@ -1652,7 +1654,7 @@ dove $x = \pi f T = \pi f_d T_I$.\\
 
 Quindi la \textbf{reiezione} cresce (tendenzialmente) al crescere di $ x $ e dunque di $ f_d $ e $ T_I $. Fissata quindi una delle due, possiamo scegliere l'altra per avere una reiezione ottimale.
 
-Fissata la frequenza del disturbo sappiamo scegliere il tempo di integrazione perfetto per eliminare tutti i disturbi a tale frequenza, mentre fissato il tempo di integrazione sappiamo le frequenze dei disturbi che possiamo elminare.
+Fissata la frequenza del disturbo sappiamo scegliere il tempo di integrazione perfetto per eliminare tutti i disturbi a tale frequenza, mentre fissato il tempo di integrazione sappiamo le frequenze dei disturbi che possiamo eliminare.
 
 \subsubsection{Integrazione - Reiezione in Potenza}
 La \textbf{trasmissione in potenza} e la \textbf{reiezione in potenza} sono:
@@ -1688,6 +1690,13 @@ E come possiamo vedere dalla figura \ref{andamentoSinc} all'aumentare di $ x_p =
     \label{andamentoSinc}
   \end{center}
 \end{figure}
+
+\subsection{Voltmetro a Doppia Rampa}
+
+Come il voltmetro a rampa analogica (Sezione \ref{rampa analogica}) anche questo opera una conversione tensione-tempo e misura $ \Delta T_G $ (Gate).
+
+Questa conversione avviene dapprima in un tempo costante $ T_I $ nel quale andiamo a caricare il condensatore interno fino ad un certo punto.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Esercizi di Conversione}
 \label{esercizi:conversione}
