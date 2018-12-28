@@ -714,7 +714,7 @@ $$
   u_r(p) = \sqrt{(2)^2u_r^2(n)+(4)^2u_r^2(T)+(-3)^2u_r^2(V)}
 $$ e quindi
 $$
-  u_r(p) = \sqrt{4u_r^2(n)+16u_r^2(T)+92u_r^2(V)}  
+  u_r(p) = \sqrt{4u_r^2(n)+16u_r^2(T)+9u_r^2(V)}  
 $$
 \paragraph{Per concludere:}
 \begin{itemize}
@@ -1697,6 +1697,91 @@ Come il voltmetro a rampa analogica (Sezione \ref{rampa analogica}) anche questo
 
 Questa conversione avviene dapprima in un tempo costante $ T_I $ nel quale andiamo a caricare il condensatore interno fino ad un certo punto.
 
+Equazione della misura:
+\begin{equation}
+  V_x = - \frac{T_D}{T_U}V_R = - \frac{N_D}{N_U}V_R
+\end{equation}
+L'integrale della $ V_x $ dev'essere bilanciato dall'integrale della $ V_R $. La differenza è che $ V_x $ viene integrata per un tempo costante, mentre la $ V_R $ viene integrata per tutto il tempo necessario a far sì che esso bilanci l'integrale di $ V_x $.
+
+Quello che abbiamo chiamato $ T_U $ (T UP) è in realtà il \textbf{tempo di integrazione} ($ T_I $) e quindi $ T_U = N_U T_C $ è \textbf{costante} e \textbf{fissato}, mentre il $ T_D $ (T DOWN) è il tempo che convertiamo in tensione, che è il tempo che impiega il condensatore a scaricarsi a 0.
+
+Quindi il tempo di misura totale è 
+$$
+  T_{mis} = T_U + T_D
+$$
+che è variabile con $ T_D $ (che varia proporzionalmente a $ V_x $) e dipende da $ V_x $ come nel voltmetro a rampa analogica.
+
+Ricaviamo la formula di $ V_x $ come costante strumentale moltiplicata per conteggi misurati durante il processo:
+\begin{equation}
+  V_x = \frac{-V_R}{N_U}N_D
+\end{equation}
+Quindi misuro $ V_x $ contando $ N_D $ (conversione tensione-tempo).
+
+Misura teoricamente insensibile a valori, e incertezze, che R e C (tau = 1 su RC) e altri parametri strumentali (fc e Tc). Naturalmente l'\textbf{incertezza} di  $ V_R $ si trasferisce $ 1:1 $ su $ V_x $. L'unico errore presente nel voltmetro a doppia rampa è quello nel conteggio di $ N_D $.
+
+\subsubsection{Incertezza}
+Come nel caso del voltmetro a rampa analogica, essendo la misura efettuata per conteggio, ci sarà \textbf{sempre} un errore ed un'incertezza di \textbf{quantizzazione} pari a:
+$$
+  u_q(V_x) = \frac{\text{1 conteggio}}{\sqrt{12}}~~~\text{(che viene da una PDF uniforme)}
+$$
+e avrà una formula esatta:
+$$
+  u_q(V_x) = -\frac{V_R}{N_U}\frac{1}{\sqrt{12}}
+$$
+La sensibilità, la risoluione e l'incertezza di quantzzazione dipendono dalla portada del voltmetro ($ V_{x,max} $) e "capacità di conteggio" ($ N_{D,max} $).\\
+
+L'\textbf{incertezza relativa}:
+$$
+  u_r^2 (V_x) = u_r^2(V_R)+u_r^2(N_D)
+$$
+Ma, considerando che per $ N_D >> \frac{1}{u_r(V_R)} $ si ha $ u_r(N_D) << u_r(V_R) $ e  quindi il \textbf{limite ultimo} di incertezza della misura pari a $ u_r(V_x) \simeq u_r(V_r)$
+
+\paragraph{Nota} Poiché il valore limite per $ u_r(V_R) \simeq 2\times 10^{-7}$ se ne deduce che il \textbf{migliore DVM} può avere circa $ 6\frac{1}{2} $ cifre (significative), con un numero massimo di livelli $ N_{max} = 5\times 10^6 $ che comporta un numero di bit \textit{equivalenti} $ n = 22 $.
+
+\newpage
+\subsection{Esercizio sul Voltmetro a Doppia Rampa}
+Ipotiziamo di effettuare una misura a 16 bit in presenza di disturbo a $ f_d = 50~Hz $, con $ T_I = 100~ms $ con quarzo a frequenza $ f_c = 1~MHz $.
+Quindi, dati:
+\begin{itemize}
+  \item $ n = 16~bit $
+  \item $ f_d = 50~Hz $
+  \item $ T_I = 100~ms $
+  \item $ f_c = 1~MHz $
+\end{itemize}~\\
+Richieste:
+\begin{enumerate}
+  \item Determinare la \textbf{velocità di lettura} in termini di $ f_{mis} $
+  \item Determinare il numero di cifre decimali del contatore: $ M_{contatore} $
+\end{enumerate}
+
+\textcolor{red}{CopiaML}.
+
+\section{Bit Equivalenti}
+
+Bit equivalenti (2/7) Disponendo di un convertitore/voltmetro che quantizza il segnale s(t) su n bit, si avrà un PASSO DI QUANTIZZAZIONE Q=D/2n Se D è la dinamica del segnale e anche del voltmetro, si ha una varianza (“incertezza di quantizzazione") è possibile ricavare n (bit) dal rapporto S/N (Signal/Noise) Voltmetri e Convertitori 73/80
+
+\chapter{Oscilloscopi}
+Un \textbf{oscilloscopio} uno strumento di misura che consente la visualizzazione grafica dell'evoluzione temporale di un segnale di tensione (in ordinata) in funzione del tempo (in ascissa). In completa differenza rispetto ai voltmetri, la cui funzione è quella di misurare un valore di tensione incognito \textbf{in un certo istante di tempo}. Utilizzando scale graduate, è possibile effettuare misure \textit{quantitative} oltre che qualitative.
+
+Purtroppo l'oscilloscopio è nato per misure veloci di segnali a larga banda e per questo ha un rumore interno molto elevato, quindi con gli oscilloscopi è impossibile analizzare segnali di ampiezza \textit{picco-valle} dell'ordine dei \textit{microvolt}.
+
+\section{Sezioni dell'Oscilloscopio}
+\begin{itemize}
+  \item \textbf{Schermo} e regolazione della traccia: consente di visualizzare una traccia luminosa che evolve nel dominio del tempo (asse $ X $) tenendo conto dei livelli di tensione (asse $ Y $)
+  \item Condizionamento e amplificazione \textbf{verticale} (accoppiamenti e guadagno d'ingresso): consente di \textbf{accoppiare} il segnale in DC o AC (o GND) e di scegliere il fattore di scala verticale $ A_{Y} = \left[ \frac{V}{DIV} \right] $ per l'asse Y.
+  \item Sincronismo (\textbf{trigger}): consente di "\textbf{agganciare}" un livello, con una data pendenza, sul segnale di trigger e da quel punto fa partire la visualizzazione
+  \item Base dei \textbf{tempi} (amplificazione orizzontale): consente di "\textbf{scansionare}" la traccia da sx a dx lungo l'asse X e di scegliere il fattore di scala orizzontale $ A_{X} = \left[ \frac{s}{DIV} \right] $
+\end{itemize}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[
+        width=12cm,
+        height=6cm,
+        keepaspectratio,
+    ]{images/pannelloOscilloscopio.png}
+    \caption{Schematizzazione del Pannello Frontale di un generico Oscilloscopio.}
+  \end{center}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Esercizi di Conversione}
 \label{esercizi:conversione}
