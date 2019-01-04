@@ -618,7 +618,7 @@ $$
 $$
 Per arrivare a semplicifare la formula dell'uncertezza combinata, andiamo a definire i \textbf{coefficienti di correlazione}:
 $$
-  i_{ij}(x_i,x_j) \equiv \frac{u(x_i,x_j)}{u(x_i)\cdot u(x_j)}~\epsilon [-1;+1]~
+  r_{ij}(x_i,x_j) \equiv \frac{u(x_i,x_j)}{u(x_i)\cdot u(x_j)}~\epsilon [-1;+1]~
 $$ definiti come il rapporto tra la covarianza di due variabili e il prodotto delle loro varianze. È importante notare che se $X_i$ e $X_j$ sono variabili aleatorie tali per cui il comportamento di una non influisce sulla variazione dell'altra (cioè sono \textbf{statisticamente indipendenti}), allora il loro coefficiente di correlazione sarà pari a 0.
 $$
     r_{ij} = 0~~~~\text{se $X_i$ e $X_j$ sono statisticamente indipendenti}
@@ -687,7 +687,7 @@ Ora, conoscendo tutte le variabili/grandezze d'ingresso per valore ed incertezza
 \begin{align*}
 &u(p) = \sqrt{\Bigg(\frac{\delta p}{\delta n}\Bigg)^2 u^2(n)+\Bigg(\frac{\delta p}{\delta T}\Bigg)^2 u^2(T)+\Bigg(\frac{\delta p}{\delta V}\Bigg)^2 u^2(V)} =\\
 &= \sqrt{\Bigg(\frac{RT}{V}\Bigg)^2 u^2(n)+\Bigg(\frac{nR}{V}\Bigg)^2 u^2(T)+\Bigg(\frac{nRT}{-V^2}\Bigg)^2 u^2(V)} =\\
-&= \sqrt{\Bigg(\frac{nRT}{V}\Bigg)^2 \frac{u^2(n)}{n^2}+\Bigg(\frac{nRT}{V}\Bigg)^2 \frac{u^2(T)}{T^2}+\Bigg(\frac{nRT}{-V}\Bigg)^2 \frac{u^2(V)}{V^2}}\\
+&= \sqrt{\Bigg(\frac{nRT}{V}\Bigg)^2 \frac{u^2(n)}{n^2}+\Bigg(\frac{nRT}{V}\Bigg)^2 \frac{u^2(T)}{T^2}+\Bigg(\frac{nRT}{V}\Bigg)^2 \frac{u^2(V)}{V^2}}\\
 \end{align*}
 Dall'ultima espressione possiamo concludere che:
 \begin{equation}
@@ -774,8 +774,8 @@ Come intuiamo dal testo dell'esercizio, si tratta di calcolare una incertezza co
 \begin{align*}
   &I = \frac{V_G}{R_G+R_1+R_2} = \frac{V}{R_2}\\
   &R_2\cdot V_G = (R_G+R_1+R_2)\cdot V\\
-  &R_2(V-g-V) = (R_G+R_1)\cdot V \\ \\
-  &R_2 = \frac{V}{(V_G-V)(R_G+R_1)} = f(V_G,V,R_G,R_1)
+  &R_2(V_G-V) = (R_G+R_1)\cdot V \\ \\
+  &R_2 = \frac{V}{(V_G-V)}(R_G+R_1) = f(V_G,V,R_G,R_1)
 \end{align*}
 Una volta identificata la relazione funzionale, possiamo usare la formula \ref{incertezza composta: formula generale} (eventualmente modificata al caso particolare di variabili statisticamente indipendenti) per calcolare l'incertezza composta di $R_2$. Ci accorgiamo però che dobbiamo prima calcolare le incertezze assolute e relative di tutti i parametri coinvolti nella misura, rispondendo al punto 1 dell'esercizio.
 
