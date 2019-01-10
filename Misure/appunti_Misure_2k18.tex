@@ -19,7 +19,8 @@
 \tableofcontents
 
 \begin{abstract}
-Appunti presi a lezione e trascritti in modo da essere human-readable, contrariamente alle slide fornite dal professore.
+Appunti presi a lezione durante l'AA 2018/2019. Questa raccolta \textbf{non} è da considerarsi un sostitutivo del materiale fornito dal professore, alla frequentazione delle lezioni od ai libri di testo, ma è da prendere piuttosto come materiale integrativo.\\
+La raccolta può risultare incompleta/inesatta in alcuni passaggi, quindi ogni suggerimento o correzione è apprezzato.
 \end{abstract}
 \newpage
 \chapter{Metrologia e Sistema Internazionale}
@@ -56,7 +57,7 @@ Possiamo a questo punto fare degli esempi di misure sulla base di ciò che abbia
 Questa misura ha sicuramente un riferimento di tipo manufatto.
 \\
 
-Un esempio di misura di tipo assoluto è la misurazione di un intervallo di tempo in giorni. Ad esempio: sono passati \it 3 giorni\rm. l'unità di misura in questo caso è chiaramente il giorno.
+Un esempio di misura di tipo assoluto è la misurazione di un intervallo di tempo in giorni. Ad esempio: sono passati \it 3 giorni\rm. L'unità di misura in questo caso è chiaramente il giorno.
 \section{Errori di Misura}
 È importante realizzare che, purtroppo, \bf non esiste \rm alcuna \it misura esatta\rm. Ogni misura è affetta da diversi contributi di errore, che si trasformano in cause di incertezza, le quali sono riducibili attraverso l'ingegnerizzazione della misura, ma non sono mai eliminabili.
 
@@ -159,7 +160,7 @@ Il Sistema Internazionale è anche un sistema completo? Tutte le unità di misur
 
 Un'altra caratteristica importante del Sistema Internazionale è che le unità di base sono tra di loro dimensionalmente indipendenti, ma non logicamente indipendenti (e.g. il metro "dipende dal secondo").\\
 
-Inoltre, nel S.I. esiste una sola unità di misura per ciascuna grandezza fisica, che è la corretta unità di misura di base o derivata da quelle di base. Ed è anche importante menzionare che attraverso uno qualsiasi dei \bf prefissi decimali approvati\rm, detti prefissi SI, può essere usato per costruire multipli e sottomultipli decimali delle unità di misura SI. Anche se sembra una caratteristica abbastanza naturale, esistono dei sistemi di misura che non la rispettano, ad esempio il sistema imperiale di misurazione delle distanze: la \it yard \rm non corrisponde a $1\ K\ inches$.
+Inoltre, nel S.I. esiste una sola unità di misura per ciascuna grandezza fisica, che è la corretta unità di misura di base o derivata da quelle di base. Ed è anche importante menzionare che attraverso uno qualsiasi dei \bf prefissi decimali approvati\rm, detti prefissi SI, può essere usato per costruire multipli e sottomultipli decimali delle unità di misura SI. Anche se sembra una caratteristica abbastanza naturale, esistono dei sistemi di misura che non la rispettano, ad esempio il sistema imperiale di misurazione delle distanze: la \it yard \rm non corrisponde a $1\ k\ inches$.
 
 \subsection{Definzioni Assolute e Definizioni con Campioni Manufatti}
 Nel Sistema Internazionale (ad oggi: settembre 2018), esistono ancora unità base definite attraverso dei campioni di riferimento, ad esempio il kilogrammo. Ebbene queste definzioni sono in un certo qual modo peggiori rispetto a quelle deifinite in modo assoluto, perché compromettendo il campione (ammettendo che esso sia unico, cosa che per fortuna non è - ne esistono diversi altri molto simili), si modificano virtualmente tutte le misure fatte da quel momento in poi. Un classico esempio espresso informalmente potrebbe essere "se qualcuno stanotte scambia il campione del kilogrammo, domani potremmo pesare tutti due etti in meno".
@@ -235,9 +236,9 @@ Per altri esempi e una migliore spiegazione si rimanda al Capitolo \ref{esercizi
 \chapter{Incertezza di Misura}
 Abbiamo detto che la misura è un \textbf{numero} associato alla sua unità di \textbf{misura}. Adesso è il momento di aggiungere un qualcosa che esprime anche "quanto mi fido" della misura in questione, cioè l'\textbf{incertezza}. Possiamo quindi esprimere le misure, da ora in poi, come: $$ MIS_{x} = x_{numero}\ x_{unità\ di\ misura} \pm INC_{x}\ x_{unità\ di\ misura} $$
 Addirittura a volte arriviamo ad esprimere anche l'incertezza dell'incertezza, che dice quanto fidarsi dell'incertezza. Esprime l'attendibilità della stima di incertezza in questione.
-\section{Variabilità delle Misure} Misure ripetute dello stesso parametro fisico non forniscono lo stesso valore. È considerabile come una legge della natura, è impossibile che due misure consecutive diano esattamente lo stesso risultato per ogni cifra decimale. La caratteristica che ci permette di determinare l'incertezza della misura è la \textbf{deviazione standard} (o dispersione $\sigma$) della misura in questione, mentre il valore della misura sarà la \textbf{media} ($\mu$).
-$$SLIDE\ GAUSSIANA$$
-Le misure sono sempre affette da fluttuazioni o errori (almeno potenziali), mai perfettamente conoscibili, che si traducono in una naturale "indeterminazione" o INCERTEZZA sul risultato di misura.\\
+\section{Variabilità delle Misure} Misure ripetute dello stesso parametro fisico non forniscono lo stesso valore. È considerabile come una legge della natura, è impossibile che due misure consecutive diano esattamente lo stesso risultato per ogni cifra decimale. La caratteristica che ci permette di determinare l'incertezza della misura è la \textbf{deviazione standard} (o dispersione $\sigma$) della misura in questione, mentre il valore della misura sarà la \textbf{media} ($\mu$).\footnotemark[1]\footnotetext[1]{Per la spiegazione teorica di \textit{media} e \textit{deviazione standard} si rimanda alla sezione \ref{probStat}.}
+
+Le misure sono sempre affette da fluttuazioni o errori (almeno potenziali), mai perfettamente conoscibili, che si traducono in una naturale "indeterminazione" o \textbf{incertezza} sul risultato di misura.\\
 Per questo conviene abbandonare l'approccio deterministico in favore di un \textbf{approccio statistico} grazie al quale è possibile stimare le fluttuazioni.\\
 La variabilità del risultato di una misura è analizzata grazie ai metodi consolidati della statistica (varianza e deviazione standard). Il risultato dunque non è mai un unico numero "deterministico", ma un intervallo di valori possibili entro il quale il misurando può trovarsi con una data probabilità (e potrà anche trovarsi fuori dall'intervallo).
 \paragraph*{Si definisce incertezza di misura} la semiampiezza di un particolare intervallo di valori (l'intervallo $\pm 1$ deviazione standard del valore centrale), centrato nella \textbf{media}.
@@ -248,8 +249,7 @@ La teoria degli errori definiva alcuni tipi di errori che si verificano più spe
 \begin{itemize}
   \item \textbf{Errori Sistematici:} si presentano nella stessa entità ogni volta che si ripete la misura (\textit{offset} o polarizzazione).\\
   Per esempio possiamo pensare ad un peso di massa \textit{m} che viene posto su una bilancia digitale, leggendo il valore riportato dalla bilancia si noterà un \textit{offset} costante di 100g in più rispetto al valore $m$.
-  \item \textbf{Errori Accidentali:} si presentano in maniera diversa e "impredicibile" ogni volta che si ripete la misura (fluttuazione casuale a media nulla).\\
-  Per esempio:
+  \item \textbf{Errori Accidentali:} si presentano in maniera diversa e "impredicibile" ogni volta che si ripete la misura (fluttuazione casuale a media nulla).
 \end{itemize}
 L'idea era sommare errori sistematici e accidentali, ma riflettendo un momento, anche se sappiamo che esse sono due grandezze omogenee, troviamo che sono concettualmente diverse per loro natura. È quindi logicamente scorretto sommarli in quanto i primi (sistematici, deterministici) sono completamente conscibili mentre i secondi (\textbf{aleatori}), sono solamente stimabili in senso statistico e talora riducibili ma \textbf{mai} eliminabili del tutto.
 \paragraph*{Incertezza standard di misura} è ciò che secondo il CIPM è una corretta analisi statistica della variabilità di una misura. È un parametro, valutato seondo procedure \textbf{convenzionali} (standard), che esprime il nostro grado di non conoscenza del misurando.\\
@@ -258,7 +258,7 @@ Abbiamo due \textbf{categorie di stima} dell'incertezza:
   \item \textbf{Stimata con Metodi Statistici} su un campione di misure.
   \item \textbf{Stimata in Altro Modo} ad esempio attraverso conoscenze a priori o proprietà dello strumento.
 \end{itemize}
-\section{Richiami di Probabilità e Statistica}
+\section{Richiami di Probabilità e Statistica} \label{probStat}
 Per noi la probabilità è un numero $p\ \epsilon\ [0,1]$ dove 0 indica l'evento impossibile e 1 l'evento certo.\\
 Chiamiamo invece \textit{variabile casuale} (VC) una variabile $X$ con valori $x\ \epsilon\ \Re $.\\
 La probabilità è una funzione $P$ definita come:
@@ -495,7 +495,7 @@ Dunque possiamo definire il procedimento per ottenere una stima dell'incertezza 
 \end{figure}
 Ma a questo punto una domanda sorge spontanea:
 \begin{center}
-  \textit{Come segliamo l'intervallo e la PDF?}
+  \textit{Come scegliamo l'intervallo e la PDF?}
 \end{center}
 Tanto la larghezza dell'intervallo quanto la PDF ad esso associata si scelgono sulla base di:
 \begin{itemize}
@@ -689,12 +689,6 @@ Ora, conoscendo tutte le variabili/grandezze d'ingresso per valore ed incertezza
 &= \sqrt{\Bigg(\frac{RT}{V}\Bigg)^2 u^2(n)+\Bigg(\frac{nR}{V}\Bigg)^2 u^2(T)+\Bigg(\frac{nRT}{-V^2}\Bigg)^2 u^2(V)} =\\
 &= \sqrt{\Bigg(\frac{nRT}{V}\Bigg)^2 \frac{u^2(n)}{n^2}+\Bigg(\frac{nRT}{V}\Bigg)^2 \frac{u^2(T)}{T^2}+\Bigg(\frac{nRT}{V}\Bigg)^2 \frac{u^2(V)}{V^2}}\\
 \end{align*}
-Dall'ultima espressione possiamo concludere che:
-\begin{equation}
-\label{formula incertezza composta}
-  u_r(p) = \sqrt{u_r^2(n)+u_r^2(T)+u_r^2(V)}
-\end{equation}
-Questa sarà quindi la formula da usare non solo in questo caso, ma anche in tutti gli altri casi simili a questo!
 
 \subparagraph*{Nota} in generale possiamo affermare che, avendo una relazione funzionale del tipo
 $$
@@ -703,7 +697,7 @@ $$
 Nel caso di variabili aleatorie statisticamente indipendenti, avremo:
 $$
   u_r(p) = \sqrt{(1)^2u_r^2(n)+(1)^2u_r^2(T)+(-1)^2u_r^2(V)}
-$$ e quindi otteniamo la \ref{formula incertezza composta}.
+$$
 
 Ma se in un qualche caso avessimo esponenti diversi da $\pm 1$, come ad esempio:
 $$
@@ -832,7 +826,7 @@ Dove i pesi $w_i = \frac{1}{u^2(x_i)}$ sono i \textbf{reciproci delle varianze} 
 A questo punto possiamo calcolare anche \textbf{l'incertezza della media pesata} come:
 \begin{equation}
   \label{incertezza media pesata misure compatibili}
-    u^2(\bar{x_IMP}) = \frac{1}{\sum^n_{i=1}w_i} = \frac{1}{\sum^n_{i=1}\frac{1}{u^2(x_i)}}
+    u^2(\bar{x}_{IMP}) = \frac{1}{\sum^n_{i=1}w_i} = \frac{1}{\sum^n_{i=1}\frac{1}{u^2(x_i)}}
 \end{equation}
 \subsection{Gradi di Libertà per Incertezza di Categoria B}
 Ricordiamo che ogni stima di incertezza è \textbf{a sua volta incerta} e la bontà di questa stima è esprimibile attraverso il numero di gradi di libertà ($v_a$ = n-1 per l'incertezza di categoria A).
@@ -1038,10 +1032,7 @@ Esistono diversi metodi di interpolazione che sono percorribili a seconda di pot
 \paragraph{Interpolazione lineare}~\\
 È la più semplice interpolazione possibile: consiste nel congiungere i punti con una spezzata (un insieme dei segmenti di rette che passano per due punti adiacenti).
 
-La funzione interpolante in questo caso è definita come una funzione che è nulla per tutti i punti appartenenti all'asse $x$ tranne che per i punti dell'intervallo $[-1;1]$.
-\begin{center}
-  E QUA METTICI LA FUNZIONE INTERPOLANTE LINEARE
-\end{center}
+La funzione interpolante in questo caso è definita come una funzione che è nulla per tutti i punti appartenenti all'asse $x$ tranne che per i punti dell'intervallo $[-1;1]$.\\
 L'interpolazione si effettua \textbf{sovrapponendo} (moltiplicandola) questa funzione ad ogni punto sperimentale e mediando i segmenti di retta ottenuti per ogni intervallo di punti.
 
 Come si può vedere dalla figura \ref{interpolazione:lineare}, questo metodo non consente una buona ricostruzione del segnale, perché non sfrutta l'informazione contenuta in \textit{tutti} i punti, ma solo quella dei due adiacenti che vengono uniti. Se per esempio seguissimo alla lettera il \textbf{teorema di Shannon} per il campionamento:
@@ -1074,9 +1065,6 @@ otterremmo un insieme di punti che stanno su una retta parallela all'asse delle 
 Questo tipo di interpolazione è quello usato da tool come MatLab e Excel per effettuare l'interpolazione. Ricostruisce una curva che passa per i punti sperimentali, mantenendo continue la derivata prima e seconda. Ha quindi l'effetto visivo di una "linea smussata".
 
 La funzione interpolante in questo caso è definita come una funzione che è nulla per tutti i punti appartenenti all'asse $x$ tranne che per i punti dell'intervallo $[-k;k]$ con $k\ \epsilon\ \mathbb{N},\ k  > 1$.
-\begin{center}
-  E QUA METTICI LA FUNZIONE INTERPOLANTE CUBICA
-\end{center}
 \paragraph{Interpolazione a seno cardinale}~\\
 È il tipo di interpolazione ideale per la ricostruzione di segnali campionati nel tempo. La funzione interpolante è fatta come in Figura \ref{interpolazione:interpolante:seno} ed è possibile ricavarla matematicamente dall'operazione di filtraggio passa-basso ideale del segnale campionato. Nel dominio del tempo consiste in una convoluzione del segnale campionato con la funzione $sinc(\pi x) = \frac{\sin(\pi x)}{\pi x}$, che è continua e non si annulla mai.
 \begin{figure}
@@ -1152,8 +1140,8 @@ La soluzione del sistema (che si ottiene facilmente per sostituzione) è:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{ADC e DAC}
-\section{A cosa servono ADC e DAC?}
-Gli ADC consentono di fare misure di frandezze fisiche fornendo il valore misurato in formato numerico ........
+%\section{A cosa servono ADC e DAC?}
+%Gli ADC consentono di fare misure di grandezze fisiche fornendo il valore misurato in formato numerico, nei casi specifici che analizziamo andremo a studiare diversi ADC che misurano dei valori di tensione.
 \section{Convertitore D/A (Digitale/Analogico)}
 In ingresso abbiamo $n$ "fili" (\textbf{linee digitali}) che rappresentano $n$ bit, mentre in uscita abbiamo un "filo" (\textbf{linea analogica}) dove ci sarà la tensione $v_{out}$, che sarà \textit{quantizzata}. Diremo che il convertitore D/A avrà $N$ livelli dove $N = 2^n$.
 \begin{figure}[H]
@@ -1232,7 +1220,6 @@ Alle tensioni analogiche che cadono nell'intrevallo $i$-esimo si associa un \tex
 \label{quantizzazione errore}
 \begin{itemize}
   \item \textbf{Quantizzazione}: grazie ad espedienti di traslazione della caratteristica di $\frac{1}{2}$ bit possiamo avere un errore di quantizzazione equidistribuito tra il valore centrale della misura e un intervallo simmetrico di larghezza $\frac{1}{2}LSB$ (\textit{LSB: Least Significant Bit}).
-  \item gli altri sono stati saltati che bello.
 \end{itemize}
 \section{Convertitore D/A a Rete di R}
 \begin{figure}[H]
@@ -1253,7 +1240,7 @@ Su ciascuno \textit{switch} $S_i$ è posta una resistenza $r_i = 2^{(n-1)-i}\cdo
   &b_0~~~ = LSB~~~~\text{Least Significant Bit}\\
   &b_{n-1} = MSB~~~\text{Most Significant Bit}
 \end{align*}
-E l'operazionale serve da sommatore delle correnti pesate che passano attraverso gli \textit{switch} e converte la corrente risultante $i_o$, attraverso la restistenza di \textit{feedback}, in un'uscita di tensione $v_o$.
+E l'\textit{Amplificatore Operazionale} serve da sommatore delle correnti pesate che passano attraverso gli \textit{switch} e converte la corrente risultante $i_o$, attraverso la restistenza di \textit{feedback}, in un'uscita di tensione $v_o$.
 
 L'accuratezza del DAC dipende da $V_{ref}$, dalle $r_i$ e dalla qualità degli \textit{switch} (che abbiamo supposto ideali). I valori di tensione analogica $ V_o $ in uscita, \textbf{discreti} (quantizzati) e generati da campioni generali a $n$ bit, hanno una \textbf{incertezza}:
 \begin{equation}
@@ -1398,7 +1385,7 @@ la risoluzione migliora al crescere del rapporto $ \frac{f_c}{f_{rampa}} $. Conv
   &|V_x| = p\cdot \Delta T_G \text{ da } \Delta T_G = N_c T_c = \frac{|V_x|}{p}\\
   &\text{con $p$ pendenza della rampa analogica } p = \frac{2V_M}{T_{rampa}}~ \Bigg[\frac{V}{s}\Bigg] 
 \end{align*} 
-Una sbatta vera è quindi la frequenza della rampa che dobbiamo avere perché deve essere alta, e quindi deve essere alta anche la $ f_{clock} $ perché $ N = \frac{f_c}{f_{rampa}} $ e quindi tocca avere anche $ f_{clock} $ alta. La risoluzione aumenta a $ \frac{f_c}{f_{rampa}} $ che aumenta. Ma in questo caso deve essere rapido e capiente.
+Un parametro importante da gestire con intelligenza è quindi la frequenza della rampa che dobbiamo avere perché deve essere alta, e quindi deve essere alta anche la $ f_{clock} $ perché $ N = \frac{f_c}{f_{rampa}} $ e quindi tocca avere anche $ f_{clock} $ alta. La risoluzione aumenta a $ \frac{f_c}{f_{rampa}} $ che aumenta. Ma in questo caso deve essere rapido e capiente.
 
 \subsection{Voltmetro - Convertitore Flash}
 È il più veloce convertitore A/D con $ T_{mis} = 1\cdot T_c $ (la misura occupa un colpo di clock) e raggiunge frequenze di conversione fino a 50 $ \frac{GSa}{s}$.
@@ -1420,7 +1407,7 @@ Nel circuito di questo voltmetro (che possiamo vedere in Figura \ref{voltmetroFl
 
 Analizzando il circuito vediamo come vengono distinte $ N-1 $ soglie (dove $ N $ è sempre il numero dei livelli) attraverso una rete di resistori di valore $ R $ (tutti identici) se vogliamo campionare un segnale \textit{non}-polarizzato, mentre si usano agli estremi resistori di valore $ \frac{3}{2} R$ e $ \frac{R}{2} $ con lo scopo di dimezzare la soglia del primo livello in ampiezza per non avere \textit{offset} nella caratteristica di conversione nel convertire segnali \textbf{bipolari}.
 
-In formule\footnotemark[1]\footnotetext[1]{È importante ricordare queste formule e il loro significato, anche perchè è spesso necessario usarle per rispondere al pre-compito in sede d'eseme.}:
+In formule\footnotemark[1]\footnotetext[1]{È importante ricordare queste formule e il loro significato, anche perché è spesso necessario usarle per rispondere al pre-compito in sede d'eseme.}:
 \begin{itemize}
   \item $ N $ resistori tutti uguali:
   \begin{align*}
@@ -1611,7 +1598,7 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Voltmetri Integratori (o a Integrazione)}
-Caratteristici per essere lenti, ma molto accurati. Completamente diversi dai differenziali perchè non sfruttano una differenza tra il valore in ingresso ed un riferimento interno, ma il loro circuito calcola il risultato secondo l'integrale del segnale d'ingresso e dei rumori.
+Caratteristici per essere lenti, ma molto accurati. Completamente diversi dai differenziali perché non sfruttano una differenza tra il valore in ingresso ed un riferimento interno, ma il loro circuito calcola il risultato secondo l'integrale del segnale d'ingresso e dei rumori.
 \begin{equation}
   V_m \propto \frac{1}{T_I}\int_0^{T_I}V(t)dt
 \end{equation}
@@ -1629,13 +1616,13 @@ Il modo \textbf{più efficace} per eliminare completamente un disturbo dalla mis
 
 In formule:
 \begin{align*}
-  &\frac{1}{T_I}\int_0^{T_I}V_d(t)dt \rightarrow 0\text{~~per~~} T_I \rightarrow kT_d\text{~~dove~~} k \in \mathbb{N} 
+  &\frac{1}{T_I}\int_0^{T_I}V_d(t)dt \rightarrow 0\text{~~per~~} T_I \rightarrow kT_{d}\text{~~dove~~} k \in \mathbb{N} 
 \end{align*}
-Se invece non riesco a settare $ T_I $ ad esattamente un multiplo perchè non conosco esattamente la frequenza (e quindi il periodo) del disturbo allora mi rimane una parte e, in casi fortunati o studiati intelligentemente, questa parte è sufficientemente piccola da risultare trascurabile.
+Se invece non riesco a settare $ T_I $ ad esattamente un multiplo perché non conosco esattamente la frequenza (e quindi il periodo) del disturbo allora mi rimane una parte e, in casi fortunati o studiati intelligentemente, questa parte è sufficientemente piccola da risultare trascurabile.
 
-In generale comunque per $ T_I >> T_d $ la reiezione al disturbo migliora, infatti è vero che:
+In generale comunque per $ T_I >> T_{d} $ la reiezione al disturbo migliora, infatti è vero che:
 \begin{align*}
-    &\frac{1}{T_I}\int_0^{T_I}V_d(t)dt \rightarrow 0\text{~~per~~} T_I \rightarrow \infty\text{~~oppure~~} T_I >> T_d 
+    &\frac{1}{T_I}\int_0^{T_I}V_d(t)dt \rightarrow 0\text{~~per~~} T_I \rightarrow \infty\text{~~oppure~~} T_I >> T_{d} 
 \end{align*}
 Quindi se conosciamo la frequenza del disturbo è utile scegliere un $ T_I $ opportuno, mentre sappiamo che in generale per un "$ T_I $ lungo" la reiezione al disturbo \textbf{migliora}.
 
@@ -1699,25 +1686,25 @@ Questa conversione avviene dapprima in un tempo costante $ T_I $ nel quale andia
 
 Equazione della misura:
 \begin{equation}
-  V_x = - \frac{T_D}{T_U}V_R = - \frac{N_D}{N_U}V_R
+  V_x = - \frac{T_{d}}{T_{u}}V_r = - \frac{N_d}{N_u}V_r
 \end{equation}
-L'integrale della $ V_x $ dev'essere bilanciato dall'integrale della $ V_R $. La differenza è che $ V_x $ viene integrata per un tempo costante, mentre la $ V_R $ viene integrata per tutto il tempo necessario a far sì che esso bilanci l'integrale di $ V_x $.
+L'integrale della $ V_x $ dev'essere bilanciato dall'integrale della $ V_r $. La differenza è che $ V_x $ viene integrata per un tempo costante, mentre la $ V_r $ viene integrata per tutto il tempo necessario a far sì che esso bilanci l'integrale di $ V_x $.
 
-Quello che abbiamo chiamato $ T_U $ (T UP) è in realtà il \textbf{tempo di integrazione} ($ T_I $) e quindi $ T_U = N_U T_C $ è \textbf{costante} e \textbf{fissato}, mentre il $ T_D $ (T DOWN) è il tempo che convertiamo in tensione, che è il tempo che impiega il condensatore a scaricarsi a 0.
+Quello che abbiamo chiamato $ T_{u} $ (T UP) è in realtà il \textbf{tempo di integrazione} ($ T_I $) e quindi $ T_{u} = N_u T_C $ è \textbf{costante} e \textbf{fissato}, mentre il $ T_{d} $ (T DOWN) è il tempo che convertiamo in tensione, che è il tempo che impiega il condensatore a scaricarsi a 0.
 
 Quindi il tempo di misura totale è 
 $$
-  T_{mis} = T_U + T_D
+  T_{mis} = T_{u} + T_{d}
 $$
-che è variabile con $ T_D $ (che varia proporzionalmente a $ V_x $) e dipende da $ V_x $ come nel voltmetro a rampa analogica.
+che è variabile con $ T_{d} $ (che varia proporzionalmente a $ V_x $) e dipende da $ V_x $ come nel voltmetro a rampa analogica.
 
 Ricaviamo la formula di $ V_x $ come costante strumentale moltiplicata per conteggi misurati durante il processo:
 \begin{equation}
-  V_x = \frac{-V_R}{N_U}N_D
+  V_x = \frac{-V_r}{N_u}N_d
 \end{equation}
-Quindi misuro $ V_x $ contando $ N_D $ (conversione tensione-tempo).
+Quindi misuro $ V_x $ contando $ N_d $ (conversione tensione-tempo).
 
-Misura teoricamente insensibile a valori, e incertezze, che R e C (tau = 1 su RC) e altri parametri strumentali (fc e Tc). Naturalmente l'\textbf{incertezza} di  $ V_R $ si trasferisce $ 1:1 $ su $ V_x $. L'unico errore presente nel voltmetro a doppia rampa è quello nel conteggio di $ N_D $.
+Misura teoricamente insensibile a valori e incertezze di R, C ($ \tau = 1/RC $) e altri parametri strumentali ($ f_c $ e $ T_c $). Naturalmente l'\textbf{incertezza} di  $ V_r $ si trasferisce $ 1:1 $ su $ V_x $. L'unico errore presente nel voltmetro a doppia rampa è quello nel conteggio di $ N_d $ (errore di quantizzazione).
 
 \subsubsection{Incertezza}
 Come nel caso del voltmetro a rampa analogica, essendo la misura efettuata per conteggio, ci sarà \textbf{sempre} un errore ed un'incertezza di \textbf{quantizzazione} pari a:
@@ -1726,17 +1713,17 @@ $$
 $$
 e avrà una formula esatta:
 $$
-  u_q(V_x) = -\frac{V_R}{N_U}\frac{1}{\sqrt{12}}
+  u_q(V_x) = -\frac{V_r}{N_u}\frac{1}{\sqrt{12}}
 $$
 La sensibilità, la risoluione e l'incertezza di quantzzazione dipendono dalla portada del voltmetro ($ V_{x,max} $) e "capacità di conteggio" ($ N_{D,max} $).\\
 
 L'\textbf{incertezza relativa}:
 $$
-  u_r^2 (V_x) = u_r^2(V_R)+u_r^2(N_D)
+  u_r^2 (V_x) = u_r^2(V_r)+u_r^2(N_d)
 $$
-Ma, considerando che per $ N_D >> \frac{1}{u_r(V_R)} $ si ha $ u_r(N_D) << u_r(V_R) $ e  quindi il \textbf{limite ultimo} di incertezza della misura pari a $ u_r(V_x) \simeq u_r(V_r)$
+Ma, considerando che per $ N_d >> \frac{1}{u_r(V_r)} $ si ha $ u_r(N_d) << u_r(V_r) $ e  quindi il \textbf{limite ultimo} di incertezza della misura pari a $ u_r(V_x) \simeq u_r(V_r)$
 
-\paragraph{Nota} Poiché il valore limite per $ u_r(V_R) \simeq 2\times 10^{-7}$ se ne deduce che il \textbf{migliore DVM} può avere circa $ 6\frac{1}{2} $ cifre (significative), con un numero massimo di livelli $ N_{max} = 5\times 10^6 $ che comporta un numero di bit \textit{equivalenti} $ n = 22 $.
+\paragraph{Nota} Poiché il valore limite per $ u_r(V_r) \simeq 2\times 10^{-7}$ se ne deduce che il \textbf{migliore DVM} può avere circa $ 6\frac{1}{2} $ cifre (significative), con un numero massimo di livelli $ N_{max} = 5\times 10^6 $ che comporta un numero di bit \textit{equivalenti} $ n = 22 $.
 
 \newpage
 \subsection{Esercizio sul Voltmetro a Doppia Rampa}
@@ -1750,16 +1737,92 @@ Quindi, dati:
 \end{itemize}~\\
 Richieste:
 \begin{enumerate}
-  \item Determinare la \textbf{velocità di lettura} in termini di $ f_{mis} $
+  \item Determinare la \textbf{velocità di lettura} in termini di $ f_{mis}\ \Big[ \frac{Sa}{s} \Big] $
   \item Determinare il numero di cifre decimali del contatore: $ M_{contatore} $
 \end{enumerate}
 
-\textcolor{red}{CopiaML}.
+Soluzione:
+
+\begin{enumerate}
+  \item La velocità di lettura si esprime in termini di quanti campioni al secondo si possono analizzare, cioè quane misurazioni è possibile eseguire in un secondo. In un voltmetro a doppia rampa, il tempo di una singola misura $ T_{mis} $ è definito come:
+  $$
+    T_{mis} = T_{u}+T_{d}
+  $$
+  Dove $ T_{u} $ è il tempo di integrazione (che ricordiamo essere un parametro \textbf{fisso} stabilito dal costruttore dello strumento), conteggiato da $ N_u $ e $ T_{d} $ è il tempo impiegato dalla rampa di discesa per tornare a 0 ed è conteggiato da $ N_d $.
+  
+  Per calcolare la velocità di lettura dobbiamo effettuare una specie di approssimazione per eccesso: è necessario considerare il \textbf{massimo} $ T_{mis} $, in modo da non sovrastimare il risultato indicando una velocità di lettura sbagliata, mai raggiunta se si misurano segnali al limite della dinamica del voltmetro.
+  
+  Dato che $ T_{u} $ è fissato, il parametro che dobbiamo "massimizzare" è $ T_{d} $. Per stabilire il massimo tempo di discesa è necessario stabilire il massimo numero di conteggi che il contatore interno è in grado di eseguire durante la rampa di discesa: $ N{d,max} $. Questo parametro è \textbf{sempre} calcolabile come:
+  \begin{align*}
+    &N_{d,max} = 2^n\ \text{\ \ nel caso di dinamica \textbf{unipolare}}\\
+    &N_{d,max} = 2^{n-1}\ \text{nel caso di dinamica \textbf{bipolare} per il bit di segno}\\
+  \end{align*}
+  In questo caso non sono state date indicazioni riguardo alla dinamica quindi la consideriamo \textbf{unipolare}. Calcoliamo quindi $ N_{d,max} = 2^n = 2^{16} = 65536 $ livelli (che equivalgono a 4 cifre e mezzo).
+  
+  Possiamo quindi calcolare $ T_{d,max} $, ricavando prima il periodo di \textit{clock} come $ T_c = \frac{1}{f_c} = 1\ \mu s$
+  $$
+    T_{d,max} = \frac{N_{d,max}}{f_c} = N_{d,max}\cdot T_c = 65536\ \mu s \cong 65\ ms
+  $$
+  
+  Quindi $ T_{mis,max} = T_{u} + T_{d,max} = 165\ ms$ e da qui ricaviamo $ f_{mis} = \frac{1}{T_{mis_max}} \cong 6\ \frac{Sa}{s} $.
+  
+  \item Il numero di cifre decimali del contatore è definto come $ M_{contatore} = \log_{10}(\max{\{N_u,N_d\}}) $ perché il contatore deve essere in grado di soddisfare il numero di livelli di conteggio sia in salita sia in discesa. 
+  
+  Dobbiamo innanzitutto calcolare il valore di $ N_u $:
+  $$ N_u = T_{u}\cdot f_{clock} = 100000 = 10^5 $$
+  
+  Nel nostro caso $ N_u > N_d $ e quindi:
+  $$
+    M_{contatore} = \log_{10}(N_u) = \log_{10}(10^5) = 5\ \text{cifre}
+  $$
+\end{enumerate}
 
 \section{Bit Equivalenti}
 
-Bit equivalenti (2/7) Disponendo di un convertitore/voltmetro che quantizza il segnale s(t) su n bit, si avrà un PASSO DI QUANTIZZAZIONE Q=D/2n Se D è la dinamica del segnale e anche del voltmetro, si ha una varianza (“incertezza di quantizzazione") è possibile ricavare n (bit) dal rapporto S/N (Signal/Noise) Voltmetri e Convertitori 73/80
+Il termine \textit{bit equivalenti} nasce dalla necessità di distinguere il numero di bit \textit{reali} di un ADC ed il numero di bit \textit{effettivi} con cui si compie la misura. Questa distinzione è fondamentale nei casi in cui analizziamo segnali affetti da \textbf{rumori}.
 
+Questi rumori possono essere \textit{interni} od \textit{esterni} all'ADC. Nel caso di rumori \textbf{interni} parliamo di quei rumori che sono generati dai riferimenti/componenti interni al convertitore, mentre i rumori \textbf{esterni} sono rumori dovuti al circuito che si sta analizzando.
+
+Disponendo di un convertitore/voltmetro che quantizza il segnale $ s(t) $ su $ n $ bit, si avrà un \textit{passo di quantizzazione} $ Q = \frac{D}{2^n} $ (uguale alla risoluzione dello strumento). Se D è la dinamica del segnale e anche del voltmetro, si ha una varianza (“i\textit{ncertezza di quantizzazione}") pari a 
+
+$$
+  \sigma^2_q = \frac{Q^2}{12} = \frac{\sigma^2_s}{2^{2n}}   
+$$
+con $ \sigma^2_s $ varianza del segnale.\\
+Da questa formula possiamo quindi dedurre che il rapporto tra la varianza del segnale e la varianza di quantizzazione è \textbf{costante}:
+
+$$
+  \frac{\sigma^2_s}{\sigma^2_q} = 2^{2n} \text{\ \ \textbf{costante}.}
+$$
+Per uno strumento con quantizzatore \textit{ideale}, allora:
+$$
+  \frac{S}{N_q} = 2^{2n}
+$$
+Per cui è possibile ricavare il numero $ n $ di bit per un convertitore ideale dal rapporto $ S/N_q $ (Signal/Noise) dove il rumore è dovuto solamente alla quantizzazione, tramite la formula:
+\begin{align*}
+  &n = \frac{1}{2}\log_2\Bigg(\frac{S}{N}\Bigg)\\
+  &\text{con } S = \sigma^2_s\\
+  &\text{e \ \ } N = \sigma^2_q\\
+\end{align*}
+
+Nel caso invece di un convertitore \textbf{reale} c'è da considerare, oltre al rumore di quantizzazione, anche il \textit{rumore aggiunto}, che è somma del rumore \textbf{interno} dell'ADC e del rumore \textbf{esterno}. Abbiamo quindi un rumore complessivo che può essere espresso come:
+$$
+  N_c = N_q + N_{ADC} + N_{ext} (> \text{del solo } N_q)
+$$
+In termini di varianza:
+$$
+  \sigma^2_c = \sigma^2_q + \sigma^2_{n,ADC} + \sigma^2_{n,ext} (> \text{del solo } \sigma^2_q )
+$$
+Definiamo quindi, nel caso \textbf{reale}, il \textbf{numero di bit equivalenti come}:
+\begin{align*}
+    &n_e \equiv \frac{1}{2}\log_2\Bigg(\frac{\sigma^2_s}{\sigma^2_c}\Bigg)\\
+    \\
+    &\Rightarrow n_e = \frac{1}{2}\log_2\Bigg(\frac{S}{N_c}\Bigg)
+\end{align*}
+Ed attraverso alcuni brevi passaggi possiamo arrivare a scrivere:
+$$
+  n_e = n-\frac{1}{2}\log_2\Bigg(1+\frac{\sigma^2_{n,ADC}+\sigma^2_{n,ext}}{\sigma^2_q}\Bigg)
+$$
 \chapter{Oscilloscopi}
 Un \textbf{oscilloscopio} uno strumento di misura che consente la visualizzazione grafica dell'evoluzione temporale di un segnale di tensione (in ordinata) in funzione del tempo (in ascissa). In completa differenza rispetto ai voltmetri, la cui funzione è quella di misurare un valore di tensione incognito \textbf{in un certo istante di tempo}. Utilizzando scale graduate, è possibile effettuare misure \textit{quantitative} oltre che qualitative.
 
@@ -1782,13 +1845,16 @@ Purtroppo l'oscilloscopio è nato per misure veloci di segnali a larga banda e p
     \caption{Schematizzazione del Pannello Frontale di un generico Oscilloscopio.}
   \end{center}
 \end{figure}
+
+
+\textcolor{red}{Incompleto.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Esercizi di Conversione}
 \label{esercizi:conversione}
 \section{Conversione di Potenze}
 \begin{table}[H]
   \caption{}
-  \label{tab:}
+  \label{tab:conversionePotenze}
 
   \begin{center}
     \begin{tabular}{|l|r|}
@@ -1821,7 +1887,7 @@ mentre per l'ultima si utilizza nuovamente la \ref{logaritmi:frazione}.
 \section{Conversione di Ampiezze}
 \begin{table}[H]
   \caption{}
-  \label{tab:}
+  \label{tab:conversioneAmpiezze}
 
   \begin{center}
     \begin{tabular}{|l|r|}
