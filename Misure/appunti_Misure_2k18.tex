@@ -599,11 +599,8 @@ $$
 Possiamo quindi scrivere l'espressione dell'incertezza composta al quadrato come:
 $$
   u_C^2 = \sum^N_{i = 1}\Bigg(\frac{\delta f}{\delta x_i}\Bigg)^2 u^2(x_i)+2\sum^{N-1}_{i = 1}\sum^{N}_{j = i +1}\Bigg(\frac{\delta f}{\delta x_i}\Bigg)\Bigg(\frac{\delta f}{\delta x_j}\Bigg)u(x_i,x_j)
-$$ dove:
 $$
-  \Bigg(\frac{\delta f}{\delta x_i}\Bigg)^2
-$$
-è la somma pesata, con pesi $c_i^2$, delle incertezze (varianze) degli ingressi $x_i$ più la somma dei termini di \textit{covarianza}, sempre pesati con le derivate prime della relazione funzionale.
+che risulta essere la somma pesata, con pesi $c_i^2$, delle incertezze (varianze) degli ingressi $x_i$ più la somma dei termini di \textit{covarianza}, sempre pesati con le derivate prime della relazione funzionale.
 
 Possiamo affermare a questo punto che il \textbf{valore della misura} della grandezza $Y$ è:
 $$
@@ -819,14 +816,14 @@ $$
 Tra più misure compatibili è possibile calcolare una \textbf{media pesata}: nel caso di $N$ risultati di misura compatibili, indipendenti e normalmente distribuiti, la miglior stima della misura è:
 \begin{equation}
   \label{media pesata misure compatibili}  
-    x = \bar{x}_{IMP} = \frac{\sum^N_{i=1}w_i x_i}{\sum^N_{i=1}w_i} = \frac{\sum^N_{i=1}\frac{x_i}{u^2(x_i)}}{\sum^N_{i=1}\frac{1}{u^2(x_i)}}
+    x = \bar{x}_{MP} = \frac{\sum^N_{i=1}w_i x_i}{\sum^N_{i=1}w_i} = \frac{\sum^N_{i=1}\frac{x_i}{u^2(x_i)}}{\sum^N_{i=1}\frac{1}{u^2(x_i)}}
 \end{equation}
 Dove i pesi $w_i = \frac{1}{u^2(x_i)}$ sono i \textbf{reciproci delle varianze} stimate e dunque indicano il grado di confidenza che abbiamo sugli $x_i$. Se $u(x_i)$ è sufficientemente "basso" abbiamo una misura "credibile".
 
 A questo punto possiamo calcolare anche \textbf{l'incertezza della media pesata} come:
 \begin{equation}
   \label{incertezza media pesata misure compatibili}
-    u^2(\bar{x}_{IMP}) = \frac{1}{\sum^n_{i=1}w_i} = \frac{1}{\sum^n_{i=1}\frac{1}{u^2(x_i)}}
+    u^2(\bar{x}_{MP}) = \frac{1}{\sum^n_{i=1}w_i} = \frac{1}{\sum^n_{i=1}\frac{1}{u^2(x_i)}}
 \end{equation}
 \subsection{Gradi di Libertà per Incertezza di Categoria B}
 Ricordiamo che ogni stima di incertezza è \textbf{a sua volta incerta} e la bontà di questa stima è esprimibile attraverso il numero di gradi di libertà ($v_a$ = n-1 per l'incertezza di categoria A).
